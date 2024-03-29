@@ -51,6 +51,7 @@ public class Monster : MonoBehaviour
         fsm.Init(this, States.Idle);
         curState = States.Idle;
         startPos = transform.position;
+        playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     private void Update()
@@ -65,7 +66,6 @@ public class Monster : MonoBehaviour
 
         if (isAttackCoolTime)
         {
-            Debug.Log("어택 쿨타임중");
             attackState = AttackStates.Attacking;
             return;
         }
@@ -90,7 +90,6 @@ public class Monster : MonoBehaviour
         yield return Attacking();
 
         yield return new WaitForSeconds(attackRate);
-        Debug.Log("어택 쿨타임 끝");
         isAttackCoolTime = false;
         attackState = AttackStates.EndAttacking;
     }
