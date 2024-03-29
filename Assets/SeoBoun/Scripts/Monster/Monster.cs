@@ -8,15 +8,15 @@ using static UnityEngine.UI.GridLayoutGroup;
 // 좀비의 기본 상태
 public enum States { Idle, Trace, Attack, Return, Size }
 
-// 어택은 구분이 조금 필요함. -> 공격 중에는 Trace도, 무엇도 불가능하며 특히 쿨타임을 계산하려면 필수 항목
+// 어택은 구분이 조금 필요함. -> 공격 중에는 Trace도, 무엇도 불가능하며 특히 쿨타임을 계산하려면 필수 항목일지도..?
 public enum AttackStates { BeginAttack, Attacking, EndAttacking, Size}
 public class Monster : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform playerTransform;
     [SerializeField] Animator animator;
     [SerializeField] MonsterFov monsterFov;
     [SerializeField] AnimationClip attackClip;
+    [SerializeField] Transform playerTransform;
 
     [SerializeField] float hp;              // hp 
     [SerializeField] float moveSpeed;       // 이동속도
@@ -55,10 +55,10 @@ public class Monster : MonoBehaviour
         fsm.Update();
     }
 
-    private void Attack()
+    private void AttackRoutine()
     {
         // 어택 나누기 -> 클립의 초를 계산하여 코루틴 연장으로 일단 쉽게 진행하자
-
+        attackState = AttackStates.BeginAttack;
 
         if (isAttackCoolTime)
         {
@@ -67,18 +67,26 @@ public class Monster : MonoBehaviour
         }
 
         StartCoroutine(AttackCoolTime());
-        animator.SetTrigger("Attack");
-        // TODO. 몬스터 어택 구현
     }
+    
+    IEnumerator Attacking()
+    {
+        attackState = AttackStates.Attacking;
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(attackClip.length);
+    }
+
     IEnumerator AttackCoolTime()
     {
         isAttackCoolTime = true;
+
+        yield return Attacking();
+
         yield return new WaitForSeconds(attackRate);
         Debug.Log("어택 쿨타임 끝");
         isAttackCoolTime = false;
+        attackState = AttackStates.EndAttacking;
     }
-
-
 
     #region State
     private class StatesMachine
@@ -192,8 +200,8 @@ public class Monster : MonoBehaviour
 
         public override void Update()
         {
-            owner.Attack();
-            owner.agent.ResetPath();
+            owner.AttackRoutine();
+            owner.agent.isStopped = true;
         }
 
         public override void Transition()
