@@ -628,6 +628,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a7db37b06fbfe914c8f072ecd9d6432f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1052447404}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a7db37b06fbfe914c8f072ecd9d6432f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1052447406}
   m_SourcePrefab: {fileID: 100100000, guid: a7db37b06fbfe914c8f072ecd9d6432f, type: 3}
 --- !u!1 &1052447398 stripped
 GameObject:
@@ -647,20 +650,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1052447400}
-  playerTransform: {fileID: 2097886126}
   animator: {fileID: 1052447403}
   monsterFov: {fileID: 1052447404}
+  attackClip: {fileID: 7400000, guid: f5be1a195ddb8084c8dd946789142f9f, type: 2}
+  playerTransform: {fileID: 2097886126}
   hp: 10
   moveSpeed: 2
+  targetSpeed: 0
   findRange: 30
   attackRange: 2
-  attackRate: 2
+  attackRate: 1
   damage: 1
   startPos: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   curState: 0
+  attackState: 0
 --- !u!195 &1052447400
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -747,6 +753,33 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!54 &1052447406
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052447398}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1615661399
 GameObject:
   m_ObjectHideFlags: 0
