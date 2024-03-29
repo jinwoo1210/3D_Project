@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,3 +32,4 @@ public class PlayerRotater : MonoBehaviour
         inputDir = value.Get<Vector2>();
     }
 }
+
