@@ -6,12 +6,12 @@ using UnityEngine.AI;
 using static UnityEngine.UI.GridLayoutGroup;
 
 // 좀비의 기본 상태
-public enum States { Idle, Trace, Attack, Return, Patrol,Size }
+public enum States { Idle, Trace, Attack, Return, Patrol, Hit, Die, Size }
 
 // 어택은 구분이 조금 필요함. -> 공격 중에는 Trace도, 무엇도 불가능하며 특히 쿨타임을 계산하려면 필수 항목일지도..?
 
 public enum AttackStates { BeginAttack, Attacking, EndAttacking, Size}
-public class Monster : MonoBehaviour
+public class Monster : MonoBehaviour, IDamagable
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
@@ -32,6 +32,7 @@ public class Monster : MonoBehaviour
 
     StatesMachine fsm;
     Coroutine findRoutine;
+    Coroutine hitRoutine;
 
     public States curState = new States();
     public AttackStates attackState = new AttackStates();
@@ -94,6 +95,21 @@ public class Monster : MonoBehaviour
         attackState = AttackStates.EndAttacking;
     }
 
+    public bool TakeHit(int damage)
+    {
+        fsm.ChangeState(States.Hit);
+
+        hitRoutine = StartCoroutine(HitRoutine());
+        hp -= damage;
+        return true;
+    }
+
+    IEnumerator HitRoutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        fsm.ChangeState(States.Idle);
+    }
+
     #region State
     private class StatesMachine
     {
@@ -108,6 +124,7 @@ public class Monster : MonoBehaviour
             states[(int)States.Trace] = new TraceState(this, owner);
             states[(int)States.Attack] = new AttackState(this, owner);
             states[(int)States.Return] = new ReturnState(this, owner);
+            states[(int)States.Hit] = new HitState(this, owner);
 
             curState = initState;
             states[(int)curState].Enter();
@@ -213,6 +230,7 @@ public class Monster : MonoBehaviour
         {
             // TODO
             // Animation Play
+            owner.Animator.SetFloat("IsWalk", 1.0f);
         }
 
         public override void Update()
@@ -265,6 +283,26 @@ public class Monster : MonoBehaviour
                 owner.curState = States.Trace;
                 fsm.ChangeState(States.Trace);
             }
+        }
+    }
+
+    private class HitState : BaseState
+    {
+        public HitState(StatesMachine fsm, Monster owner) : base(fsm, owner) { }
+
+        public override void Enter()
+        {
+            owner.animator.SetTrigger("Hit");
+        }
+    }
+
+    private class DieState : BaseState
+    {
+        public DieState(StatesMachine fsm, Monster owner) : base(fsm, owner) { }
+
+        public override void Enter()
+        {
+            owner.animator.SetTrigger("Hit");
         }
     }
     #endregion
