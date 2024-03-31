@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
+    [SerializeField] Animator animator;
 
     [SerializeField] float moveSpeed;
 
@@ -21,6 +22,8 @@ public class PlayerMover : MonoBehaviour
     private void Move()                     // feat : Move
     {
         controller.Move(moveDir * moveSpeed * Time.deltaTime);
+        animator.SetFloat("PosX", moveDir.x * moveSpeed, 0.1f, Time.deltaTime);
+        animator.SetFloat("PosY", moveDir.z * moveSpeed, 0.1f, Time.deltaTime);
     }
     private void OnMove(InputValue value)   // InputAction
     {
