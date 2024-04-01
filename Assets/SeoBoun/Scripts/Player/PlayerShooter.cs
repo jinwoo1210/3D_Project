@@ -14,6 +14,7 @@ public class PlayerShooter : MonoBehaviour
     private void OnFire(InputValue value)
     {
         animator.SetTrigger("Fire");
+        Shoot();
     }
 
     private void Shoot()

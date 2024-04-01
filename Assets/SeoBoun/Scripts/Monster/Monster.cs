@@ -9,7 +9,6 @@ using static UnityEngine.UI.GridLayoutGroup;
 public enum States { Idle, Trace, Attack, Return, Patrol, Hit, Die, Size }
 
 // 어택은 구분이 조금 필요함. -> 공격 중에는 Trace도, 무엇도 불가능하며 특히 쿨타임을 계산하려면 필수 항목일지도..?
-
 public enum AttackStates { BeginAttack, Attacking, EndAttacking, Size}
 public class Monster : MonoBehaviour, IDamagable
 {
@@ -97,10 +96,19 @@ public class Monster : MonoBehaviour, IDamagable
 
     public bool TakeHit(int damage)
     {
-        fsm.ChangeState(States.Hit);
-
-        hitRoutine = StartCoroutine(HitRoutine());
         hp -= damage;
+        
+        if(hp <= 0)
+        {
+            hp = 0;
+            fsm.ChangeState(States.Die);
+        }
+        else
+        {
+            fsm.ChangeState(States.Hit);
+            hitRoutine = StartCoroutine(HitRoutine());
+        }
+
         return true;
     }
 
@@ -125,6 +133,7 @@ public class Monster : MonoBehaviour, IDamagable
             states[(int)States.Attack] = new AttackState(this, owner);
             states[(int)States.Return] = new ReturnState(this, owner);
             states[(int)States.Hit] = new HitState(this, owner);
+            states[(int)States.Die] = new DieState(this, owner);
 
             curState = initState;
             states[(int)curState].Enter();
@@ -138,6 +147,7 @@ public class Monster : MonoBehaviour, IDamagable
 
         public void ChangeState(States nextState)
         {
+            Debug.Log($"{curState} -> {nextState}");
             states[(int)curState].Exit();
             curState = nextState;
             states[(int)curState].Enter();
@@ -292,6 +302,7 @@ public class Monster : MonoBehaviour, IDamagable
 
         public override void Enter()
         {
+            owner.curState = States.Hit;
             owner.animator.SetTrigger("Hit");
         }
     }
@@ -302,7 +313,14 @@ public class Monster : MonoBehaviour, IDamagable
 
         public override void Enter()
         {
-            owner.animator.SetTrigger("Hit");
+            owner.curState = States.Die;
+            owner.animator.SetTrigger("Die");
+            owner.GetComponent<Collider>().enabled = false;
+        }
+
+        public override void Exit()
+        {
+            Destroy(owner.gameObject, 5f);
         }
     }
     #endregion
