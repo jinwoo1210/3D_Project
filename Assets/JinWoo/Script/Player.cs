@@ -7,12 +7,6 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [Header("Component")]
-    [SerializeField] CharacterController Controller;
-
-    [SerializeField] float moveSpeed;
-
-    private Vector3 moveDir;
-
 
     bool iDown;
     GameObject nearObject;
@@ -29,7 +23,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         GetInput();
-        Controller.Move(moveDir * moveSpeed * Time.deltaTime);
         //Interation();
         OnPick();
         //Swap();
@@ -41,13 +34,6 @@ public class Player : MonoBehaviour
         iDown = Input.GetButtonDown("Interation");
         sDown1 = Input.GetButtonDown("Swap1");
         sDown2 = Input.GetButtonDown("Swap2");
-    }
-
-    private void OnMove(InputValue value)
-    {
-        Vector2 inputDir = value.Get<Vector2>();
-        moveDir.x = inputDir.x;
-        moveDir.z = inputDir.y;
     }
 
     private void OnPick()

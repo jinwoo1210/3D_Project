@@ -17,6 +17,11 @@ public class PlayerShooter : MonoBehaviour
         Shoot();
     }
 
+    private void OnReload(InputValue value)
+    {
+        Reload();
+    }
+
     private void Shoot()
     {
         Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
@@ -27,5 +32,10 @@ public class PlayerShooter : MonoBehaviour
             target?.TakeHit(10);
             Debug.Log("몬스터 공격");
         }
+    }
+
+    private void Reload()
+    {
+        animator.SetTrigger("Reload");
     }
 }
