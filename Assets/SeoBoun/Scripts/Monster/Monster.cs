@@ -316,11 +316,13 @@ public class Monster : MonoBehaviour, IDamagable
             owner.curState = States.Die;
             owner.animator.SetTrigger("Die");
             owner.GetComponent<Collider>().enabled = false;
+            owner.agent.isStopped = true;
+            Destroy(owner.gameObject, 5f);
         }
 
         public override void Exit()
         {
-            Destroy(owner.gameObject, 5f);
+
         }
     }
     #endregion
