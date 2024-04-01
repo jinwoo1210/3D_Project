@@ -27,16 +27,9 @@ public class PlayerRotater : MonoBehaviour
 
     private void Update()
     {
-        // transform.Rotate(Vector3.up, mouseSensitivity * inputDir.x * Time.deltaTime);
         Rotate();
     }
-/*
-    private void OnLook(InputValue value)
-    {
-        inputDir = value.Get<Vector2>();
-        transform.rotation = Quaternion.Euler(0f, transform.rotation.y + inputDir.x, 0f);
-    }
-*/
+
     private void Rotate()
     {
         Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);

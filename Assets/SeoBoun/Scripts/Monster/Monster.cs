@@ -304,6 +304,7 @@ public class Monster : MonoBehaviour, IDamagable
         {
             owner.curState = States.Hit;
             owner.animator.SetTrigger("Hit");
+            
         }
     }
 
