@@ -11,40 +11,9 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] Transform muzzlePoint;
     [SerializeField] LayerMask monsterLayer;
 
-    bool isRoutine;
-    bool isShooting;
-    Coroutine fireRoutine;
-
     private void OnFire(InputValue value)
     {
-        animator.SetLayerWeight(1, 1f);
         animator.SetTrigger("Fire");
-        isShooting = true;
-    
-        Shoot();
-        if (!isRoutine)
-        {
-            fireRoutine = StartCoroutine(LayerWeightRoutine());
-        }
-        isShooting = false;
-
-    }
-
-    IEnumerator LayerWeightRoutine()
-    {
-        isRoutine = true;
-        float time = 0f;
-        while (time < 1f)
-        {
-            if (isShooting)
-            {
-                time = 0f;
-            }
-            yield return new WaitForSeconds(0.1f);
-            time += 0.1f;
-        }
-        animator.SetLayerWeight(1, 0f);
-        isRoutine = false;
     }
 
     private void Shoot()
