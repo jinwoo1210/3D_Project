@@ -14,5 +14,5 @@ public class Gun : MonoBehaviour
     public float timeBetFire = 0.12f; // 연사력
     public float reloadTime = 1.8f; // 장전속도
 
-    private float fireDistance = 100f;  //  사거리 // 플레이어 슈터에 구현되어져 있음.(형식상 구현)
+    public float fireDistance = 100f;  //  사거리 // 플레이어 슈터에 구현되어져 있음.(형식상 구현)
 }

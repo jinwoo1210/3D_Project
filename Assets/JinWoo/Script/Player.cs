@@ -15,8 +15,11 @@ public class Player : MonoBehaviour
     public bool[] hasWeapon;
     bool sDown1;
     bool sDown2;
-    bool isSwap;
+    public bool isSwap;
+
     public PlayerHealth health;
+    public BulletData[] bulletData;
+    [SerializeField]public Bullet bullet;
 
 
 
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
             else if (nearObject.tag == "Item")
             {
                 Destroy(nearObject);
+                bullet.ammoReMain += bullet.bulletCount;
                 Debug.Log($"{nearObject.name}을 먹었습니다.");
             }
         }
