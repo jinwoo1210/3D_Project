@@ -13,11 +13,10 @@ public class ZombieSpanwer : ObjectPool
 
     Coroutine spawnRoutine;
 
-    private void Start()
+    public void CreatePool()
     {
         CreatePool(prefab, 10, 10);
     }
-
     private void OnEnable()
     {
         spawnRoutine = StartCoroutine(SpawnRoutine());

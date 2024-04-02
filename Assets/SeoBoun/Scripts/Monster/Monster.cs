@@ -48,7 +48,7 @@ public class Monster : PooledObject, IDamagable
 
     private void Awake()
     {
-        cosRange = Mathf.Cos(Mathf.Deg2Rad * 60);
+        cosRange = Mathf.Cos(Mathf.Deg2Rad * 45);
     }
 
     private void Start()
@@ -302,7 +302,7 @@ public class Monster : PooledObject, IDamagable
             owner.AttackRoutine();
             
             owner.agent.isStopped = true;
-
+            
         }
 
         public override void Transition()
@@ -360,7 +360,6 @@ public class Monster : PooledObject, IDamagable
         {
             owner.curState = States.Hit;
             owner.animator.SetTrigger("Hit");
-            
         }
     }
 

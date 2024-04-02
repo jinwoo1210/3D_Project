@@ -13,7 +13,6 @@ public class PlayerStat : MonoBehaviour
     public event Action<int, int> ChangePlayerHp;       // max, cur
     public event Action<int, int> ChangePlayerStamina;
 
-
     public int CurHp { 
         get 
         {

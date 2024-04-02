@@ -16,6 +16,7 @@ public class SpawnPointActivator : MonoBehaviour
     {
         for (int i = 0; i < spawnPointer.Count; i++)
         {
+            spawnPointer[i].CreatePool();
             spawnPointer[i].gameObject.SetActive(false);
             spawnPointer[i].SetActivator(this);
             StartRespawnRoutine(spawnPointer[i]);
