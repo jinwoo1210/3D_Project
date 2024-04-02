@@ -19,7 +19,7 @@ public class PlayerStat : MonoBehaviour
         }
         set
         {
-            curHp = value;
+            curHp = Mathf.Clamp(value, 0, playerData.maxHp);
             ChangePlayerHp?.Invoke(playerData.maxHp, value);
         }
     }

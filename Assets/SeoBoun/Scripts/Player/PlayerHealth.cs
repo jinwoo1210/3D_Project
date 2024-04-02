@@ -12,16 +12,16 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
         if(playerStat.CurHp <= 0)
         {
-            playerStat.CurHp = 0;
             Die();
         }
 
         return false;
     }
 
-    public bool Heal(int amount)
+    [ContextMenu("Heal")]
+    public bool Heal()
     {
-        playerStat.CurHp += amount;
+        playerStat.CurHp += 30;
 
         return false;
     }

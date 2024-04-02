@@ -18,13 +18,14 @@ public class Monster : PooledObject, IDamagable
     [SerializeField] AnimationClip attackClip;
     [SerializeField] Transform playerTransform;
 
+
     [SerializeField] int hp;                // hp 
-    [SerializeField] float moveSpeed;       // 이동속도
-    [SerializeField] float targetSpeed;     // TODO.. Trace, Idle 이동속도 변경하기
+    [SerializeField] int moveSpeed;       // 이동속도
+    [SerializeField] int targetSpeed;     // TODO.. Trace, Idle 이동속도 변경하기
     [SerializeField] float findRange;       // 탐색 범위
     [SerializeField] float attackRange;     // 공격 범위   
     [SerializeField] float attackRate;      // 어택 쿨타임? 빈도?
-    [SerializeField] float damage;          // 데미지 TODO.. IDamagable or LivingClass로 따로 빼기
+    [SerializeField] int damage;          // 데미지 TODO.. IDamagable or LivingClass로 따로 빼기
 
     [SerializeField] Vector3 startPos;
     [SerializeField] LayerMask playerLayer;
@@ -58,6 +59,17 @@ public class Monster : PooledObject, IDamagable
         curState = States.Idle;
         startPos = transform.position;
         playerTransform = GameObject.FindWithTag("Player").transform;
+    }
+
+    public void Init(ZombieData zombieData)
+    {
+        hp = zombieData.hp;
+        moveSpeed = zombieData.moveSpeed;
+        targetSpeed = zombieData.targetSpeed;
+        findRange = zombieData.findRange;
+        attackRange = zombieData.attackRange;
+        attackRate = zombieData.attackRate;
+        damage = zombieData.damage;
     }
 
     private void Update()

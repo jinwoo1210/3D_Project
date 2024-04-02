@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] PooledObject prefab;
+    [SerializeField] protected PooledObject prefab;
     [SerializeField] int size;
     [SerializeField] int capacity;
 
@@ -33,7 +33,6 @@ public class ObjectPool : MonoBehaviour
             PooledObject instance = objectPool.Pop();
             instance.transform.position = position;
             instance.transform.rotation = rotation;
-            instance.gameObject.SetActive(true);
             instance.transform.parent = null;
             return instance;
         }
