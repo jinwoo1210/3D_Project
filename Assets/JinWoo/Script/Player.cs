@@ -23,9 +23,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         GetInput();
-        //Interation();
         OnPick();
-        //Swap();
         OnShow();
     }
 
@@ -47,6 +45,11 @@ public class Player : MonoBehaviour
                 hasWeapon[weaponIndex] = true;
 
                 Destroy(nearObject);
+            }
+            else if (nearObject.tag == "Item")
+            {
+                Destroy(nearObject);
+                Debug.Log($"{nearObject.name}을 먹었습니다.");
             }
         }
     }
@@ -71,6 +74,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnInteract()
+    {
+        Physics.OverlapSphere(transform.position, 5f);
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -78,13 +85,21 @@ public class Player : MonoBehaviour
         {
             nearObject = other.gameObject;
         }
+        else if (other.tag == "Item")
+        {
+            nearObject = other.gameObject;
+        }
 
-        Debug.Log(nearObject.name);
+        //Debug.Log(nearObject.name);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if(other.tag == "Weapon")
+        {
+            nearObject = null;
+        }
+        else if (other.tag == "Item")
         {
             nearObject = null;
         }
