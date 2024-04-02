@@ -10,7 +10,7 @@ public class PlayerRotater : MonoBehaviour
     // feat : PlayerRotate(ƒı≈Õ∫‰ Ω√¡°)
     [SerializeField] float mouseSensitivity;
     [SerializeField] Vector3 mousePos;
-
+    
     [SerializeField] private Vector2 inputDir;
     private float mouseY;
     private float mouseX;
