@@ -12,12 +12,12 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] int curMoveSpeed;
 
     public event Action<int> ChangeMaxHp;
-    public event Action ChangeMaxStamina;
-    public event Action ChangeMoveSpeed;
+    public event Action<int> ChangeMaxStamina;
+    public event Action<int> ChangeMoveSpeed;
 
-    public event Action ChangeCurHp;
-    public event Action ChangeCurStamina;
-    public event Action ChangeCurMoveSpeed;
+    public event Action<int> ChangeCurHp;
+    public event Action<int> ChangeCurStamina;
+    public event Action<int> ChangeCurMoveSpeed;
 
     public int MaxHP { 
         get 
@@ -38,7 +38,7 @@ public class PlayerStat : MonoBehaviour
         }
         set
         {
-            ChangeMaxStamina?.Invoke();
+            ChangeMaxStamina?.Invoke(value);
             maxStamina = value;
         }
     }
@@ -50,9 +50,40 @@ public class PlayerStat : MonoBehaviour
         }
         set
         {
-            ChangeMoveSpeed?.Invoke();
+            ChangeMoveSpeed?.Invoke(value);
             moveSpeed = value;
         }
     }
+    public int CurHp
+    {
+        get
+        {
+            return curHp;
+        }
+        set
+        {
+            ChangeCurHp?.Invoke(value);
+            curHp = value;
+        }
+    }
+    public int CurStamina
+    {
+        get
+        {
+            return curStamina;
+        }
+        set
+        {
+            ChangeCurStamina?.Invoke(value);
+            curStamina = value;
+        }
+    }
 
+    // 초기화 세팅
+    public void Init()
+    {
+        curHp = MaxHP;
+        curStamina = MaxStamina;
+        curMoveSpeed = MaxMoveSpeed;
+    }
 }
