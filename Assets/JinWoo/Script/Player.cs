@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     bool iDown;
     GameObject nearObject;
     GameObject equipWeapon;
-    Animator anim;
     public GameObject[] weapons;
     public bool[] hasWeapon;
     bool sDown1;
@@ -72,6 +71,11 @@ public class Player : MonoBehaviour
 
             Invoke("SwapOut", 0.4f);
         }
+    }
+
+    private void OnHeal()
+    {
+
     }
 
     private void OnInteract()

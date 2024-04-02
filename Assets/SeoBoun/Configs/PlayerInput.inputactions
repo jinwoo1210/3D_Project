@@ -140,17 +140,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c27033f7-474d-444a-958d-4603d2b2d2b0",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "629a0fdc-e359-41a9-87ae-3180c8037135",
                     "path": "<Keyboard>/f",
                     "interactions": "",
