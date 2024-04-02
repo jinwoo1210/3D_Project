@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     bool sDown1;
     bool sDown2;
     bool isSwap;
+    public PlayerHealth health;
 
 
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         OnPick();
         OnShow();
     }
+
 
     void GetInput()
     {
@@ -73,9 +75,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnHeal()
+    private void OnHeal(InputValue value)
     {
-
+        health.Heal();
     }
 
     private void OnInteract()
