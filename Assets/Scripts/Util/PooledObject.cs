@@ -34,4 +34,9 @@ public class PooledObject : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SetAutoRelease()
+    {
+        StartCoroutine(ReleaseRoutine());
+    }
 }

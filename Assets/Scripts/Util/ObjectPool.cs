@@ -34,6 +34,7 @@ public class ObjectPool : MonoBehaviour
             instance.transform.position = position;
             instance.transform.rotation = rotation;
             instance.gameObject.SetActive(true);
+            instance.transform.parent = null;
             return instance;
         }
         else
@@ -42,6 +43,7 @@ public class ObjectPool : MonoBehaviour
             instance.Pool = this;
             instance.transform.position = position;
             instance.transform.rotation = rotation;
+            instance.transform.parent = null;
             return instance;
         }
     }

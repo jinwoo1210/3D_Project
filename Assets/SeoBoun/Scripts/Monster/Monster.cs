@@ -10,7 +10,7 @@ public enum States { Idle, Trace, Attack, Return, Patrol, Hit, Die, Size }
 
 // 어택은 구분이 조금 필요함. -> 공격 중에는 Trace도, 무엇도 불가능하며 특히 쿨타임을 계산하려면 필수 항목일지도..?
 public enum AttackStates { BeginAttack, Attacking, EndAttacking, Size}
-public class Monster : MonoBehaviour, IDamagable
+public class Monster : PooledObject, IDamagable
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
@@ -18,7 +18,7 @@ public class Monster : MonoBehaviour, IDamagable
     [SerializeField] AnimationClip attackClip;
     [SerializeField] Transform playerTransform;
 
-    [SerializeField] float hp;              // hp 
+    [SerializeField] int hp;                // hp 
     [SerializeField] float moveSpeed;       // 이동속도
     [SerializeField] float targetSpeed;     // TODO.. Trace, Idle 이동속도 변경하기
     [SerializeField] float findRange;       // 탐색 범위
@@ -38,11 +38,17 @@ public class Monster : MonoBehaviour, IDamagable
 
     bool isAttackCoolTime = false;
     bool isAttacking = false;
+    float cosRange;
 
     Collider[] colliders = new Collider[5];
 
     public Animator Animator { get => animator;}
     public bool IsAttack { get => isAttackCoolTime; }
+
+    private void Awake()
+    {
+        cosRange = Mathf.Cos(Mathf.Deg2Rad * 60);
+    }
 
     private void Start()
     {
@@ -57,6 +63,25 @@ public class Monster : MonoBehaviour, IDamagable
     private void Update()
     {
         fsm.Update();
+    }
+
+    public void Attack()
+    {// 실제 어택루틴 실행
+        int size = Physics.OverlapSphereNonAlloc(transform.position, 3f, colliders, playerLayer);
+
+        for(int i = 0; i < size; i++)
+        {
+            Vector3 dirToTarget = (colliders[i].transform.position - transform.position).normalized;
+            if(Vector3.Dot(transform.forward, dirToTarget) < cosRange)
+            {
+                continue;
+            }
+
+            IDamagable target = colliders[i].gameObject.GetComponent<IDamagable>();
+
+            target?.TakeHit((int)damage);
+            break;
+        }
     }
 
     private void AttackRoutine()
@@ -116,6 +141,11 @@ public class Monster : MonoBehaviour, IDamagable
     {
         yield return new WaitForSeconds(1.5f);
         fsm.ChangeState(States.Idle);
+    }
+
+    public void ReturnPool()
+    {
+        SetAutoRelease();
     }
 
     #region State
@@ -246,7 +276,9 @@ public class Monster : MonoBehaviour, IDamagable
         public override void Update()
         {
             owner.AttackRoutine();
+            
             owner.agent.isStopped = true;
+
         }
 
         public override void Transition()
@@ -318,12 +350,11 @@ public class Monster : MonoBehaviour, IDamagable
             owner.animator.SetTrigger("Die");
             owner.GetComponent<Collider>().enabled = false;
             owner.agent.isStopped = true;
-            Destroy(owner.gameObject, 5f);
+            owner.ReturnPool();
         }
 
         public override void Exit()
         {
-
         }
     }
     #endregion

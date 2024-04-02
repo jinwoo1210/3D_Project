@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieSpanwer : MonoBehaviour
+public class ZombieSpanwer : ObjectPool
 {
     SpawnPointActivator spawnPointActivator;
     [SerializeField] Monster prefab;        // 좀비 프리팹
@@ -10,6 +10,11 @@ public class ZombieSpanwer : MonoBehaviour
     [SerializeField] int spawnCount = 1;    // 스폰 수(defalut : 1)
 
     Coroutine spawnRoutine;
+
+    private void Start()
+    {
+        CreatePool(prefab, 10, 10);
+    }
 
     private void OnEnable()
     {
@@ -33,7 +38,7 @@ public class ZombieSpanwer : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1.5f, 5f));
         while (true)
         {
-            Monster monster = Instantiate(prefab, transform.position, Quaternion.identity);
+            PooledObject monster = GetPool(transform.position, Quaternion.identity);
             monster.transform.position += new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
             yield return new WaitForSeconds(spawnRate);
         }
