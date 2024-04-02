@@ -24,7 +24,8 @@ public class SpawnPointActivator : MonoBehaviour
 
     public void StartRespawnRoutine(ZombieSpanwer target)
     {
-        StartCoroutine(RespawnRoutine(target));
+        if (target.gameObject.activeSelf == false)
+            StartCoroutine(RespawnRoutine(target));
     }
 
     IEnumerator RespawnRoutine(ZombieSpanwer target)

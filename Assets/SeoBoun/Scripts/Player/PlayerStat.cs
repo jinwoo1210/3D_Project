@@ -6,11 +6,13 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] PlayerData playerData;
 
     [SerializeField] int curHp;
-    int curStamina;
+    [SerializeField] int curStamina;
     int moveSpeed;
+    int runSpeed;
 
     public event Action<int, int> ChangePlayerHp;       // max, cur
     public event Action<int, int> ChangePlayerStamina;
+
 
     public int CurHp { 
         get 
@@ -31,11 +33,12 @@ public class PlayerStat : MonoBehaviour
         }
         set
         {
-            curStamina = value;
+            curStamina = Mathf.Clamp(value, 0, playerData.maxStamina);
             ChangePlayerStamina?.Invoke(playerData.maxStamina, value);
         }
     }
     public int MoveSpeed { get { return moveSpeed; } }
+    public int RunSpeed { get { return runSpeed; } }
     // 처음 초기화 데이터 수정
     private void Awake()
     {
@@ -47,6 +50,7 @@ public class PlayerStat : MonoBehaviour
         curHp = playerData.maxHp;
         curStamina = playerData.maxStamina;
         moveSpeed = playerData.moveSpeed;
+        runSpeed = playerData.runSpeed;
     }
 
     [ContextMenu("SetUp")]

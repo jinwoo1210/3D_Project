@@ -20,12 +20,12 @@ public class Monster : PooledObject, IDamagable
 
 
     [SerializeField] int hp;                // hp 
-    [SerializeField] int moveSpeed;       // 이동속도
-    [SerializeField] int targetSpeed;     // TODO.. Trace, Idle 이동속도 변경하기
+    [SerializeField] int moveSpeed;         // 이동속도
+    [SerializeField] int targetSpeed;       // TODO.. Trace, Idle 이동속도 변경하기
     [SerializeField] float findRange;       // 탐색 범위
     [SerializeField] float attackRange;     // 공격 범위   
     [SerializeField] float attackRate;      // 어택 쿨타임? 빈도?
-    [SerializeField] int damage;          // 데미지 TODO.. IDamagable or LivingClass로 따로 빼기
+    [SerializeField] int damage;            // 데미지 TODO.. IDamagable or LivingClass로 따로 빼기
 
     [SerializeField] Vector3 startPos;
     [SerializeField] LayerMask playerLayer;
@@ -75,6 +75,16 @@ public class Monster : PooledObject, IDamagable
     private void Update()
     {
         fsm.Update();
+    }
+
+    public void Targeting()
+    {
+        agent.speed = targetSpeed;
+    }
+
+    public void Patrol()
+    {
+        agent.speed = moveSpeed;
     }
 
     public void Attack()
@@ -216,8 +226,6 @@ public class Monster : PooledObject, IDamagable
 
         public override void Enter()
         {
-            // TODO
-            // Animation Play
             owner.Animator.SetFloat("IsWalk", 0.0f);
         }
 
@@ -242,8 +250,7 @@ public class Monster : PooledObject, IDamagable
 
         public override void Enter()
         {
-            // TODO
-            // Animation Play
+            owner.Targeting();
             owner.agent.SetDestination(owner.playerTransform.position);
         }
 
@@ -265,6 +272,11 @@ public class Monster : PooledObject, IDamagable
                 owner.curState = States.Return;
                 fsm.ChangeState(States.Return);
             }
+        }
+
+        public override void Exit()
+        {
+            owner.Patrol();
         }
     }
 
