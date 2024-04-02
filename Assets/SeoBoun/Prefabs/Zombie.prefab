@@ -402,18 +402,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a61dd6d98af12241b2a79097e2c22a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoRelease: 0
+  releaseTime: 10
   agent: {fileID: 5966244793222609039}
   animator: {fileID: 2920878171455834986}
   monsterFov: {fileID: 7817118892085602373}
   attackClip: {fileID: 7400000, guid: f5be1a195ddb8084c8dd946789142f9f, type: 2}
   playerTransform: {fileID: 0}
-  hp: 10
+  hp: 55
   moveSpeed: 2
   targetSpeed: 0
   findRange: 30
   attackRange: 2
   attackRate: 1
-  damage: 1
+  damage: 20
   startPos: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2

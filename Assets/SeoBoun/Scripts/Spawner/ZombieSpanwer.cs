@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieSpanwer : MonoBehaviour
+public class ZombieSpanwer : ObjectPool
 {
     SpawnPointActivator spawnPointActivator;
-    [SerializeField] Monster prefab;        // 좀비 프리팹
-    [SerializeField] float spawnRate;       // 스폰 시간? 간격?
-    [SerializeField] int spawnCount = 1;    // 스폰 수(defalut : 1)
+    [SerializeField] float spawnRate;       // 스폰 시간, 간격
+
+    // TODO..
+    // 좀비 데이터 추가하고, 프리팹 스폰 시 해당 데이터 넘겨주기
+    [SerializeField] List<ZombieData> spawnData;
 
     Coroutine spawnRoutine;
+
+    private void Start()
+    {
+        CreatePool(prefab, 10, 10);
+    }
 
     private void OnEnable()
     {
@@ -33,7 +40,9 @@ public class ZombieSpanwer : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1.5f, 5f));
         while (true)
         {
-            Monster monster = Instantiate(prefab, transform.position, Quaternion.identity);
+            PooledObject monster = GetPool(transform.position, Quaternion.identity);
+            monster.GetComponent<Monster>().Init(spawnData[0]);
+            monster.gameObject.SetActive(true);
             monster.transform.position += new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
             yield return new WaitForSeconds(spawnRate);
         }

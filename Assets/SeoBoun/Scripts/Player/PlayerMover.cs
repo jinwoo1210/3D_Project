@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMover : MonoBehaviour
 {
+    [SerializeField] PlayerStat playerStat;
     [SerializeField] CharacterController controller;
     [SerializeField] Animator animator;
 
@@ -13,6 +14,11 @@ public class PlayerMover : MonoBehaviour
 
     private Vector3 moveDir;
     private float ySpeed;
+
+    private void OnEnable()
+    {
+        moveSpeed = playerStat.MoveSpeed;
+    }
 
     private void Update()
     {
