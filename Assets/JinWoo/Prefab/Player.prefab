@@ -370,7 +370,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4589582948706383833}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1900586067242068, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 105278236337491863}
   m_SourcePrefab: {fileID: 100100000, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
 --- !u!4 &515041956567324008 stripped
 Transform:
@@ -382,6 +385,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1900586067242068, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
   m_PrefabInstance: {fileID: 516648535521438970}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &105278236337491863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517141592039751854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe3df0caa71d154b83431ae7781e3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotClip: {fileID: 0}
+  reloadClip: {fileID: 0}
+  damage: 25
+  magCapacity: 25
+  timeBetFire: 0.12
+  reloadTime: 1.8
 --- !u!1001 &1974911906308540951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -815,7 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068c41881c05e5e42af47fab0ea213af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStat: {fileID: 8522782567500835710}
+  playerStat: {fileID: 6223752154412313349}
   controller: {fileID: 4308484585695836160}
   animator: {fileID: 1974911906315845495}
   moveSpeed: 3
@@ -934,7 +955,8 @@ MonoBehaviour:
   - {fileID: 517141592039751854}
   - {fileID: 5229160697614024625}
   hasWeapon: 0000
---- !u!114 &5918915277157903581
+  health: {fileID: 4535375396076140147}
+--- !u!114 &6223752154412313349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -943,11 +965,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974911906308443327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05be87d4f43f984c9a743ab4b263c4d, type: 3}
+  m_Script: {fileID: 11500000, guid: b0acaa446310e644db6eb8aba574508f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStat: {fileID: 8522782567500835710}
---- !u!114 &8522782567500835710
+  playerData: {fileID: 11400000, guid: 23e4f6983d5be354aa62465ae3477609, type: 2}
+  curHp: 0
+--- !u!114 &4535375396076140147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1029,7 +1052,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4878301781655884, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3573016927107154463}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1328033259041762, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4517096541727085399}
   m_SourcePrefab: {fileID: 100100000, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
 --- !u!4 &5225397048074669343 stripped
 Transform:
@@ -1041,3 +1067,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1328033259041762, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
   m_PrefabInstance: {fileID: 5230088896574917715}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4517096541727085399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229160697614024625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe3df0caa71d154b83431ae7781e3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotClip: {fileID: 0}
+  reloadClip: {fileID: 0}
+  damage: 25
+  magCapacity: 25
+  timeBetFire: 0.12
+  reloadTime: 1.8

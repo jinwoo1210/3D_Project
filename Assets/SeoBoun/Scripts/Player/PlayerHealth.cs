@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     [ContextMenu("Heal")]
     public bool Heal()
     {
-        playerStat.CurHp += 30;
+        playerStat.CurHp += 35;
 
         return false;
     }
