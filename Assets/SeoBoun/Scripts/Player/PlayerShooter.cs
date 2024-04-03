@@ -13,7 +13,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] LayerMask monsterLayer;
     [SerializeField] Player player;
     [SerializeField] public Gun gun;
-    [SerializeField] BulletData data;
+    [SerializeField] Bullet bullet;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] ParticleSystem hitEffect;
     
@@ -32,7 +32,7 @@ public class PlayerShooter : MonoBehaviour
 
     public void Shoot()
     {
-        data.MagCapacity --;
+        bullet.magCapacity--;
         muzzleFlash.Play();
         Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
         if (Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, 100f, monsterLayer))

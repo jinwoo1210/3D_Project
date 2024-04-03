@@ -24,13 +24,11 @@ public class Bullet : MonoBehaviour
     {
         inIt(data);
         Text[] texts = GetComponentsInChildren<Text>();
-        if(texts != null)
         text = texts[0];
     }
 
     private void LateUpdate()
     {
-        if(text != null)
-        text.text = data.MagCapacity + "/" + data.AmmoRemain;
+        text.text = magCapacity + "/" + ammoReMain;
     }
 }
