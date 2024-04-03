@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
         inIt(data);
         Text[] texts = GetComponentsInChildren<Text>();
-        if(texts != null )
+        if(texts != null)
         text = texts[0];
     }
 
