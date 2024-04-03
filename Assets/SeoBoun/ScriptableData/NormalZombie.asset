@@ -19,3 +19,4 @@ MonoBehaviour:
   attackRange: 2
   attackRate: 1
   damage: 20
+  particle: []
