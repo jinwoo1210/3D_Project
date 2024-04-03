@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,11 +11,18 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] Transform muzzlePoint;
     [SerializeField] LayerMask monsterLayer;
+    [SerializeField] Player player;
+    [SerializeField] public Gun gun;
+    [SerializeField] Bullet bullet;
+    [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] ParticleSystem hitEffect;
+    
 
-    private void OnFire(InputValue value)
+    public void OnFire(InputValue value)
     {
         animator.SetTrigger("Fire");
         Shoot();
+        player.Attack();
     }
 
     private void OnReload(InputValue value)
@@ -22,15 +30,20 @@ public class PlayerShooter : MonoBehaviour
         Reload();
     }
 
-    private void Shoot()
+    public void Shoot()
     {
+        bullet.magCapacity--;
+        muzzleFlash.Play();
         Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
-        if(Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, 100f, monsterLayer))
+        if (Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, 100f, monsterLayer))
         {
             IDamagable target = hit.collider.gameObject.GetComponent<IDamagable>();
 
-            target?.TakeHit(10);
+            target?.TakeHit(gun.damage);
             Debug.Log("몬스터 공격");
+
+            ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            effect.transform.parent = hit.transform;
         }
     }
 

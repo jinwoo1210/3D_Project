@@ -3,56 +3,69 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
-    [SerializeField] int maxHp;         // 기본값 100
-    [SerializeField] int maxStamina;    // 기본값 100
-    [SerializeField] int moveSpeed;     // 기본값 3
+    [SerializeField] PlayerData playerData;
 
     [SerializeField] int curHp;
     [SerializeField] int curStamina;
-    [SerializeField] int curMoveSpeed;
+    int moveSpeed;
+    int runSpeed;
 
-    public event Action<int> ChangeMaxHp;
-    public event Action ChangeMaxStamina;
-    public event Action ChangeMoveSpeed;
+    public event Action<int, int> ChangePlayerHp;       // max, cur
+    public event Action<int, int> ChangePlayerStamina;
 
-    public event Action ChangeCurHp;
-    public event Action ChangeCurStamina;
-    public event Action ChangeCurMoveSpeed;
-
-    public int MaxHP { 
+    public int CurHp { 
         get 
-        { 
-            return maxHp; 
-        } 
-        set 
         {
-            ChangeMaxHp?.Invoke(value);
-            maxHp = value; 
-        }    
-    }
-
-    public int MaxStamina {
-        get
-        {
-            return maxStamina;
+            return curHp; 
         }
         set
         {
-            ChangeMaxStamina?.Invoke();
-            maxStamina = value;
+            curHp = Mathf.Clamp(value, 0, playerData.maxHp);
+            ChangePlayerHp?.Invoke(playerData.maxHp, value);
         }
     }
-    public int MaxMoveSpeed
+
+    public int CurStamina {
+        get
+        {
+            return curStamina;
+        }
+        set
+        {
+            curStamina = Mathf.Clamp(value, 0, playerData.maxStamina);
+            ChangePlayerStamina?.Invoke(playerData.maxStamina, value);
+        }
+    }
+    public int MoveSpeed { get { return moveSpeed; } }
+    public int RunSpeed { get { return runSpeed; } }
+    // 처음 초기화 데이터 수정
+    private void Awake()
     {
-        get
-        {
-            return moveSpeed;
-        }
-        set
-        {
-            ChangeMoveSpeed?.Invoke();
-            moveSpeed = value;
-        }
+        Init();
     }
 
+    public void Init()
+    {
+        curHp = playerData.maxHp;
+        curStamina = playerData.maxStamina;
+        moveSpeed = playerData.moveSpeed;
+        runSpeed = playerData.runSpeed;
+    }
+
+    [ContextMenu("SetUp")]
+    public void SetUp()
+    {
+        ChangePlayerHp?.Invoke(playerData.maxHp, curHp);
+        ChangePlayerStamina?.Invoke(playerData.maxStamina, curStamina);
+    }
+
+    public void AddChangeHp(Action<int, int> ChangeEvent)
+    {
+        ChangePlayerHp += ChangeEvent;
+    }
+
+    public void AddChangeStamina(Action<int, int> ChangeEvent)
+    {
+        ChangePlayerStamina += ChangeEvent;
+    }
 }
