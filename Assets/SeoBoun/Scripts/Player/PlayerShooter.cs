@@ -14,6 +14,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] public Gun gun; 
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] ParticleSystem hitEffect;
 
     public void OnFire(InputValue value)
     {
@@ -37,6 +38,9 @@ public class PlayerShooter : MonoBehaviour
 
             target?.TakeHit(gun.damage);
             Debug.Log("몬스터 공격");
+            
+            ParticleSystem effect =  Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            effect.transform.parent = hit.transform;
         }
     }
 
