@@ -29,16 +29,13 @@ public class PlayerFov : MonoBehaviour
             
             for (int i = 0; i < size; i++)
             {
+                if ((transform.position - colliders[i].gameObject.transform.position).sqrMagnitude < disableRange * disableRange)
+                {
+                    continue;
+                }
+
                 ZombieSpanwer target = colliders[i].GetComponent<ZombieSpanwer>();
                 target?.StartSpawn();
-            }
-
-            size = Physics.OverlapSphereNonAlloc(transform.position, disableRange, colliders, targetMask);
-
-            for(int i = 0; i < size; i++)
-            {
-                ZombieSpanwer target = colliders[i].GetComponent<ZombieSpanwer>();
-                target?.StopSpawn();
             }
         }
     }

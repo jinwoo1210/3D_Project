@@ -18,6 +18,4 @@ public class ZombieData : ScriptableObject
     // 좀비별 애니메이션 설정
     // 좀비별 색상 설정
     // 엘리트 타입 구분?
-    
-
 }
