@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
         OnPick();
         OnShow();
         //Attack();
-        Debug.Log(fireDelay);
         fireDelay += Time.deltaTime;
     }
 
@@ -102,7 +101,6 @@ public class Player : MonoBehaviour
 
         if (isFireReady/*!isSwap*/)
         {
-            Debug.Log("Player ÃÑ³ª°¡´Â ÀÌÆåÆ®");
             equipWeapon.Use();
             fireDelay = 0;
         }
