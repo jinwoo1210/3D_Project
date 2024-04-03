@@ -13,6 +13,10 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] LayerMask monsterLayer;
     [SerializeField] Player player;
     [SerializeField] public Gun gun;
+    [SerializeField] BulletData data;
+    [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] ParticleSystem hitEffect;
+    
 
     public void OnFire(InputValue value)
     {
@@ -28,13 +32,18 @@ public class PlayerShooter : MonoBehaviour
 
     public void Shoot()
     {
+        data.MagCapacity --;
+        muzzleFlash.Play();
         Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
-        if(Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, 100f, monsterLayer))
+        if (Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, 100f, monsterLayer))
         {
             IDamagable target = hit.collider.gameObject.GetComponent<IDamagable>();
 
             target?.TakeHit(gun.damage);
             Debug.Log("몬스터 공격");
+
+            ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            effect.transform.parent = hit.transform;
         }
     }
 
@@ -42,22 +51,4 @@ public class PlayerShooter : MonoBehaviour
     {
         animator.SetTrigger("Reload");
     }
-
-    //public void Attack()
-    //{
-    //    if (equipWeapon == null)
-    //    {
-    //        return;
-    //    }
-    //    fireDelay = Time.deltaTime;
-    //    isFireReady = equipWeapon.rate < fireDelay;
-
-    //    if (fDown && isFireReady && !isSwap)
-    //    {
-    //        Debug.Log("Player 총나가는 이펙트");
-    //        equipWeapon.Use();
-    //        fireDelay = 0;
-    //    }
-
-    //}
 }
