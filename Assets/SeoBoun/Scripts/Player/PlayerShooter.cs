@@ -12,7 +12,8 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] Transform muzzlePoint;
     [SerializeField] LayerMask monsterLayer;
     [SerializeField] Player player;
-    [SerializeField] public Gun gun;
+    [SerializeField] public Gun gun; 
+    [SerializeField] ParticleSystem muzzleFlash;
 
     public void OnFire(InputValue value)
     {
@@ -28,6 +29,7 @@ public class PlayerShooter : MonoBehaviour
 
     public void Shoot()
     {
+        muzzleFlash.Play();
         Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
         if(Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, 100f, monsterLayer))
         {
