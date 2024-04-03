@@ -20,7 +20,7 @@ public class PlayerMover : MonoBehaviour
 
     bool isUseStamina = false;
 
-    private void OnEnable()
+    private void Start()
     {
         moveSpeed = playerStat.MoveSpeed;
         staminaRoutine = StartCoroutine(StaminaRoutine());

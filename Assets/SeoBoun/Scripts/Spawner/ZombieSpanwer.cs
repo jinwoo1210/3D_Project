@@ -17,16 +17,15 @@ public class ZombieSpanwer : ObjectPool
     {
         CreatePool(prefab, 10, 10);
     }
-    private void OnEnable()
+
+    public void StartSpawn()
     {
         spawnRoutine = StartCoroutine(SpawnRoutine());
     }
 
-    private void OnDisable()
+    public void StopSpawn()
     {
-        spawnPointActivator.StartRespawnRoutine(this);
-        if (spawnRoutine != null)
-            StopCoroutine(spawnRoutine);
+        StopCoroutine(spawnRoutine);
     }
 
     public void SetActivator(SpawnPointActivator spawnPointActivator)

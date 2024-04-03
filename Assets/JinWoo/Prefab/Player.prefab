@@ -213,7 +213,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1974911906308411551}
   m_Follow: {fileID: 1974911906308411551}
   m_Lens:
-    FieldOfView: 20
+    FieldOfView: 40
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -608,15 +608,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 25.126328
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.14752197
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.7
+      value: 56.89198
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -818,7 +818,7 @@ MonoBehaviour:
   playerStat: {fileID: 8522782567500835710}
   controller: {fileID: 4308484585695836160}
   animator: {fileID: 1974911906315845495}
-  moveSpeed: 10
+  moveSpeed: 3
 --- !u!114 &5644807861320705637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,7 +862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 360
-  range: 20
+  activeRange: 30
+  disableRange: 10
   targetMask:
     serializedVersion: 2
     m_Bits: 128

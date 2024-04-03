@@ -18,7 +18,6 @@ public class Monster : PooledObject, IDamagable
     [SerializeField] AnimationClip attackClip;
     [SerializeField] Transform playerTransform;
 
-
     [SerializeField] int hp;                // hp 
     [SerializeField] int moveSpeed;         // 이동속도
     [SerializeField] int targetSpeed;       // TODO.. Trace, Idle 이동속도 변경하기
@@ -58,7 +57,7 @@ public class Monster : PooledObject, IDamagable
         fsm.Init(this, States.Idle);
         curState = States.Idle;
         startPos = transform.position;
-        playerTransform = GameObject.FindWithTag("Player").transform;
+        playerTransform = Manager.Game.playerPos;
     }
 
     public void Init(ZombieData zombieData)
@@ -170,6 +169,26 @@ public class Monster : PooledObject, IDamagable
         SetAutoRelease();
     }
 
+    Coroutine traceRoutine;
+    public void StartTrace()
+    {
+        traceRoutine = StartCoroutine(TraceRoutine());
+    }
+
+    public void EndTrace()
+    {
+        StopCoroutine(traceRoutine);
+    }
+
+    IEnumerator TraceRoutine()
+    {
+        while (true)
+        {
+            agent.SetDestination(playerTransform.position);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
     #region State
     private class StatesMachine
     {
@@ -231,7 +250,7 @@ public class Monster : PooledObject, IDamagable
 
         public override void Transition()
         {
-            if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) < owner.findRange && owner.monsterFov.FindTarget())
+            if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) < owner.findRange && owner.monsterFov.isFind)
             {
                 owner.curState = States.Trace;
                 fsm.ChangeState(States.Trace);
@@ -251,12 +270,7 @@ public class Monster : PooledObject, IDamagable
         public override void Enter()
         {
             owner.Targeting();
-            owner.agent.SetDestination(owner.playerTransform.position);
-        }
-
-        public override void Update()
-        {
-            owner.agent.SetDestination(owner.playerTransform.position);
+            owner.StartTrace();
         }
 
         public override void Transition()
@@ -267,7 +281,7 @@ public class Monster : PooledObject, IDamagable
                 fsm.ChangeState(States.Attack);
             }
 
-            if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) > owner.findRange && !owner.monsterFov.FindTarget())
+            if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) > owner.findRange && !owner.monsterFov.isFind)
             {
                 owner.curState = States.Return;
                 fsm.ChangeState(States.Return);
@@ -277,6 +291,7 @@ public class Monster : PooledObject, IDamagable
         public override void Exit()
         {
             owner.Patrol();
+            owner.EndTrace();
         }
     }
 
@@ -292,8 +307,6 @@ public class Monster : PooledObject, IDamagable
 
         public override void Enter()
         {
-            // TODO
-            // Animation Play
             owner.Animator.SetFloat("IsWalk", 1.0f);
         }
 
@@ -311,7 +324,7 @@ public class Monster : PooledObject, IDamagable
                 !owner.isAttacking)                                                                                 // 공격 중이 아니라면
             {
                 owner.agent.isStopped = false;
-                if (owner.monsterFov.FindTarget())  // 타겟이 시야안에 있을 때
+                if (owner.monsterFov.isFind)  // 타겟이 시야안에 있을 때
                 {
                     owner.curState = States.Trace;
                     fsm.ChangeState(States.Trace);
@@ -331,20 +344,18 @@ public class Monster : PooledObject, IDamagable
 
         public override void Enter()
         {
-            // TODO
-            // Animation Play
             owner.agent.SetDestination(owner.startPos);
         }
 
         public override void Transition()
         {
-            if (Vector3.Distance(owner.transform.position, owner.startPos) < 0.1f && !owner.monsterFov.FindTarget())
+            if (Vector3.Distance(owner.transform.position, owner.startPos) < 0.1f && !owner.monsterFov.isFind)
             {
                 owner.curState = States.Idle;
                 fsm.ChangeState(States.Idle);
             }
 
-            if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) < owner.findRange && owner.monsterFov.FindTarget())
+            if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) < owner.findRange && owner.monsterFov.isFind)
             {
                 owner.curState = States.Trace;
                 fsm.ChangeState(States.Trace);
@@ -374,10 +385,6 @@ public class Monster : PooledObject, IDamagable
             owner.GetComponent<Collider>().enabled = false;
             owner.agent.isStopped = true;
             owner.ReturnPool();
-        }
-
-        public override void Exit()
-        {
         }
     }
     #endregion

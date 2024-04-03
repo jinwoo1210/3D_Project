@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 55
   moveSpeed: 2
-  targetSpeed: 4
+  targetSpeed: 3
   findRange: 20
   attackRange: 2
   attackRate: 1

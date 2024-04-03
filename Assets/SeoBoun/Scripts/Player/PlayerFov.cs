@@ -7,25 +7,48 @@ public class PlayerFov : MonoBehaviour
 {
     // 플레이어 시야각 구현
     [SerializeField] float angle;
-    [SerializeField] float range;
+    [SerializeField] float activeRange;
+    [SerializeField] float disableRange;
     [SerializeField] LayerMask targetMask;
     [SerializeField] LayerMask obstacleMask;
 
     // 시야각 안에 있는 스포너 비활성화 시켜보기?
-    Collider[] colliders = new Collider[10];
+    Collider[] colliders = new Collider[20];
 
-    float cosRange;
-
-    private void Awake()
+    private void Start()
     {
-        cosRange = Mathf.Cos(angle * 0.5f * Mathf.Deg2Rad);
+        StartCoroutine(SetSpawner());
     }
 
-    private void Update()
+    IEnumerator SetSpawner()
     {
-        DisableSpawner();
+        while(true)
+        {
+            yield return new WaitForSeconds(2f);
+            int size = Physics.OverlapSphereNonAlloc(transform.position, activeRange, colliders, targetMask);
+            
+            for (int i = 0; i < size; i++)
+            {
+                ZombieSpanwer target = colliders[i].GetComponent<ZombieSpanwer>();
+                target?.StartSpawn();
+            }
+
+            size = Physics.OverlapSphereNonAlloc(transform.position, disableRange, colliders, targetMask);
+
+            for(int i = 0; i < size; i++)
+            {
+                ZombieSpanwer target = colliders[i].GetComponent<ZombieSpanwer>();
+                target?.StopSpawn();
+            }
+        }
     }
 
+    // 스포너 조정
+    // 2번의 오버랩 시전(5초에 한 번)
+    // -> 첫 번째는 활성화 오버랩
+    // -> 두 번째는 비활성화 오버랩
+
+    /*
     public void DisableSpawner()
     {
         int size = Physics.OverlapSphereNonAlloc(transform.position, range, colliders, targetMask);
@@ -43,12 +66,16 @@ public class PlayerFov : MonoBehaviour
             colliders[i].gameObject.SetActive(false);
         }
     }
-
+    */
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, activeRange);
 
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, disableRange);
+
+        /*
         Vector3 lookDir = AngleToDir(transform.eulerAngles.y);
         Vector3 rightDir = AngleToDir(transform.eulerAngles.y + angle * 0.5f);
         Vector3 leftDir = AngleToDir(transform.eulerAngles.y - angle * 0.5f);
@@ -56,8 +83,8 @@ public class PlayerFov : MonoBehaviour
         Debug.DrawRay(transform.position, lookDir * range, Color.green);
         Debug.DrawRay(transform.position, rightDir * range, Color.red);
         Debug.DrawRay(transform.position, leftDir * range, Color.red);
+        */
     }
-
 
     private Vector3 AngleToDir(float angle)
     {
