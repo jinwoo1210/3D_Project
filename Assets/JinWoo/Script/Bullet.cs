@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] int magCapacity;
+    [SerializeField] public int magCapacity;
     [SerializeField] public int ammoReMain;
     [SerializeField] public int bulletCount;
     public BulletData data;
