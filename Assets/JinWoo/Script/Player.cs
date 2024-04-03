@@ -9,14 +9,22 @@ public class Player : MonoBehaviour
     [Header("Component")]
 
     bool iDown;
-    GameObject nearObject;
-    GameObject equipWeapon;
-    public GameObject[] weapons;
-    public bool[] hasWeapon;
     bool sDown1;
     bool sDown2;
-    bool isSwap;
+    bool fDown;
+    private bool isSwap;
+    private bool isFireReady;
+    private float fireDelay;
+
+    GameObject nearObject;
+    Gun equipWeapon;
     public PlayerHealth health;
+    public PlayerShooter shooter;
+    public BulletData[] bulletData;
+    public Bullet bullet;
+    public GameObject[] weapons;
+    public bool[] hasWeapon;
+    
 
 
 
@@ -25,6 +33,9 @@ public class Player : MonoBehaviour
         GetInput();
         OnPick();
         OnShow();
+        //Attack();
+        Debug.Log(fireDelay);
+        fireDelay += Time.deltaTime;
     }
 
 
@@ -33,7 +44,10 @@ public class Player : MonoBehaviour
         iDown = Input.GetButtonDown("Interation");
         sDown1 = Input.GetButtonDown("Swap1");
         sDown2 = Input.GetButtonDown("Swap2");
+        fDown = Input.GetButtonDown("Fire1");
     }
+
+
 
     private void OnPick()
     {
@@ -50,6 +64,7 @@ public class Player : MonoBehaviour
             else if (nearObject.tag == "Item")
             {
                 Destroy(nearObject);
+                bullet.ammoReMain += bullet.bulletCount;
                 Debug.Log($"{nearObject.name}을 먹었습니다.");
             }
         }
@@ -64,15 +79,34 @@ public class Player : MonoBehaviour
         if (sDown1 || sDown2)
         {
             if (equipWeapon != null)
-                equipWeapon.SetActive(false);
-            equipWeapon = weapons[weaponIndex];
-            equipWeapon.SetActive(true);
+                equipWeapon.gameObject.SetActive(false);
+            //equipWeaponIndex = weaponIndex;
+            equipWeapon = weapons[weaponIndex].GetComponent<Gun>();
+            equipWeapon.gameObject.SetActive(true);
 
             //anim.SetTrigger("doSwap");        // 애니메이터 추가 예정
             isSwap = true;
 
             Invoke("SwapOut", 0.4f);
         }
+    }
+
+    public void Attack()
+    {
+        if (equipWeapon == null)
+        {
+            return;
+        }
+
+        isFireReady = equipWeapon.rate < fireDelay;
+
+        if (isFireReady/*!isSwap*/)
+        {
+            Debug.Log("Player 총나가는 이펙트");
+            equipWeapon.Use();
+            fireDelay = 0;
+        }
+
     }
 
     private void OnHeal(InputValue value)
