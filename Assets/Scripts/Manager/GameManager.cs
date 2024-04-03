@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public void Test()
+    public Transform playerPos;
+
+    private void Start()
     {
-        Debug.Log(GetInstanceID());
+        playerPos = GameObject.FindWithTag("Player").transform;
     }
 }

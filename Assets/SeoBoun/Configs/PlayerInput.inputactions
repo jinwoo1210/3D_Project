@@ -193,6 +193,15 @@
                 },
                 {
                     "name": "",
+                    "id": "417d3430-8533-4043-83b1-45af2f5a2743",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                     "id": "d5455141-afb3-4b6a-982f-f27d711c1386",
                     "path": "<Keyboard>/q",
                     "interactions": "",

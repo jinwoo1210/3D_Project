@@ -13,19 +13,18 @@ public class ZombieSpanwer : ObjectPool
 
     Coroutine spawnRoutine;
 
-    private void Start()
+    public void CreatePool()
     {
         CreatePool(prefab, 10, 10);
     }
 
-    private void OnEnable()
+    public void StartSpawn()
     {
         spawnRoutine = StartCoroutine(SpawnRoutine());
     }
 
-    private void OnDisable()
+    public void StopSpawn()
     {
-        spawnPointActivator.StartRespawnRoutine(this);
         StopCoroutine(spawnRoutine);
     }
 
@@ -50,6 +49,7 @@ public class ZombieSpanwer : ObjectPool
 
     private void OnDestroy()
     {
-        StopCoroutine(spawnRoutine);
+        if (spawnRoutine != null)
+            StopCoroutine(spawnRoutine);
     }
 }

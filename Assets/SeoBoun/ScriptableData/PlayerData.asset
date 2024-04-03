@@ -15,3 +15,4 @@ MonoBehaviour:
   maxHp: 100
   maxStamina: 100
   moveSpeed: 3
+  runSpeed: 5

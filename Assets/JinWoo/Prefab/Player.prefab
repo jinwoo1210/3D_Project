@@ -213,7 +213,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1974911906308411551}
   m_Follow: {fileID: 1974911906308411551}
   m_Lens:
-    FieldOfView: 20
+    FieldOfView: 40
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -629,15 +629,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 25.126328
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.14752197
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.59
+      value: 56.89198
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -755,10 +755,10 @@ PrefabInstance:
       addedObject: {fileID: 7511753471809627746}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6223752154412313349}
+      addedObject: {fileID: 5918915277157903581}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4535375396076140147}
+      addedObject: {fileID: 8522782567500835710}
   m_SourcePrefab: {fileID: 100100000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
 --- !u!4 &1974911906308411551 stripped
 Transform:
@@ -839,7 +839,7 @@ MonoBehaviour:
   playerStat: {fileID: 6223752154412313349}
   controller: {fileID: 4308484585695836160}
   animator: {fileID: 1974911906315845495}
-  moveSpeed: 10
+  moveSpeed: 3
 --- !u!114 &5644807861320705637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,7 +883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 360
-  range: 20
+  activeRange: 30
+  disableRange: 10
   targetMask:
     serializedVersion: 2
     m_Bits: 128
@@ -978,10 +979,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974911906308443327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05be87d4f43f984c9a743ab4b263c4d, type: 3}
+  m_Script: {fileID: 11500000, guid: b0acaa446310e644db6eb8aba574508f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStat: {fileID: 6223752154412313349}
+  playerData: {fileID: 11400000, guid: 23e4f6983d5be354aa62465ae3477609, type: 2}
+  curHp: 0
+  curStamina: 0
 --- !u!95 &1974911906315845495 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
