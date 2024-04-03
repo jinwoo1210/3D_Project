@@ -159,6 +159,37 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+--- !u!1 &5522623173368179632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2252598056833698552}
+  m_Layer: 3
+  m_Name: BulletPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2252598056833698552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5522623173368179632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.142, y: 1.493, z: 1.041}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1974911906308411551}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6399713164001484115
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6399713164001484115}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.41852474, y: 0.34116474, z: -0.17335862, w: 0.82364464}
+  m_LocalRotation: {x: 0.41852477, y: 0.3411648, z: -0.17335865, w: 0.82364464}
   m_LocalPosition: {x: -8, y: 16, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -399,10 +430,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotClip: {fileID: 0}
   reloadClip: {fileID: 0}
+  bulletPos: {fileID: 2252598056833698552}
+  bullet: {fileID: 7242100510980987772, guid: 21abba490f7cb304a8f4bc8d279a6402, type: 3}
   damage: 25
   magCapacity: 25
-  timeBetFire: 0.12
+  ammoReMain: 50
+  rate: 0.12
   reloadTime: 1.8
+  fireDistance: 100
 --- !u!1001 &1974911906308540951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -722,6 +757,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4581100318975169880}
+    - targetCorrespondingSourceObject: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2252598056833698552}
     - targetCorrespondingSourceObject: {fileID: 400040, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 143994059860707679}
@@ -755,10 +793,10 @@ PrefabInstance:
       addedObject: {fileID: 7511753471809627746}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5918915277157903581}
+      addedObject: {fileID: 4535375396076140147}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8522782567500835710}
+      addedObject: {fileID: 2857740289343277952}
   m_SourcePrefab: {fileID: 100100000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
 --- !u!4 &1974911906308411551 stripped
 Transform:
@@ -836,7 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068c41881c05e5e42af47fab0ea213af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStat: {fileID: 6223752154412313349}
+  playerStat: {fileID: 4535375396076140147}
   controller: {fileID: 4308484585695836160}
   animator: {fileID: 1974911906315845495}
   moveSpeed: 3
@@ -923,6 +961,8 @@ MonoBehaviour:
   monsterLayer:
     serializedVersion: 2
     m_Bits: 256
+  player: {fileID: 7511753471809627746}
+  gun: {fileID: 105278236337491863}
 --- !u!114 &5591682337495606241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,25 +991,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1645a5b204d324418d243a56f58ba12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 2857740289343277952}
+  shooter: {fileID: 6688249195627853235}
+  bulletData:
+  - {fileID: 11400000, guid: 622a32383f76a8040a591231fada89c6, type: 2}
+  - {fileID: 11400000, guid: c4e7d548af59d7f41bf87d1b4d2fc2ce, type: 2}
+  bullet: {fileID: 0}
   weapons:
   - {fileID: 517141592039751854}
   - {fileID: 5229160697614024625}
   hasWeapon: 0000
-  health: {fileID: 4535375396076140147}
---- !u!114 &6223752154412313349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974911906308443327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0acaa446310e644db6eb8aba574508f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 23e4f6983d5be354aa62465ae3477609, type: 2}
-  curHp: 0
 --- !u!114 &4535375396076140147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,6 +1016,19 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 23e4f6983d5be354aa62465ae3477609, type: 2}
   curHp: 0
   curStamina: 0
+--- !u!114 &2857740289343277952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974911906308443327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05be87d4f43f984c9a743ab4b263c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStat: {fileID: 0}
 --- !u!95 &1974911906315845495 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
@@ -1081,7 +1125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotClip: {fileID: 0}
   reloadClip: {fileID: 0}
+  bulletPos: {fileID: 2252598056833698552}
+  bullet: {fileID: 7242100510980987772, guid: 21abba490f7cb304a8f4bc8d279a6402, type: 3}
   damage: 25
   magCapacity: 25
-  timeBetFire: 0.12
+  ammoReMain: 50
+  rate: 0.12
   reloadTime: 1.8
+  fireDistance: 100
