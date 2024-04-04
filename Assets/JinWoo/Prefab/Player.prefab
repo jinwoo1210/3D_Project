@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6399713164001484115}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.41852477, y: 0.34116477, z: -0.17335865, w: 0.8236446}
+  m_LocalRotation: {x: 0.41852474, y: 0.34116474, z: -0.17335862, w: 0.82364464}
   m_LocalPosition: {x: -8, y: 16, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -664,15 +664,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 25.91
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.14752197
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 53.21
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -833,7 +833,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
-  m_Height: 1.8
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!143 &4308484585695836160
@@ -861,7 +861,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!114 &1417037635000349878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,15 +920,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1715468e165d1429f640fd11bc6c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 360
   activeRange: 30
   disableRange: 10
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &5320090649591671891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,6 +959,9 @@ MonoBehaviour:
     m_Bits: 256
   player: {fileID: 7511753471809627746}
   gun: {fileID: 105278236337491863}
+  data: {fileID: 11400000, guid: 622a32383f76a8040a591231fada89c6, type: 2}
+  muzzleFlash: {fileID: 2625416079673950622, guid: cfc657ef3c0c012479b259167ad89c2e, type: 3}
+  hitEffect: {fileID: 7662160287446461198, guid: 701e7ff7150afb1479314714e783fc72, type: 3}
 --- !u!114 &5591682337495606241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,8 +1013,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 23e4f6983d5be354aa62465ae3477609, type: 2}
-  curHp: 0
-  curStamina: 0
 --- !u!114 &2857740289343277952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1026,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStat: {fileID: 4535375396076140147}
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &1974911906315845495 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
