@@ -356,6 +356,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1900586067242068, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -470,12 +474,12 @@ MonoBehaviour:
   player: {fileID: 7511753471809627746}
   muzzleFlash: {fileID: 7826479479906003105}
   hitEffect: {fileID: 2480557484839700387}
+  gunData: {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
   bulletPos: {fileID: 2252598056833698552}
   bulletObject: {fileID: 7242100510980987772, guid: 21abba490f7cb304a8f4bc8d279a6402, type: 3}
   damage: 25
   magCapacity: 25
-  ammoReMain: 50
-  rate: 0.12
+  ammoRemain: 50
   reloadTime: 1.8
   fireDistance: 100
 --- !u!1001 &1974911906308540951
@@ -1020,6 +1024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1645a5b204d324418d243a56f58ba12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSwap: 0
+  equipWeaponIndex: -1
   health: {fileID: 2857740289343277952}
   bulletData:
   - {fileID: 11400000, guid: 622a32383f76a8040a591231fada89c6, type: 2}
@@ -1077,6 +1083,10 @@ PrefabInstance:
     - target: {fileID: 1328033259041762, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328033259041762, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 4878301781655884, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1159,12 +1169,12 @@ MonoBehaviour:
   player: {fileID: 7511753471809627746}
   muzzleFlash: {fileID: 7826479479906003105}
   hitEffect: {fileID: 2480557484839700387}
+  gunData: {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
   bulletPos: {fileID: 2252598056833698552}
   bulletObject: {fileID: 0}
   damage: 25
   magCapacity: 25
-  ammoReMain: 50
-  rate: 0.12
+  ammoRemain: 50
   reloadTime: 1.8
   fireDistance: 100
 --- !u!1001 &5256377640868047167
@@ -1255,6 +1265,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1100445705425232229, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 105278236337491863}
+    - target: {fileID: 1100445705425232229, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
     - target: {fileID: 1523201803015824849, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
       propertyPath: stat
       value: 
