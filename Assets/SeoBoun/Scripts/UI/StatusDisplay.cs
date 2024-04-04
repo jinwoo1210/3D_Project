@@ -9,7 +9,7 @@ public class StatusDisplay : MonoBehaviour
     [SerializeField] Slider staminaBar;
     [SerializeField] PlayerStat stat;
 
-    private void Start()
+    private void Awake()
     {
         stat.ChangePlayerHp += ChangeHpBar;
         stat.ChangePlayerStamina += ChangeStamina;

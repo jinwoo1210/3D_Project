@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour, IDamagable
 {
     [SerializeField] PlayerStat playerStat;
+    public UnityEvent OnDie;
 
     public bool TakeHit(int damage)
     {

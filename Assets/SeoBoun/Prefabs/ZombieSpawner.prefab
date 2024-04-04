@@ -477,7 +477,6 @@ MonoBehaviour:
   spawnRate: 5
   spawnData:
   - {fileID: 11400000, guid: dabaa08c2be67684780495b5e33e5f42, type: 2}
-  - {fileID: 11400000, guid: dabaa08c2be67684780495b5e33e5f42, type: 2}
 --- !u!135 &3170088277628245340
 SphereCollider:
   m_ObjectHideFlags: 0

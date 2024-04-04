@@ -19,6 +19,7 @@ public class PlayerMover : MonoBehaviour
     Coroutine staminaRoutine;
 
     bool isUseStamina = false;
+    bool isTired = false;
 
     private void Start()
     {
@@ -43,8 +44,15 @@ public class PlayerMover : MonoBehaviour
         controller.Move(forwardDir * moveDir.z * moveSpeed * Time.deltaTime);
         controller.Move(rightDir * moveDir.x * moveSpeed * Time.deltaTime);
 
-        animator.SetFloat("PosX", moveDir.x * moveSpeed, 0.1f, Time.deltaTime);
-        animator.SetFloat("PosY", moveDir.z * moveSpeed, 0.1f, Time.deltaTime);
+        animator.SetFloat("PosX", moveDir.x * moveSpeed, 0.25f, Time.deltaTime);
+        animator.SetFloat("PosY", moveDir.z * moveSpeed, 0.25f, Time.deltaTime);
+
+        if (playerStat.CurStamina <= 0)
+        {
+            isTired = true;
+            isUseStamina = false;
+            moveSpeed = playerStat.MoveSpeed;
+        }
     }
     private void OnMove(InputValue value)   // InputAction
     {
@@ -62,7 +70,7 @@ public class PlayerMover : MonoBehaviour
 
     private void OnRun(InputValue value)
     {
-        if(value.isPressed && playerStat.CurStamina > 0)
+        if (value.isPressed && !isTired)
         {
             moveSpeed = playerStat.MoveSpeed * 1.8f;
             isUseStamina = true;
@@ -71,6 +79,11 @@ public class PlayerMover : MonoBehaviour
         {
             moveSpeed = playerStat.MoveSpeed;
             isUseStamina = false;
+
+            if(playerStat.CurStamina >= 10)
+            {
+                isTired = false;
+            }
         }
     }
 
@@ -80,11 +93,11 @@ public class PlayerMover : MonoBehaviour
         {
             if (isUseStamina)
             {
-                playerStat.CurStamina--;
+                playerStat.CurStamina -= 2;
             }
             else
             {
-                playerStat.CurStamina++;
+                playerStat.CurStamina += 1;
             }
             yield return new WaitForSeconds(0.1f);
         }

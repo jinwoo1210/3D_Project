@@ -12,15 +12,17 @@ public class ZombieSpanwer : ObjectPool
     [SerializeField] List<ZombieData> spawnData;
 
     Coroutine spawnRoutine;
+    bool isSpawn = false;
 
     public void CreatePool()
     {
-        CreatePool(prefab, 10, 10);
+        base.CreatePool(prefab, 7, 7);
     }
 
     public void StartSpawn()
     {
-        spawnRoutine = StartCoroutine(SpawnRoutine());
+        if (!isSpawn)
+            spawnRoutine = StartCoroutine(SpawnRoutine());
     }
 
     public void StopSpawn()
@@ -35,16 +37,21 @@ public class ZombieSpanwer : ObjectPool
 
     IEnumerator SpawnRoutine()
     {
-        // 최대 좀비 수만큼만 하도록 수정?
-        yield return new WaitForSeconds(Random.Range(1.5f, 5f));
-        while (true)
+        // 최대 좀비 수만큼만 하도록 수정 -> 스폰 지점 별 10마리 최댓값 설정
+        isSpawn = true;
+
+        yield return new WaitForSeconds(1f);
+
+        PooledObject monster = GetPool(transform.position, Quaternion.identity);
+
+        if (monster != null)
         {
-            PooledObject monster = GetPool(transform.position, Quaternion.identity);
             monster.GetComponent<Monster>().Init(spawnData[0]);
             monster.gameObject.SetActive(true);
             monster.transform.position += new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
-            yield return new WaitForSeconds(spawnRate);
         }
+
+        isSpawn = false;
     }
 
     private void OnDestroy()
@@ -52,4 +59,5 @@ public class ZombieSpanwer : ObjectPool
         if (spawnRoutine != null)
             StopCoroutine(spawnRoutine);
     }
+
 }
