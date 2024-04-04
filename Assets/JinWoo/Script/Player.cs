@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     GameObject nearObject;
     Gun equipWeapon;
     public PlayerHealth health;
-    public PlayerShooter shooter;
     public BulletData[] bulletData;
     public Bullet bullet;
     public GameObject[] weapons;
@@ -33,7 +32,6 @@ public class Player : MonoBehaviour
         GetInput();
         OnPick();
         OnShow();
-        //Attack();
         fireDelay += Time.deltaTime;
     }
 
