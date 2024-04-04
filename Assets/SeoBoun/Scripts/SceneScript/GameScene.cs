@@ -6,7 +6,10 @@ public class GameScene : BaseScene
 {
     public override IEnumerator LoadingRoutine()
     {
-
         yield return null;
+    }
+
+    private void Start()
+    {
     }
 }

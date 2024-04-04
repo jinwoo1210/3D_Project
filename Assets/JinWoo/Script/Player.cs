@@ -25,9 +25,6 @@ public class Player : MonoBehaviour
     public GameObject[] weapons;
     public bool[] hasWeapon;
     
-
-
-
     private void Update()
     {
         GetInput();
@@ -45,8 +42,6 @@ public class Player : MonoBehaviour
         sDown2 = Input.GetButtonDown("Swap2");
         fDown = Input.GetButtonDown("Fire1");
     }
-
-
 
     private void OnPick()
     {

@@ -5,8 +5,8 @@ public class PlayerStat : MonoBehaviour
 {
     [SerializeField] PlayerData playerData;
 
-    [SerializeField] int curHp;
-    [SerializeField] int curStamina;
+    int curHp;
+    int curStamina;
     int moveSpeed;
     int runSpeed;
 
@@ -40,9 +40,10 @@ public class PlayerStat : MonoBehaviour
     public int RunSpeed { get { return runSpeed; } }
     public int MaxHp { get { return playerData.maxHp; } }
     // 처음 초기화 데이터 수정
-    private void Awake()
+
+    private void Start()
     {
-        Init();
+        SetUp();
     }
 
     public void Init()
@@ -53,9 +54,9 @@ public class PlayerStat : MonoBehaviour
         runSpeed = playerData.runSpeed;
     }
 
-    [ContextMenu("SetUp")]
     public void SetUp()
     {
+        Init();
         ChangePlayerHp?.Invoke(playerData.maxHp, curHp);
         ChangePlayerStamina?.Invoke(playerData.maxStamina, curStamina);
     }
