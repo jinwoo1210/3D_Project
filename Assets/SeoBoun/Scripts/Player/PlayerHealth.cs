@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour, IDamagable
 {
     [SerializeField] PlayerStat playerStat;
+    public UnityEvent OnDie;
 
     public bool TakeHit(int damage)
     {
@@ -21,7 +23,9 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     [ContextMenu("Heal")]
     public bool Heal()
     {
-        playerStat.CurHp += 35;
+        int targetHp = playerStat.CurHp + 35 < playerStat.MaxHp? playerStat.CurHp + 35 : playerStat.MaxHp;
+        
+        StartCoroutine(HealRoutine(playerStat.CurHp, targetHp));
 
         return false;
     }
@@ -29,6 +33,19 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     private void Die()
     {
         Debug.Log("Player Die");
+    }
+
+    IEnumerator HealRoutine(int curHp, int targetHp)
+    {
+        while (true)
+        {
+            playerStat.CurHp += 1;
+
+            if (playerStat.CurHp == targetHp)
+                break;
+
+            yield return new WaitForSeconds(0.03f);
+        }
     }
 }
 

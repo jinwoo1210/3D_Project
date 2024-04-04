@@ -15,8 +15,10 @@ MonoBehaviour:
   gunId: 0
   gunName: 
   gunDesc: 
-  magCapacity: 0
-  ammoRemain: 0
+  magCapacity: 25
+  ammoRemain: 50
+  timeBetFire: 0.12
+  reloadTime: 1.8
   icon: {fileID: 0}
   BaseDamage: 0
   Damage: []

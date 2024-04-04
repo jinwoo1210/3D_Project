@@ -36,15 +36,8 @@ public class ObjectPool : MonoBehaviour
             instance.transform.parent = null;
             return instance;
         }
-        else
-        {
-            PooledObject instance = Instantiate(prefab);
-            instance.Pool = this;
-            instance.transform.position = position;
-            instance.transform.rotation = rotation;
-            instance.transform.parent = null;
-            return instance;
-        }
+
+        return null;
     }
 
     public void ReturnPool(PooledObject instance)

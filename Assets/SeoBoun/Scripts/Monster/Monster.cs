@@ -349,7 +349,7 @@ public class Monster : PooledObject, IDamagable
 
         public override void Transition()
         {
-            if (Vector3.Distance(owner.transform.position, owner.startPos) < 0.1f && !owner.monsterFov.isFind)
+            if (Vector3.Distance(owner.transform.position, owner.startPos) < 4f && !owner.monsterFov.isFind)
             {
                 owner.curState = States.Idle;
                 fsm.ChangeState(States.Idle);

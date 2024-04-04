@@ -70,6 +70,7 @@ public class Gun : MonoBehaviour
             Debug.Log("몬스터 공격");
 
             ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Debug.Log(effect);
             effect.transform.parent = hit.transform;
             muzzleFlash.Play();
             Use();
