@@ -5277,7 +5277,7 @@ GameObject:
   - component: {fileID: 407859399}
   - component: {fileID: 407859398}
   - component: {fileID: 407859397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5364,8 +5364,8 @@ Transform:
   m_GameObject: {fileID: 407859396}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5076058, y: 3.0070872, z: 3.1377294}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.5076058, y: 1.09, z: 12.31}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5582,6 +5582,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 906193266948139556, guid: e4e03a517d0618043a21fb280504219d, type: 3}
+      propertyPath: hp
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 1431092764635938139, guid: e4e03a517d0618043a21fb280504219d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2815429
@@ -10469,6 +10473,28 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &856335815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 105278236337491863, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
+  m_PrefabInstance: {fileID: 4467887147911108275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe3df0caa71d154b83431ae7781e3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &981592835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4535375396076140147, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
+  m_PrefabInstance: {fileID: 4467887147911108275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0acaa446310e644db6eb8aba574508f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1454538308
 GameObject:
   m_ObjectHideFlags: 0
@@ -10757,6 +10783,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1100445705425232229, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 856335815}
+    - target: {fileID: 1100445705425232229, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
+    - target: {fileID: 1523201803015824849, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 981592835}
     - target: {fileID: 3347866293150295649, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10941,6 +10979,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 105278236337491863, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 7662160287446461198, guid: 701e7ff7150afb1479314714e783fc72, type: 3}
     - target: {fileID: 1974911906308411551, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -12,14 +12,12 @@ public class Player : MonoBehaviour
     bool sDown1;
     bool sDown2;
     bool fDown;
-    private bool isSwap;
-    private bool isFireReady;
-    private float fireDelay;
+    public bool isSwap;
+    public int equipWeaponIndex = -1;
 
     GameObject nearObject;
     Gun equipWeapon;
     public PlayerHealth health;
-    public PlayerShooter shooter;
     public BulletData[] bulletData;
     public Bullet bullet;
     public GameObject[] weapons;
@@ -30,8 +28,6 @@ public class Player : MonoBehaviour
         GetInput();
         OnPick();
         OnShow();
-        //Attack();
-        fireDelay += Time.deltaTime;
     }
 
 
@@ -58,7 +54,7 @@ public class Player : MonoBehaviour
             else if (nearObject.tag == "Item")
             {
                 Destroy(nearObject);
-                bullet.ammoReMain += bullet.bulletCount;
+                bullet.ammoRemain += bullet.bulletCount;
                 Debug.Log($"{nearObject.name}을 먹었습니다.");
             }
         }
@@ -66,6 +62,11 @@ public class Player : MonoBehaviour
 
     private void OnShow()
     {
+        if (sDown1 && (!hasWeapon[0] || equipWeaponIndex == 0))
+            return;
+        if (sDown2 && (!hasWeapon[1] || equipWeaponIndex == 1))
+            return;
+
         int weaponIndex = -1;
         if (sDown1) weaponIndex = 0;
         if (sDown2) weaponIndex = 1;
@@ -74,7 +75,7 @@ public class Player : MonoBehaviour
         {
             if (equipWeapon != null)
                 equipWeapon.gameObject.SetActive(false);
-            //equipWeaponIndex = weaponIndex;
+            equipWeaponIndex = weaponIndex;
             equipWeapon = weapons[weaponIndex].GetComponent<Gun>();
             equipWeapon.gameObject.SetActive(true);
 
@@ -85,21 +86,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Attack()
+    private void SwapOut()
     {
-        if (equipWeapon == null)
-        {
-            return;
-        }
-
-        isFireReady = equipWeapon.rate < fireDelay;
-
-        if (isFireReady/*!isSwap*/)
-        {
-            equipWeapon.Use();
-            fireDelay = 0;
-        }
-
+        isSwap = false;
     }
 
     private void OnHeal(InputValue value)

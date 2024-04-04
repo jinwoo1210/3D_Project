@@ -6,17 +6,18 @@ using UnityEngine.UI;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] public int magCapacity;
-    [SerializeField] public int ammoReMain;
+    [SerializeField] public int ammoRemain;
     [SerializeField] public int bulletCount;
-    public BulletData data;
+    public GunData data;
+    public Gun gun;
     
     Text text;
 
-    public void inIt(BulletData bulletData)
+    public void inIt(GunData gunData)
     {
-        magCapacity = bulletData.MagCapacity;       //ÃÑ¾Ë ¹ß»ç
-        ammoReMain = bulletData.AmmoRemain;
-        bulletCount = bulletData.bulletCount;
+        magCapacity = gunData.magCapacity;       //ÃÑ¾Ë ¹ß»ç
+        ammoRemain = gunData.ammoRemain;
+        //bulletCount = gunData.bulletCount;
 
     }
 
@@ -24,13 +25,11 @@ public class Bullet : MonoBehaviour
     {
         inIt(data);
         Text[] texts = GetComponentsInChildren<Text>();
-        if(texts != null)
         text = texts[0];
     }
 
     private void LateUpdate()
     {
-        if(text != null)
-        text.text = data.MagCapacity + "/" + data.AmmoRemain;
+        text.text = gun.magCapacity + "/" + gun.ammoRemain;
     }
 }
