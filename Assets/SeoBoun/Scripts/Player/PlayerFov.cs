@@ -24,7 +24,7 @@ public class PlayerFov : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(20f);
             int size = Physics.OverlapSphereNonAlloc(transform.position, activeRange, colliders, targetMask);
             
             for (int i = 0; i < size; i++)
