@@ -12,10 +12,8 @@ public class Player : MonoBehaviour
     bool sDown1;
     bool sDown2;
     bool fDown;
-    private bool isSwap;
-    private bool isFireReady;
-    private float fireDelay;
-    public int equipWeaponIndex;
+    public bool isSwap;
+    public int equipWeaponIndex = -1;
 
     GameObject nearObject;
     Gun equipWeapon;
@@ -33,7 +31,6 @@ public class Player : MonoBehaviour
         GetInput();
         OnPick();
         OnShow();
-        fireDelay += Time.deltaTime;
     }
 
 
@@ -62,7 +59,7 @@ public class Player : MonoBehaviour
             else if (nearObject.tag == "Item")
             {
                 Destroy(nearObject);
-                bullet.ammoReMain += bullet.bulletCount;
+                bullet.ammoRemain += bullet.bulletCount;
                 Debug.Log($"{nearObject.name}을 먹었습니다.");
             }
         }
@@ -97,23 +94,6 @@ public class Player : MonoBehaviour
     private void SwapOut()
     {
         isSwap = false;
-    }
-
-    public void Attack()
-    {
-        if (equipWeapon == null)
-        {
-            return;
-        }
-
-        isFireReady = equipWeapon.rate < fireDelay;
-
-        if (isFireReady/*!isSwap*/)
-        {
-            equipWeapon.Use();
-            fireDelay = 0;
-        }
-
     }
 
     private void OnHeal(InputValue value)
