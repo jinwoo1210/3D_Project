@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+// using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 
 public class SceneManager : Singleton<SceneManager>
 {
@@ -48,7 +48,7 @@ public class SceneManager : Singleton<SceneManager>
         Time.timeScale = 0f;
         loadingBar.gameObject.SetActive(true);
 
-        AsyncOperation oper = UnitySceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation oper = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
         while (oper.isDone == false)
         {
             loadingBar.value = oper.progress;
