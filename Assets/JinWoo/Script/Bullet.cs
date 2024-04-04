@@ -14,8 +14,8 @@ public class Bullet : MonoBehaviour
 
     public void inIt(BulletData bulletData)
     {
-        magCapacity = bulletData.MagCapacity;       //ÃÑ¾Ë ¹ß»ç
-        ammoReMain = bulletData.AmmoRemain;
+        magCapacity = bulletData.magCapacity;       //ÃÑ¾Ë ¹ß»ç
+        ammoReMain = bulletData.ammoRemain;
         bulletCount = bulletData.bulletCount;
 
     }

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private bool isSwap;
     private bool isFireReady;
     private float fireDelay;
+    public int equipWeaponIndex;
 
     GameObject nearObject;
     Gun equipWeapon;
@@ -69,6 +70,11 @@ public class Player : MonoBehaviour
 
     private void OnShow()
     {
+        if (sDown1 && (!hasWeapon[0] || equipWeaponIndex == 0))
+            return;
+        if (sDown2 && (!hasWeapon[1] || equipWeaponIndex == 1))
+            return;
+
         int weaponIndex = -1;
         if (sDown1) weaponIndex = 0;
         if (sDown2) weaponIndex = 1;
@@ -77,7 +83,7 @@ public class Player : MonoBehaviour
         {
             if (equipWeapon != null)
                 equipWeapon.gameObject.SetActive(false);
-            //equipWeaponIndex = weaponIndex;
+            equipWeaponIndex = weaponIndex;
             equipWeapon = weapons[weaponIndex].GetComponent<Gun>();
             equipWeapon.gameObject.SetActive(true);
 
@@ -86,6 +92,11 @@ public class Player : MonoBehaviour
 
             Invoke("SwapOut", 0.4f);
         }
+    }
+
+    private void SwapOut()
+    {
+        isSwap = false;
     }
 
     public void Attack()
