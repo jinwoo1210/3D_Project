@@ -39,6 +39,7 @@ public class PlayerStat : MonoBehaviour
     public int MoveSpeed { get { return moveSpeed; } }
     public int RunSpeed { get { return runSpeed; } }
     public int MaxHp { get { return playerData.maxHp; } }
+    public int MaxStamina { get { return playerData.maxStamina; } }
     // 처음 초기화 데이터 수정
 
     private void Start()
