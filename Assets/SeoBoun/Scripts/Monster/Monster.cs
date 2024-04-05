@@ -160,7 +160,7 @@ public class Monster : PooledObject, IDamagable
 
     IEnumerator HitRoutine()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         fsm.ChangeState(States.Idle);
     }
 
@@ -335,6 +335,11 @@ public class Monster : PooledObject, IDamagable
                     fsm.ChangeState(States.Return);
                 }
             }
+        }
+
+        public override void Exit()
+        {
+            owner.Animator.SetTrigger("Walk");
         }
     }
 

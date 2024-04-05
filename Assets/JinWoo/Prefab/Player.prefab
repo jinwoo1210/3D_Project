@@ -466,14 +466,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe3df0caa71d154b83431ae7781e3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   animator: {fileID: 1974911906315845495}
   muzzlePoint: {fileID: 4589582948706383833}
+  shootableLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   monsterLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   player: {fileID: 7511753471809627746}
   muzzleFlash: {fileID: 7826479479906003105}
-  hitEffect: {fileID: 2480557484839700387}
+  hitEffect: {fileID: 7662160287446461198, guid: 701e7ff7150afb1479314714e783fc72, type: 3}
+  bloodEffect: {fileID: 0}
   gunData: {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
   bulletPos: {fileID: 2252598056833698552}
   bulletObject: {fileID: 7242100510980987772, guid: 21abba490f7cb304a8f4bc8d279a6402, type: 3}
@@ -708,7 +716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.y
@@ -716,7 +724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1155,14 +1163,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe3df0caa71d154b83431ae7781e3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   animator: {fileID: 1974911906315845495}
   muzzlePoint: {fileID: 4589582948706383833}
+  shootableLayer:
+    serializedVersion: 2
+    m_Bits: 0
   monsterLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   player: {fileID: 7511753471809627746}
   muzzleFlash: {fileID: 7826479479906003105}
   hitEffect: {fileID: 2480557484839700387}
+  bloodEffect: {fileID: 0}
   gunData: {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
   bulletPos: {fileID: 2252598056833698552}
   bulletObject: {fileID: 0}
