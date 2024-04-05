@@ -53,4 +53,6 @@ public class DataManager : Singleton<DataManager>
     {
         return File.Exists($"{path}/{index}.txt");
     }
+
+
 }

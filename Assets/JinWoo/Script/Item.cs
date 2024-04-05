@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ItemType { Weapon, Ammo, Medical, Food, Elect, Tool }
 public class Item : MonoBehaviour, IInteractor
 {
-    public enum Type { Weapon, Heal, Ammo}
-    public Type type;
+    // 모든 아이템이 가질 베이스 클래스
+    public ItemType type;
     public int value;
 
     private void Update()
@@ -13,19 +14,10 @@ public class Item : MonoBehaviour, IInteractor
         transform.Rotate(Vector3.up * 30 *  Time.deltaTime, Space.World);
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
-        if (type == Type.Weapon)
-        {
-            // 장착하는 기능
-        }
-        else if ( type == Type.Heal)
-        {
-            // 힐 하는 기능
-        }
-        else if (type == Type.Ammo)
-        {
-            // 탄약 충전 기능
-        }
+        Debug.Log("구현하지 않았음!!!");
     }
+
+
 }
