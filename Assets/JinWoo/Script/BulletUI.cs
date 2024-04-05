@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class BulletUI : MonoBehaviour
 {
-    [SerializeField] public int magCapacity;
-    [SerializeField] public int ammoRemain;
+    [SerializeField] public int curAmmo;
+    [SerializeField] public int remainAmmo;
     // public int bulletCount;
-    public GunData data;
     public Gun gun;
+    public GunData data;
     
     Text text;
 
     public void inIt(GunData gunData)
     {
-        magCapacity = gunData.magCapacity;       //ÃÑ¾Ë ¹ß»ç
-        ammoRemain = gunData.ammoRemain;
+        curAmmo = gun.curAmmo;       //ÃÑ¾Ë ¹ß»ç
+        remainAmmo = gun.remainAmmo;
     }
 
     private void Awake()
@@ -28,6 +28,6 @@ public class BulletUI : MonoBehaviour
 
     private void LateUpdate()
     {
-        text.text = $"{gun.magCapacity} / {gun.ammoRemain}";
+        text.text = $"{gun.curAmmo} / {gun.remainAmmo}";
     }
 }

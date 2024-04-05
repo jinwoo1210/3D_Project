@@ -486,8 +486,10 @@ MonoBehaviour:
   bulletPos: {fileID: 2252598056833698552}
   bulletObject: {fileID: 7242100510980987772, guid: 21abba490f7cb304a8f4bc8d279a6402, type: 3}
   damage: 25
-  magCapacity: 25
-  ammoRemain: 50
+  curAmmo: 0
+  remainAmmo: 0
+  reloadAmmo: 0
+  shootSpeed: 0
   reloadTime: 1.8
   fireDistance: 100
 --- !u!1001 &1974911906308540951
@@ -716,7 +718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.y
@@ -724,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.8
+      value: -0.88
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -846,6 +848,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2857740289343277952}
+    - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8389396232223051233}
   m_SourcePrefab: {fileID: 100100000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
 --- !u!4 &1974911906308411551 stripped
 Transform:
@@ -1065,6 +1070,21 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8389396232223051233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974911906308443327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e59fb1457a86bc48bb736067f1ad643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunData: {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
+  gun: {fileID: 105278236337491863}
+  level: 0
 --- !u!95 &1974911906315845495 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
@@ -1183,8 +1203,10 @@ MonoBehaviour:
   bulletPos: {fileID: 2252598056833698552}
   bulletObject: {fileID: 0}
   damage: 25
-  magCapacity: 25
-  ammoRemain: 50
+  curAmmo: 0
+  remainAmmo: 0
+  reloadAmmo: 0
+  shootSpeed: 0
   reloadTime: 1.8
   fireDistance: 100
 --- !u!1001 &5256377640868047167
