@@ -12,7 +12,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] Transform muzzlePoint;
     [SerializeField] LayerMask monsterLayer;
     [SerializeField] Player player;
-    [SerializeField] Bullet bullet;
+    [SerializeField] BulletUI bullet;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] ParticleSystem hitEffect;
     

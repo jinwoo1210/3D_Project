@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     Gun equipWeapon;
     public PlayerHealth health;
     public BulletData[] bulletData;
-    public Bullet bullet;
+    public BulletUI bullet;
     public GameObject[] weapons;
     public bool[] hasWeapon;
     
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
             else if (nearObject.tag == "Item")
             {
                 Destroy(nearObject);
-                bullet.ammoRemain += bullet.bulletCount;
+                // bullet.ammoRemain += bullet.bulletCount;
                 Debug.Log($"{nearObject.name}을 먹었습니다.");
             }
         }

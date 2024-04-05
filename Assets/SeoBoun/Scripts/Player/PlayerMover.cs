@@ -23,9 +23,9 @@ public class PlayerMover : MonoBehaviour
 
     private void Start()
     {
-        moveSpeed = playerStat.MoveSpeed;
         staminaRoutine = StartCoroutine(StaminaRoutine());
         playerStat.SetUp();
+        moveSpeed = playerStat.MoveSpeed;
     }
 
     private void Update()

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bullet : MonoBehaviour
+public class BulletUI : MonoBehaviour
 {
     [SerializeField] public int magCapacity;
     [SerializeField] public int ammoRemain;
-    [SerializeField] public int bulletCount;
+    // public int bulletCount;
     public GunData data;
     public Gun gun;
     
@@ -17,8 +17,6 @@ public class Bullet : MonoBehaviour
     {
         magCapacity = gunData.magCapacity;       //ÃÑ¾Ë ¹ß»ç
         ammoRemain = gunData.ammoRemain;
-        //bulletCount = gunData.bulletCount;
-
     }
 
     private void Awake()
@@ -30,6 +28,6 @@ public class Bullet : MonoBehaviour
 
     private void LateUpdate()
     {
-        text.text = gun.magCapacity + "/" + gun.ammoRemain;
+        text.text = $"{gun.magCapacity} / {gun.ammoRemain}";
     }
 }
