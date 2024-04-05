@@ -111,8 +111,6 @@ public class Player : MonoBehaviour
         {
             nearObject = other.gameObject;
         }
-
-        //Debug.Log(nearObject.name);
     }
 
     private void OnTriggerExit(Collider other)
