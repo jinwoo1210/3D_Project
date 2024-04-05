@@ -38,6 +38,9 @@ public class PlayerRotater : MonoBehaviour
         {
             transform.LookAt(new Vector3(hitInfo.point.x, transform.position.y, hitInfo.point.z));
         }
+
+        transform.Rotate(Vector3.up, 45f);
+
         /*
         Plane GroupPlane = new Plane(Vector3.up, Vector3.zero);
 

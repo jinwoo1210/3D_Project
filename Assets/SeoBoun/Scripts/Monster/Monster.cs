@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using static UnityEngine.UI.GridLayoutGroup;
 
 // 좀비의 기본 상태
-public enum States { Idle, Trace, Attack, Return, Patrol, Hit, Die, Size }
+public enum States { Idle, Trace, Attack, Return, Patrol, Die, Size }
 
 // 어택은 구분이 조금 필요함. -> 공격 중에는 Trace도, 무엇도 불가능하며 특히 쿨타임을 계산하려면 필수 항목일지도..?
 public enum AttackStates { BeginAttack, Attacking, EndAttacking, Size}
@@ -151,18 +151,12 @@ public class Monster : PooledObject, IDamagable
         }
         else
         {
-            fsm.ChangeState(States.Hit);
-            hitRoutine = StartCoroutine(HitRoutine());
+            animator.SetTrigger("Hit");
         }
 
         return true;
     }
 
-    IEnumerator HitRoutine()
-    {
-        yield return new WaitForSeconds(0.5f);
-        fsm.ChangeState(States.Idle);
-    }
 
     public void ReturnPool()
     {
@@ -203,7 +197,6 @@ public class Monster : PooledObject, IDamagable
             states[(int)States.Trace] = new TraceState(this, owner);
             states[(int)States.Attack] = new AttackState(this, owner);
             states[(int)States.Return] = new ReturnState(this, owner);
-            states[(int)States.Hit] = new HitState(this, owner);
             states[(int)States.Die] = new DieState(this, owner);
 
             curState = initState;
@@ -365,17 +358,6 @@ public class Monster : PooledObject, IDamagable
                 owner.curState = States.Trace;
                 fsm.ChangeState(States.Trace);
             }
-        }
-    }
-
-    private class HitState : BaseState
-    {
-        public HitState(StatesMachine fsm, Monster owner) : base(fsm, owner) { }
-
-        public override void Enter()
-        {
-            owner.curState = States.Hit;
-            owner.animator.SetTrigger("Hit");
         }
     }
 
