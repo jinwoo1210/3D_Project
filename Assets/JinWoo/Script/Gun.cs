@@ -77,10 +77,15 @@ public class Gun : MonoBehaviour
             return;                             // 밑의 문장을 실행하지 않고 종료(return)
 
         // Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
-        if (Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, fireDistance, shootableLayer))
+
+        Vector3 pos = muzzlePoint.forward;
+        pos.y = 0f;
+
+        if (Physics.Raycast(muzzlePoint.position, pos, out RaycastHit hit, fireDistance, shootableLayer))
         {
             // muzzlePoint에서, muzzlePoint 앞 방향으로, 사거리(fireDistance) 만큼 몬스터에게 레이를 쏘겠다
-            Debug.Log(hit.collider.gameObject.name);
+            Debug.Log(hit.collider);
+
             // 만약 타겟이 IDamagable 인터페이스를 가지고 있다면
             IDamagable target = hit.collider.gameObject.GetComponent<IDamagable>();
 
