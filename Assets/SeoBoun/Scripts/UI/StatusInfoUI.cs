@@ -9,6 +9,11 @@ public class StatusInfoUI : BindingUI
         base.Awake();
     }
 
+    private void Start()
+    {
+        ShowPackInfo();
+    }
+
     public void ShowGunInfo(GunData gunData, int level)
     {
         // 건 정보 표기 -> 선택한 Gun에대한 데이터 넣기 + level 관리하기
@@ -29,13 +34,13 @@ public class StatusInfoUI : BindingUI
 
     public void ShowPackInfo()
     {
-        // texts["MedicalPoint"].text 
-        // texts["MedicalLevel"].text = $"{curLevel}/{maxLevel}"
-        // texts["FoodPoint"].text 
-        // texts["FoodLevel"].text = $"{curLevel}/{maxLevel}"
-        // texts["ElectPoint"].text 
-        // texts["ElectLevel"].text = $"{curLevel}/{maxLevel}"
-        // texts["ToolPoint"].text 
-        // texts["ToolLevel"].text = $"{curLevel}/{maxLevel}"
+        texts["MedicalPoint"].text = PlayerItemInventory.Inventory.MedicalPoint.ToString();
+        texts["MedicalLevel"].text = $"{PlayerItemInventory.Inventory.MedicalLevel}/{6}";
+        texts["FoodPoint"].text = PlayerItemInventory.Inventory.FoodPoint.ToString();
+        texts["FoodLevel"].text = $"{PlayerItemInventory.Inventory.FoodLevel}/{6}";
+        texts["ElectPoint"].text = PlayerItemInventory.Inventory.ElectPoint.ToString();
+        texts["ElectLevel"].text = $"{PlayerItemInventory.Inventory.ElectLevel}/{6}";
+        texts["ToolPoint"].text = PlayerItemInventory.Inventory.ToolPoint.ToString();
+        texts["ToolLevel"].text = $"{PlayerItemInventory.Inventory.ToolLevel}/{6}";
     }
 }

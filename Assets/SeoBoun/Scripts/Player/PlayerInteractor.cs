@@ -9,7 +9,6 @@ public class PlayerInteractor : MonoBehaviour
     Collider[] colliders = new Collider[10];
     private void OnInteract(InputValue value)
     {
-        Debug.Log("상호작용 시도");
         int size = Physics.OverlapSphereNonAlloc(transform.position, 3f, colliders, itemLayer);
         
         for(int i = 0; i < size; i++)

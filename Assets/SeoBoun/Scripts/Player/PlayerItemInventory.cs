@@ -10,6 +10,8 @@ public class PlayerItemInventory : MonoBehaviour
     public static PlayerItemInventory instance;
 
     public static PlayerItemInventory Inventory { get { return instance; } }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private void Awake()
     {
         if(instance != null)
@@ -52,6 +54,8 @@ public class PlayerItemInventory : MonoBehaviour
         }
     }
 
+    public int MedicalLevel { get { return medicalLevel; } }
+
     public void AddMedicalEvent(Action<int, int> action)
     {
         ChangeMedicalPoint += action;
@@ -66,6 +70,8 @@ public class PlayerItemInventory : MonoBehaviour
             ChangeFoodPoint?.Invoke(maxPoint[foodLevel], foodPoint);
         }
     }
+
+    public int FoodLevel { get { return foodLevel; } }
 
     public void AddFoodEvent(Action<int, int> action)
     {
@@ -82,6 +88,8 @@ public class PlayerItemInventory : MonoBehaviour
         }
     }
 
+    public int ElectLevel { get { return electLevel; } }
+
     public void AddElectEvent(Action<int, int> action)
     {
         ChangeElectPoint += action;
@@ -96,6 +104,8 @@ public class PlayerItemInventory : MonoBehaviour
             ChangeToolPoint?.Invoke(maxPoint[toolLevel], toolPoint);
         }
     }
+
+    public int ToolLevel { get { return toolLevel; } }
 
     public void AddToolEvent(Action<int, int> action)
     {

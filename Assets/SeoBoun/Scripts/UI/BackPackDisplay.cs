@@ -8,7 +8,7 @@ public class BackPackDisplay : MonoBehaviour
     [SerializeField] Slider electSlider;
     [SerializeField] Slider toolSlider;
 
-    private void Awake()
+    private void Start()
     {
         PlayerItemInventory.Inventory.AddMedicalEvent(SetMedicalSlider);
         PlayerItemInventory.Inventory.AddFoodEvent(SetFoodSlider);
