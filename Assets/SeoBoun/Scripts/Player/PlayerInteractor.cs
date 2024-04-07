@@ -5,17 +5,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [ContextMenu("Interactor")]
-    private void OnInteract()
+    [SerializeField] LayerMask itemLayer;
+    Collider[] colliders = new Collider[10];
+    private void OnInteract(InputValue value)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 10f);
+        Debug.Log("상호작용 시도");
+        int size = Physics.OverlapSphereNonAlloc(transform.position, 3f, colliders, itemLayer);
         
-        foreach(Collider collider in colliders)
+        for(int i = 0; i < size; i++)
         {
-            IInteractable target = collider.gameObject.GetComponent<IInteractable>();
+            IInteractable target = colliders[i].gameObject.GetComponent<IInteractable>();
             if(target != null)
             {
                 target.Interactor(this);
+                return;
             }
         }
     }
