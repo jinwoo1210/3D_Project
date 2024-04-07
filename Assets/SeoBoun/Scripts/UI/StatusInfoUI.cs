@@ -34,6 +34,9 @@ public class StatusInfoUI : BindingUI
 
     public void ShowPackInfo()
     {
+        if (PlayerItemInventory.Inventory == null)
+            return;
+
         texts["MedicalPoint"].text = PlayerItemInventory.Inventory.MedicalPoint.ToString();
         texts["MedicalLevel"].text = $"{PlayerItemInventory.Inventory.MedicalLevel}/{6}";
         texts["FoodPoint"].text = PlayerItemInventory.Inventory.FoodPoint.ToString();

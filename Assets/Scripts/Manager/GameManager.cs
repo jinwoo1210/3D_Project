@@ -6,6 +6,9 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        if (GameObject.FindWithTag("Player") == null)
+            return;
+
         playerPos = GameObject.FindWithTag("Player").transform;
     }
 }

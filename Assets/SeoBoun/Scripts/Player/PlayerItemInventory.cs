@@ -25,7 +25,6 @@ public class PlayerItemInventory : MonoBehaviour
         }
     }
 
-
     [SerializeField] int medicalPoint;        // 의료 포인트
     [SerializeField] int medicalLevel;        // 의료 배낭 레벨
 
@@ -162,22 +161,6 @@ public class PlayerItemInventory : MonoBehaviour
         ChangeToolPoint?.Invoke(maxPoint[ToolLevel], ToolPoint);
     }
 
-    public void GetData(GameData data)
-    {
-
-    }
-
-    private void SetMaxPoint()
-    {
-        // max값 설정?
-        maxPoint.Add(5);    // 0
-        maxPoint.Add(10);   // 1
-        maxPoint.Add(15);   // 2
-        maxPoint.Add(20);   // 3
-        maxPoint.Add(25);   // 4
-        maxPoint.Add(30);   // 5
-    }
-
     public bool isFull(ItemType type)
     {
         switch (type)
@@ -196,22 +179,5 @@ public class PlayerItemInventory : MonoBehaviour
                 break;
         }
         return false;
-    }
-
-    public int curPoint(ItemType type)
-    {
-        switch(type)
-        {
-            case ItemType.Medical:
-                return MedicalPoint;
-            case ItemType.Food:
-                return FoodPoint;
-            case ItemType.Elect:
-                return ElectPoint;
-            case ItemType.Tool:
-                return ToolPoint;
-        }
-
-        return -1;
     }
 }
