@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/SeoBoun/Scenes/Part03Scene.unity
     guid: d012ba2d92c55944e9b1a2a4c35d1b43
+  - enabled: 1
+    path: Assets/SeoBoun/Scenes/ItemScene.unity
+    guid: 8446e23b3d91156418519ce7b7184fe8
   m_configObjects: {}

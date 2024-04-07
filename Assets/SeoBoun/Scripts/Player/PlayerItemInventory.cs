@@ -14,13 +14,15 @@ public class PlayerItemInventory : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private void Awake()
     {
-        if(instance != null)
+        if(instance == null)
         {
-            Destroy(this);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -152,6 +154,14 @@ public class PlayerItemInventory : MonoBehaviour
     }
 
     // 데이터 가져오기
+    public void SetUp()
+    {
+        ChangeMedicalPoint?.Invoke(maxPoint[MedicalLevel], MedicalPoint);
+        ChangeFoodPoint?.Invoke(maxPoint[FoodLevel], FoodPoint);
+        ChangeElectPoint?.Invoke(maxPoint[ElectLevel], ElectPoint);
+        ChangeToolPoint?.Invoke(maxPoint[ToolLevel], ToolPoint);
+    }
+
     public void GetData(GameData data)
     {
 
