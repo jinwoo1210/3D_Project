@@ -12,10 +12,17 @@ public class ExitScene : BaseScene
 
         statusInfoUI = FindObjectOfType<StatusInfoUI>();
         statusInfoUI.ShowPackInfo();
+        statusInfoUI.ShowStatusInfo();
     }
 
     public void ShowInfo()
     {
         statusInfoUI.ShowPackInfo();
     }
+
+    public void ShowStatInfo()
+    {
+        statusInfoUI.ShowStatusInfo();
+    }
+
 }

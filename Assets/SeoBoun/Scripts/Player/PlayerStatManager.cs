@@ -9,7 +9,6 @@ public class PlayerStatManager : MonoBehaviour
     // 모든 포인트 관리
     private static PlayerStatManager instance;
     public FieldInventory FieldInventory;
-    public PlayerStat playerStat;
 
     public static PlayerStatManager Inventory { get { return instance; } }
 

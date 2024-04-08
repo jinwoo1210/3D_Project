@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class StatusInfoUI : BindingUI
 {
@@ -19,12 +20,14 @@ public class StatusInfoUI : BindingUI
         // texts["FireDistanceText"].text
     }
 
-    public void ShowStatusInfo(PlayerStat player)
+    public void ShowStatusInfo()
     {
         // 플레이어 스탯 표기
-        texts["HPText"].text = player.MaxHp.ToString();
-        texts["StaminaText"].text = player.MaxStamina.ToString();
-        texts["SpeedText"].text = player.MoveSpeed.ToString();
+        texts["HPText"].text = (PlayerStatManager.Inventory.hpLevel.ToString() + 1);
+        texts["StaminaText"].text = (PlayerStatManager.Inventory.staminaLevel.ToString() + 1);
+        texts["SpeedText"].text = (PlayerStatManager.Inventory.speedLevel.ToString() + 1);
+
+        texts["LevelText"].text = (PlayerStatManager.Inventory.hpLevel + PlayerStatManager.Inventory.staminaLevel + PlayerStatManager.Inventory.speedLevel + 3).ToString();
     }
 
     public void ShowPackInfo()

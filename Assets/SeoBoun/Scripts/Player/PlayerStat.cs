@@ -10,7 +10,7 @@ public class PlayerStat : MonoBehaviour
     int curStamina;
     int maxHp;
     int maxStamina;
-    int moveSpeed;
+    float moveSpeed;
 
     public event Action<int, int> ChangePlayerHp;       // max, cur
     public event Action<int, int> ChangePlayerStamina;
@@ -38,7 +38,7 @@ public class PlayerStat : MonoBehaviour
             ChangePlayerStamina?.Invoke(maxStamina, value);
         }
     }
-    public int MoveSpeed { get { return moveSpeed; } }
+    public float MoveSpeed { get { return moveSpeed; } }
     public int MaxHp { get { return maxHp; } }
     public int MaxStamina { get { return maxStamina; } }
     // 처음 초기화 데이터 수정
@@ -59,6 +59,13 @@ public class PlayerStat : MonoBehaviour
         curHp = maxHp = playerData.maxHp;
         curStamina = maxStamina = playerData.maxStamina;
         moveSpeed = playerData.moveSpeed;
+    }
+
+    public void LevelUp()
+    {
+        maxHp = 100 + PlayerStatManager.Inventory.hpLevel * 50;
+        maxStamina = 100 + PlayerStatManager.Inventory.staminaLevel * 30;
+        moveSpeed = 3.0f + PlayerStatManager.Inventory.speedLevel * 0.5f;
     }
 
     public void SetUp()
