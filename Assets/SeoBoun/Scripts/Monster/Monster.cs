@@ -57,6 +57,10 @@ public class Monster : PooledObject, IDamagable
         fsm.Init(this, States.Idle);
         curState = States.Idle;
         startPos = transform.position;
+
+        if (Manager.Game.playerPos == null)
+            return;
+
         playerTransform = Manager.Game.playerPos;
     }
 
@@ -69,6 +73,8 @@ public class Monster : PooledObject, IDamagable
         attackRange = zombieData.attackRange;
         attackRate = zombieData.attackRate;
         damage = zombieData.damage;
+        GetComponentInChildren<SkinnedMeshRenderer>().BakeMesh(zombieData.zombieMesh);
+        GetComponentInChildren<SkinnedMeshRenderer>().material = zombieData.zombieMaterial;
     }
 
     private void Update()

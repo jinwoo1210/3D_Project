@@ -7,11 +7,7 @@ public class ScenePartLoader : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] float loadRange;
 
-    List<AsyncOperation> scenesToLoad = new List<AsyncOperation>();
-
     private bool isLoaded;
-    private bool shouldLoad;
-
 
     private void Start()
     {

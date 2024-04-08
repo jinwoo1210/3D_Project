@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class StatusInfoUI : BindingUI
 {
@@ -19,23 +20,28 @@ public class StatusInfoUI : BindingUI
         // texts["FireDistanceText"].text
     }
 
-    public void ShowStatusInfo(PlayerStat player)
+    public void ShowStatusInfo()
     {
         // 플레이어 스탯 표기
-        texts["HPText"].text = player.MaxHp.ToString();
-        texts["StaminaText"].text = player.MaxStamina.ToString();
-        texts["SpeedText"].text = player.MoveSpeed.ToString();
+        texts["HPText"].text = (PlayerStatManager.Inventory.hpLevel.ToString() + 1);
+        texts["StaminaText"].text = (PlayerStatManager.Inventory.staminaLevel.ToString() + 1);
+        texts["SpeedText"].text = (PlayerStatManager.Inventory.speedLevel.ToString() + 1);
+
+        texts["LevelText"].text = (PlayerStatManager.Inventory.hpLevel + PlayerStatManager.Inventory.staminaLevel + PlayerStatManager.Inventory.speedLevel + 3).ToString();
     }
 
     public void ShowPackInfo()
     {
-        // texts["MedicalPoint"].text 
-        // texts["MedicalLevel"].text = $"{curLevel}/{maxLevel}"
-        // texts["FoodPoint"].text 
-        // texts["FoodLevel"].text = $"{curLevel}/{maxLevel}"
-        // texts["ElectPoint"].text 
-        // texts["ElectLevel"].text = $"{curLevel}/{maxLevel}"
-        // texts["ToolPoint"].text 
-        // texts["ToolLevel"].text = $"{curLevel}/{maxLevel}"
+        if (PlayerStatManager.Inventory == null)
+            return;
+
+        texts["MedicalPoint"].text = PlayerStatManager.Inventory.medicalPoint.ToString();
+        texts["MedicalLevel"].text = $"{PlayerStatManager.Inventory.medicalLevel + 1}/{4}";
+        texts["FoodPoint"].text = PlayerStatManager.Inventory.foodPoint.ToString();
+        texts["FoodLevel"].text = $"{PlayerStatManager.Inventory.foodLevel + 1}/{4}";
+        texts["ElectPoint"].text = PlayerStatManager.Inventory.electPoint.ToString();
+        texts["ElectLevel"].text = $"{PlayerStatManager.Inventory.electLevel + 1}/{4}";
+        texts["ToolPoint"].text = PlayerStatManager.Inventory.toolPoint.ToString();
+        texts["ToolLevel"].text = $"{PlayerStatManager.Inventory.toolLevel + 1}/{4}";
     }
 }
