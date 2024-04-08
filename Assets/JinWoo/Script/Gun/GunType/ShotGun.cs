@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ShotGun : Gun
+{
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+    }
+
+    public override void Shoot()
+    {
+        base.Shoot();
+    }
+}
