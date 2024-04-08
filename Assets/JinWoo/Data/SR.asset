@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b15aea648f009f4598f06922969938a, type: 3}
+  m_Name: SR
+  m_EditorClassIdentifier: 
+  gunType: 3
+  gunId: 0
+  gunName: SR
+  gunDesc: 
+  curAmmo: 0
+  icon: {fileID: 0}
+  datas:
+  - damage: 50
+    shootSpeed: 0.3
+    remainAmmo: 5
+    reloadTime: 2.4
+    fireDistance: 100
+  - damage: 100
+    shootSpeed: 0.25
+    remainAmmo: 10
+    reloadTime: 2
+    fireDistance: 150
+  - damage: 150
+    shootSpeed: 0.2
+    remainAmmo: 15
+    reloadTime: 1.6
+    fireDistance: 200
+  - damage: 200
+    shootSpeed: 0.15
+    remainAmmo: 20
+    reloadTime: 1.2
+    fireDistance: 250
+  projectile: {fileID: 0}
