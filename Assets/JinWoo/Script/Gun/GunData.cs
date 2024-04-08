@@ -13,7 +13,6 @@ public class GunData : ScriptableObject
     public int gunId;       //무기의 id (총불러올때 쓰임)
     public string gunName;  //무기 이름 (SMG,Vecter,Sniper 등등)
     public string gunDesc;  // 무기 설명 ( 필요하면 넣고 필요X시 삭제)
-    public int startAmmoRemain = 50;          //남은 전체 탄수
 
     public int curAmmo;     //실제 사용되어지는 탄창      
 
