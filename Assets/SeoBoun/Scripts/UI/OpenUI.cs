@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class OpenIncreaseWindowUI : MonoBehaviour
+public class OpenUI : MonoBehaviour
 {
-    // 강화창 띄우는 UI
+    // 창을 띄우는 UI
     [SerializeField] GameObject targetUI;
     [SerializeField] GameObject blocker;
 
     public void Open()
     {
+        Debug.Log(targetUI.name);
         targetUI.SetActive(true);
 
         if (blocker != null)

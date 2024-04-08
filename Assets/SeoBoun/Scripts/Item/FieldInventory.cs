@@ -12,7 +12,6 @@ public class FieldInventory : MonoBehaviour
     [SerializeField] int electPoint;          // 필드 전자 포인트
     [SerializeField] int toolPoint;           // 필드 도구 포인트
 
-    [SerializeField] List<int> maxPoint = new List<int>();
     [SerializeField] Dictionary<ItemType, int> maxPoints;
 
     public event Action<int, int> ChangeMedicalPoint;
@@ -77,6 +76,11 @@ public class FieldInventory : MonoBehaviour
         ChangeToolPoint += action;
     }
     #endregion
+
+    private void Start()
+    {
+        EnterScene();
+    }
 
     public void EnterScene()
     {

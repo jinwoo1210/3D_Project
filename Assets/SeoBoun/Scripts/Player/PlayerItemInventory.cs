@@ -43,27 +43,11 @@ public class PlayerItemInventory : MonoBehaviour
     public List<int> maxElectPoint = new List<int>();
     public List<int> maxToolPoint = new List<int>();
 
-    public void GetItem(ItemType type, int cost)
-    {
-        switch(type)
-        {
-            case ItemType.Medical:
-                medicalPoint += cost;
-                break;
-            case ItemType.Food:
-                foodPoint += cost;
-                break;
-            case ItemType.Elect:
-                electPoint += cost;
-                break;
-            case ItemType.Tool:
-                toolPoint += cost;
-                break;
-        }
-    }
-    
+    public PackLevelUpPoint[] packLevelUpPoint;
+
     public void UsePoint(ItemType type, int cost)
     {
+        // 포인트 사용
         switch (type)
         {
             case ItemType.Medical:
@@ -81,6 +65,33 @@ public class PlayerItemInventory : MonoBehaviour
         }
     }
 
+    public bool PackLevelUp(ItemType type)
+    {   // 배낭 레벨 업 가능여부
+        bool isLevelUp = false;
+        switch (type)
+        {
+            case ItemType.Medical:
+                isLevelUp = (packLevelUpPoint[medicalLevel].electPoint <= electPoint) && (packLevelUpPoint[medicalLevel].toolPoint <= toolPoint);
+                break;
+            case ItemType.Food:
+                isLevelUp = (packLevelUpPoint[foodLevel].electPoint <= electPoint) && (packLevelUpPoint[foodLevel].toolPoint <= toolPoint);
+                break;
+            case ItemType.Elect:
+                isLevelUp = (packLevelUpPoint[electLevel].electPoint <= electPoint) && (packLevelUpPoint[electLevel].toolPoint <= toolPoint);
+                break;
+            case ItemType.Tool:
+                isLevelUp = (packLevelUpPoint[toolLevel].electPoint <= electPoint) && (packLevelUpPoint[toolLevel].toolPoint <= toolPoint);
+                break;
+        }
+        return isLevelUp;
+    }
+
+    public bool StatLevelUp()
+    {   // 스테이터스 레벌 업 가능여부
+
+        return false;
+    }
+
     // 데이터 가져오기
     public void SetUp()
     {
@@ -91,4 +102,11 @@ public class PlayerItemInventory : MonoBehaviour
         ChangeToolPoint?.Invoke(maxPoint[ToolLevel], ToolPoint);
         */
     }
+}
+
+[Serializable]
+public struct PackLevelUpPoint
+{
+    public int electPoint;
+    public int toolPoint;
 }

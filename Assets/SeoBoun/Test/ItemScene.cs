@@ -8,6 +8,7 @@ public class ItemScene : BaseScene
     {
         yield return null;
 
+        PlayerItemInventory.Inventory.FieldInventory.EnterScene();
         PlayerItemInventory.Inventory.FieldInventory.SetUp();
     }
 }

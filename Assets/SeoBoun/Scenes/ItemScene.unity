@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.82364464
+      value: 0.8236446
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -314,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.3411648
+      value: 0.34116477
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.z
@@ -419,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261475550}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.41852477, y: 0.3411648, z: -0.17335865, w: 0.82364464}
+  m_LocalRotation: {x: 0.41852477, y: 0.34116477, z: -0.17335865, w: 0.8236446}
   m_LocalPosition: {x: -8, y: 16, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -611,37 +611,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
---- !u!1 &642031146
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 642031147}
-  m_Layer: 0
-  m_Name: FieldInventory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &642031147
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642031146}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.298498, y: 19.883171, z: 15.814355}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &719770032 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4535375396076140147, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
@@ -972,7 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0e9c53c85515b4893fb9ce576ad265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FieldInventory: {fileID: 0}
+  FieldInventory: {fileID: 1907863698}
   medicalPoint: 0
   medicalLevel: 0
   foodLevel: 0
@@ -985,6 +954,13 @@ MonoBehaviour:
   maxFoodPoint: 3200000064000000c800000090010000
   maxElectPoint: 190000003200000064000000c8000000
   maxToolPoint: 3200000064000000c800000090010000
+  packLevelUpPoint:
+  - electPoint: 75
+    toolPoint: 250
+  - electPoint: 150
+    toolPoint: 400
+  - electPoint: 300
+    toolPoint: 700
 --- !u!1001 &1741803667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1098,14 +1074,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   medicalPoint: 0
-  medicalLevel: 0
-  foodLevel: 0
   foodPoint: 0
   electPoint: 0
-  electLevel: 0
   toolPoint: 0
-  toolLevel: 0
-  maxPoint: 
 --- !u!1001 &2014143593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1466,4 +1437,3 @@ SceneRoots:
   - {fileID: 1602201401}
   - {fileID: 1245336759}
   - {fileID: 2045319909}
-  - {fileID: 642031147}
