@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8236447
+      value: 0.82364464
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -314,11 +314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.34116474
+      value: 0.3411648
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17335857
+      value: -0.17335865
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -419,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261475550}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.41852477, y: 0.34116474, z: -0.17335857, w: 0.8236447}
+  m_LocalRotation: {x: 0.41852477, y: 0.3411648, z: -0.17335865, w: 0.82364464}
   m_LocalPosition: {x: -8, y: 16, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -572,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103318843907339413, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.86
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 5103318843907339413, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -611,6 +611,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
+--- !u!1 &642031146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642031147}
+  m_Layer: 0
+  m_Name: FieldInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &642031147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642031146}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.298498, y: 19.883171, z: 15.814355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &719770032 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4535375396076140147, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
@@ -922,10 +953,11 @@ Transform:
   m_GameObject: {fileID: 1602201400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 914.61224, y: 60.43101, z: -0.10895255}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1907863697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1602201402
@@ -940,15 +972,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0e9c53c85515b4893fb9ce576ad265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FieldInventory: {fileID: 0}
   medicalPoint: 0
-  medicalLevel: 2
+  medicalLevel: 0
   foodLevel: 0
   foodPoint: 0
   electPoint: 0
   electLevel: 0
   toolPoint: 0
   toolLevel: 0
-  maxPoint: 050000000a0000000f00000014000000190000001e000000
+  maxMedicalPoint: 0400000006000000080000000a000000
+  maxFoodPoint: 3200000064000000c800000090010000
+  maxElectPoint: 190000003200000064000000c8000000
+  maxToolPoint: 3200000064000000c800000090010000
 --- !u!1001 &1741803667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -963,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103318843907339413, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.491
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5103318843907339413, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1017,6 +1053,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe3df0caa71d154b83431ae7781e3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1907863696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907863697}
+  - component: {fileID: 1907863698}
+  m_Layer: 0
+  m_Name: FieldInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1907863697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907863696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1602201401}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1907863698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907863696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196ee2d0344b73349921bbd5d48c0768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicalPoint: 0
+  medicalLevel: 0
+  foodLevel: 0
+  foodPoint: 0
+  electPoint: 0
+  electLevel: 0
+  toolPoint: 0
+  toolLevel: 0
+  maxPoint: 
 --- !u!1001 &2014143593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1035,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103318843907339413, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.86
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 5103318843907339413, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1140,7 +1229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 528399894821538443, guid: a9c21b910c1421144a12274d07137a4c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.334
+      value: 4.93
       objectReference: {fileID: 0}
     - target: {fileID: 528399894821538443, guid: a9c21b910c1421144a12274d07137a4c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1187,9 +1276,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElectItem
       objectReference: {fileID: 0}
+    - target: {fileID: 5529755019377855338, guid: 57497b02d3a869449b8eb47e40bd3a24, type: 3}
+      propertyPath: cost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7983712622918334863, guid: 57497b02d3a869449b8eb47e40bd3a24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.45577347
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 7983712622918334863, guid: 57497b02d3a869449b8eb47e40bd3a24, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1250,7 +1343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103318843907339413, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.86
+      value: 3.33
       objectReference: {fileID: 0}
     - target: {fileID: 5103318843907339413, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1284,6 +1377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedicalItem
       objectReference: {fileID: 0}
+    - target: {fileID: 7717107450118265520, guid: 0dc4fcaa92c077d47942f1947c60e8f7, type: 3}
+      propertyPath: cost
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1300,6 +1397,10 @@ PrefabInstance:
     - target: {fileID: 1610891130518804971, guid: a7e804bcd975bb94994213f2426ffc05, type: 3}
       propertyPath: m_Name
       value: FoodItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845007635231352604, guid: a7e804bcd975bb94994213f2426ffc05, type: 3}
+      propertyPath: cost
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8004643430520054622, guid: a7e804bcd975bb94994213f2426ffc05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1365,3 +1466,4 @@ SceneRoots:
   - {fileID: 1602201401}
   - {fileID: 1245336759}
   - {fileID: 2045319909}
+  - {fileID: 642031147}

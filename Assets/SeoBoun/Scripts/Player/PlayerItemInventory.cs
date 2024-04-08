@@ -7,7 +7,8 @@ using UnityEngine;
 public class PlayerItemInventory : MonoBehaviour
 {
     // 아이템 인벤토리(포인트 및 레벨 관리)
-    public static PlayerItemInventory instance;
+    private static PlayerItemInventory instance;
+    public FieldInventory FieldInventory;
 
     public static PlayerItemInventory Inventory { get { return instance; } }
 
@@ -25,110 +26,38 @@ public class PlayerItemInventory : MonoBehaviour
         }
     }
 
-    [SerializeField] int medicalPoint;        // 의료 포인트
-    [SerializeField] int medicalLevel;        // 의료 배낭 레벨
+    public int medicalPoint;        // 의료 포인트
+    public int medicalLevel;        // 의료 배낭 레벨
 
-    [SerializeField] int foodLevel;           // 식량 배낭 레벨
-    [SerializeField] int foodPoint;           // 식량 포인트
+    public int foodLevel;           // 식량 배낭 레벨
+    public int foodPoint;           // 식량 포인트
 
-    [SerializeField] int electPoint;          // 전자 포인트
-    [SerializeField] int electLevel;          // 전자 배낭 레벨
-                                              
-    [SerializeField] int toolPoint;           // 도구 포인트
-    [SerializeField] int toolLevel;           // 도구 배낭 레벨
+    public int electPoint;          // 전자 포인트
+    public int electLevel;          // 전자 배낭 레벨
+                         
+    public int toolPoint;           // 도구 포인트
+    public int toolLevel;           // 도구 배낭 레벨
 
-    [SerializeField] List<int> maxPoint = new List<int>();      // 레벨별 맥스포인트
-
-    public event Action<int, int> ChangeMedicalPoint;
-    public event Action<int, int> ChangeFoodPoint;
-    public event Action<int, int> ChangeElectPoint;
-    public event Action<int, int> ChangeToolPoint;
-
-    #region property
-    public int MedicalPoint
-    {
-        get { return medicalPoint; }
-        set 
-        { 
-            medicalPoint = Mathf.Clamp(value, 0, maxPoint[medicalLevel]);
-            ChangeMedicalPoint?.Invoke(maxPoint[medicalLevel], medicalPoint);
-        }
-    }
-
-    public int MedicalLevel { get { return medicalLevel; } }
-
-    public void AddMedicalEvent(Action<int, int> action)
-    {
-        ChangeMedicalPoint += action;
-    }
-
-    public int FoodPoint
-    {
-        get { return foodPoint; }
-        set
-        {
-            foodPoint = Mathf.Clamp(value, 0, maxPoint[foodLevel]);
-            ChangeFoodPoint?.Invoke(maxPoint[foodLevel], foodPoint);
-        }
-    }
-
-    public int FoodLevel { get { return foodLevel; } }
-
-    public void AddFoodEvent(Action<int, int> action)
-    {
-        ChangeFoodPoint += action;
-    }
-
-    public int ElectPoint
-    {
-        get { return electPoint; }
-        set 
-        { 
-            electPoint = Mathf.Clamp(value, 0, maxPoint[electLevel]);
-            ChangeElectPoint?.Invoke(maxPoint[electLevel], electPoint);
-        }
-    }
-
-    public int ElectLevel { get { return electLevel; } }
-
-    public void AddElectEvent(Action<int, int> action)
-    {
-        ChangeElectPoint += action;
-    }
-
-    public int ToolPoint
-    {
-        get { return toolPoint; }
-        set
-        { 
-            toolPoint = Mathf.Clamp(value, 0, maxPoint[toolLevel]);
-            ChangeToolPoint?.Invoke(maxPoint[toolLevel], toolPoint);
-        }
-    }
-
-    public int ToolLevel { get { return toolLevel; } }
-
-    public void AddToolEvent(Action<int, int> action)
-    {
-        ChangeToolPoint += action;
-    }
-    #endregion
+    public List<int> maxMedicalPoint = new List<int>();      // 레벨별 맥스포인트
+    public List<int> maxFoodPoint = new List<int>();
+    public List<int> maxElectPoint = new List<int>();
+    public List<int> maxToolPoint = new List<int>();
 
     public void GetItem(ItemType type, int cost)
     {
         switch(type)
         {
             case ItemType.Medical:
-                MedicalPoint += cost;
+                medicalPoint += cost;
                 break;
             case ItemType.Food:
-                FoodPoint += cost;
+                foodPoint += cost;
                 break;
             case ItemType.Elect:
-                ElectPoint += cost;
+                electPoint += cost;
                 break;
             case ItemType.Tool:
-                ToolPoint += cost;
+                toolPoint += cost;
                 break;
         }
     }
@@ -138,16 +67,16 @@ public class PlayerItemInventory : MonoBehaviour
         switch (type)
         {
             case ItemType.Medical:
-                MedicalPoint -= cost;
+                medicalPoint -= cost;
                 break;
             case ItemType.Food:
-                FoodPoint -= cost;
+                foodPoint -= cost;
                 break;
             case ItemType.Elect:
-                ElectPoint -= cost;
+                electPoint -= cost;
                 break;
             case ItemType.Tool:
-                ToolPoint -= cost;
+                toolPoint -= cost;
                 break;
         }
     }
@@ -155,29 +84,11 @@ public class PlayerItemInventory : MonoBehaviour
     // 데이터 가져오기
     public void SetUp()
     {
+        /*
         ChangeMedicalPoint?.Invoke(maxPoint[MedicalLevel], MedicalPoint);
         ChangeFoodPoint?.Invoke(maxPoint[FoodLevel], FoodPoint);
         ChangeElectPoint?.Invoke(maxPoint[ElectLevel], ElectPoint);
         ChangeToolPoint?.Invoke(maxPoint[ToolLevel], ToolPoint);
-    }
-
-    public bool isFull(ItemType type)
-    {
-        switch (type)
-        {
-            case ItemType.Medical:
-                if (MedicalPoint == maxPoint[medicalLevel]) return true;
-                break;
-            case ItemType.Food:
-                if (FoodPoint == maxPoint[foodLevel]) return true;
-                break;
-            case ItemType.Elect:
-                if (ElectPoint == maxPoint[electLevel]) return true;
-                break;
-            case ItemType.Tool:
-                if (ToolPoint == maxPoint[toolLevel]) return true;
-                break;
-        }
-        return false;
+        */
     }
 }

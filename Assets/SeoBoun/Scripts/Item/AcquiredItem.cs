@@ -6,13 +6,13 @@ public class AcquiredItem : BaseItem
 {
     public override void Interactor(PlayerInteractor player)
     {
-        if (PlayerItemInventory.Inventory.isFull(this.type))
+        if (PlayerItemInventory.Inventory.FieldInventory.isFull(this.type))
         {
             Debug.Log("Full!");
             return;
         }
 
-        PlayerItemInventory.Inventory.GetItem(this.type, this.cost);
+        PlayerItemInventory.Inventory.FieldInventory.GetItem(this.type, this.cost);
 
         Destroy(gameObject);
     }

@@ -37,13 +37,13 @@ public class StatusInfoUI : BindingUI
         if (PlayerItemInventory.Inventory == null)
             return;
 
-        texts["MedicalPoint"].text = PlayerItemInventory.Inventory.MedicalPoint.ToString();
-        texts["MedicalLevel"].text = $"{PlayerItemInventory.Inventory.MedicalLevel}/{6}";
-        texts["FoodPoint"].text = PlayerItemInventory.Inventory.FoodPoint.ToString();
-        texts["FoodLevel"].text = $"{PlayerItemInventory.Inventory.FoodLevel}/{6}";
-        texts["ElectPoint"].text = PlayerItemInventory.Inventory.ElectPoint.ToString();
-        texts["ElectLevel"].text = $"{PlayerItemInventory.Inventory.ElectLevel}/{6}";
-        texts["ToolPoint"].text = PlayerItemInventory.Inventory.ToolPoint.ToString();
-        texts["ToolLevel"].text = $"{PlayerItemInventory.Inventory.ToolLevel}/{6}";
+        texts["MedicalPoint"].text = PlayerItemInventory.Inventory.medicalPoint.ToString();
+        texts["MedicalLevel"].text = $"{PlayerItemInventory.Inventory.medicalLevel}/{6}";
+        texts["FoodPoint"].text = PlayerItemInventory.Inventory.foodPoint.ToString();
+        texts["FoodLevel"].text = $"{PlayerItemInventory.Inventory.foodLevel}/{6}";
+        texts["ElectPoint"].text = PlayerItemInventory.Inventory.electPoint.ToString();
+        texts["ElectLevel"].text = $"{PlayerItemInventory.Inventory.electLevel}/{6}";
+        texts["ToolPoint"].text = PlayerItemInventory.Inventory.toolPoint.ToString();
+        texts["ToolLevel"].text = $"{PlayerItemInventory.Inventory.toolLevel}/{6}";
     }
 }
