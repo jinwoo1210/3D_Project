@@ -1,14 +1,16 @@
 using System;
 using UnityEngine;
 
+public enum Stats { Hp, Stamina, MoveSpeed }
 public class PlayerStat : MonoBehaviour
 {
     [SerializeField] PlayerData playerData;
 
     int curHp;
     int curStamina;
+    int maxHp;
+    int maxStamina;
     int moveSpeed;
-    int runSpeed;
 
     public event Action<int, int> ChangePlayerHp;       // max, cur
     public event Action<int, int> ChangePlayerStamina;
@@ -20,8 +22,8 @@ public class PlayerStat : MonoBehaviour
         }
         set
         {
-            curHp = Mathf.Clamp(value, 0, playerData.maxHp);
-            ChangePlayerHp?.Invoke(playerData.maxHp, value);
+            curHp = Mathf.Clamp(value, 0, maxHp);
+            ChangePlayerHp?.Invoke(maxHp, value);
         }
     }
 
@@ -32,14 +34,13 @@ public class PlayerStat : MonoBehaviour
         }
         set
         {
-            curStamina = Mathf.Clamp(value, 0, playerData.maxStamina);
-            ChangePlayerStamina?.Invoke(playerData.maxStamina, value);
+            curStamina = Mathf.Clamp(value, 0, maxStamina);
+            ChangePlayerStamina?.Invoke(maxStamina, value);
         }
     }
     public int MoveSpeed { get { return moveSpeed; } }
-    public int RunSpeed { get { return runSpeed; } }
-    public int MaxHp { get { return playerData.maxHp; } }
-    public int MaxStamina { get { return playerData.maxStamina; } }
+    public int MaxHp { get { return maxHp; } }
+    public int MaxStamina { get { return maxStamina; } }
     // 처음 초기화 데이터 수정
 
     private void Start()
@@ -47,17 +48,22 @@ public class PlayerStat : MonoBehaviour
         SetUp();
     }
 
-    public void Init()
+    public void GameInit()
     {
-        curHp = playerData.maxHp;
-        curStamina = playerData.maxStamina;
+        CurHp = MaxHp;
+        CurStamina = MaxStamina;
+    }
+
+    public void FirstInit()
+    {
+        curHp = maxHp = playerData.maxHp;
+        curStamina = maxStamina = playerData.maxStamina;
         moveSpeed = playerData.moveSpeed;
-        runSpeed = playerData.runSpeed;
     }
 
     public void SetUp()
     {
-        Init();
+        GameInit();
         ChangePlayerHp?.Invoke(playerData.maxHp, curHp);
         ChangePlayerStamina?.Invoke(playerData.maxStamina, curStamina);
     }

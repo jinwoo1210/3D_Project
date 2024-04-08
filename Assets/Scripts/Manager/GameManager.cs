@@ -10,5 +10,6 @@ public class GameManager : Singleton<GameManager>
             return;
 
         playerPos = GameObject.FindWithTag("Player").transform;
+        playerPos.GetComponent<PlayerStat>().FirstInit();
     }
 }

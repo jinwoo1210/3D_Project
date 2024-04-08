@@ -6,8 +6,8 @@ using UnityEngine;
 public class OpenUI : MonoBehaviour
 {
     // Ã¢À» ¶ç¿ì´Â UI
-    [SerializeField] GameObject targetUI;
-    [SerializeField] GameObject blocker;
+    [SerializeField] protected GameObject targetUI;
+    [SerializeField] protected GameObject blocker;
 
     public void Open()
     {

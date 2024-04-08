@@ -89,19 +89,19 @@ public class FieldInventory : MonoBehaviour
 
         maxPoints = new Dictionary<ItemType, int>();
 
-        maxPoints.Add(ItemType.Medical, PlayerItemInventory.Inventory.maxMedicalPoint[PlayerItemInventory.Inventory.medicalLevel]);
-        maxPoints.Add(ItemType.Food, PlayerItemInventory.Inventory.maxFoodPoint[PlayerItemInventory.Inventory.foodLevel]);
-        maxPoints.Add(ItemType.Elect, PlayerItemInventory.Inventory.maxElectPoint[PlayerItemInventory.Inventory.electLevel]);
-        maxPoints.Add(ItemType.Tool, PlayerItemInventory.Inventory.maxToolPoint[PlayerItemInventory.Inventory.toolLevel]);
+        maxPoints.Add(ItemType.Medical, PlayerStatManager.Inventory.maxMedicalPoint[PlayerStatManager.Inventory.medicalLevel]);
+        maxPoints.Add(ItemType.Food, PlayerStatManager.Inventory.maxFoodPoint[PlayerStatManager.Inventory.foodLevel]);
+        maxPoints.Add(ItemType.Elect, PlayerStatManager.Inventory.maxElectPoint[PlayerStatManager.Inventory.electLevel]);
+        maxPoints.Add(ItemType.Tool, PlayerStatManager.Inventory.maxToolPoint[PlayerStatManager.Inventory.toolLevel]);
     }
 
     public void ExitScene()
     {
         // 씬에서 나올 때 해당 포인트 누적하기
-        PlayerItemInventory.Inventory.medicalPoint += medicalPoint;
-        PlayerItemInventory.Inventory.foodPoint += foodPoint;
-        PlayerItemInventory.Inventory.electPoint += electPoint;
-        PlayerItemInventory.Inventory.toolPoint += toolPoint;
+        PlayerStatManager.Inventory.medicalPoint += medicalPoint;
+        PlayerStatManager.Inventory.foodPoint += foodPoint;
+        PlayerStatManager.Inventory.electPoint += electPoint;
+        PlayerStatManager.Inventory.toolPoint += toolPoint;
 
         // Todo... 플레이어가 탈출하지 못하였을 경우 포인트 누적은 없음
     }

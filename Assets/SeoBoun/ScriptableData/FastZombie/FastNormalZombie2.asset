@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ffcc21a973888489d21e904f61fea8, type: 3}
+  m_Name: FastNormalZombie2
+  m_EditorClassIdentifier: 
+  hp: 30
+  moveSpeed: 3
+  targetSpeed: 3
+  findRange: 3
+  attackRange: 3
+  attackRate: 3
+  damage: 3
+  zombieMesh: {fileID: 4300000, guid: 837a8d1ac893f10409893274f6a776a1, type: 2}
+  zombieMaterial: {fileID: 2100000, guid: f7e9081c05b38dc46abee4a4b4d113d6, type: 2}

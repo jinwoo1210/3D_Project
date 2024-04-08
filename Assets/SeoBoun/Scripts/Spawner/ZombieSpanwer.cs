@@ -46,7 +46,7 @@ public class ZombieSpanwer : ObjectPool
 
         if (monster != null)
         {
-            monster.GetComponent<Monster>().Init(spawnData[0]);
+            monster.GetComponent<Monster>().Init(spawnData[Random.Range(0, spawnData.Count)]);
             monster.gameObject.SetActive(true);
             monster.transform.position += new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
         }

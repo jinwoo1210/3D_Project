@@ -10,10 +10,13 @@ public class BackPackDisplay : MonoBehaviour
 
     private void Start()
     {
-        PlayerItemInventory.Inventory.FieldInventory.AddMedicalEvent(SetMedicalSlider);
-        PlayerItemInventory.Inventory.FieldInventory.AddFoodEvent(SetFoodSlider);
-        PlayerItemInventory.Inventory.FieldInventory.AddElectEvent(SetElectSlider);
-        PlayerItemInventory.Inventory.FieldInventory.AddToolEvent(SetToolSlider);
+        if (PlayerStatManager.Inventory == null)
+            return;
+
+        PlayerStatManager.Inventory.FieldInventory.AddMedicalEvent(SetMedicalSlider);
+        PlayerStatManager.Inventory.FieldInventory.AddFoodEvent(SetFoodSlider);
+        PlayerStatManager.Inventory.FieldInventory.AddElectEvent(SetElectSlider);
+        PlayerStatManager.Inventory.FieldInventory.AddToolEvent(SetToolSlider);
     }
 
     public void SetMedicalSlider(int maxPoint, int curPoint)
