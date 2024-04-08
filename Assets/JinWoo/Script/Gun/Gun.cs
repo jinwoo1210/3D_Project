@@ -71,7 +71,9 @@ public class Gun : MonoBehaviour
         {
             Debug.Log("발사 1");
             animator.SetTrigger("Fire");    // 발사 트리거 재생
+            Debug.Log("Shoot 시작");
             Shoot();                        // 실제 발사
+            Debug.Log("Shoot 종료");
             lastFireTime = Time.time;       // 마지막 발사 지점 기록(마지막 발사 시점으로부터 timeBetFire만큼 지나면 발사 가능)
         }
     }
