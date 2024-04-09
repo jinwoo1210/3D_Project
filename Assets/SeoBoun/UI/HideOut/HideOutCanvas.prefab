@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 4363254444960757592}
   - component: {fileID: 3196233908327219623}
   - component: {fileID: 8330439896779194031}
+  - component: {fileID: 625841299742531925}
   m_Layer: 5
   m_Name: StaminaButton
   m_TagString: Untagged
@@ -621,7 +622,46 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3196233908327219623}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 625841299742531925}
+        m_TargetAssemblyTypeName: OpenUI, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625841299742531925}
+        m_TargetAssemblyTypeName: OpenStatUpUI, Assembly-CSharp
+        m_MethodName: AddStaminaEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &625841299742531925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273296782295552687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52deae193da33af43a8ba750dd7a40f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetUI: {fileID: 3561001440490532338}
+  blocker: {fileID: 0}
+  statLevel: {fileID: 5272240784591974440}
 --- !u!1 &514007815813625982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4791,7 +4831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &853109251966579276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6123,6 +6163,7 @@ GameObject:
   - component: {fileID: 53340849727359218}
   - component: {fileID: 1965104897283047393}
   - component: {fileID: 8662471595559148585}
+  - component: {fileID: 1582091994142328107}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -6231,7 +6272,81 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1965104897283047393}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5272240784591974440}
+        m_TargetAssemblyTypeName: UpgradeStatLevel, Assembly-CSharp
+        m_MethodName: UpgradeEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1582091994142328107}
+        m_TargetAssemblyTypeName: CloseUI, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5272240784591974440}
+        m_TargetAssemblyTypeName: UpgradeStatLevel, Assembly-CSharp
+        m_MethodName: DeleteEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ExitScene, Assembly-CSharp
+        m_MethodName: ShowStatInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ExitScene, Assembly-CSharp
+        m_MethodName: ShowInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1582091994142328107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739030189132703837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cb5e4a981168c44ad59a945864cb12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3561001440490532338}
+  blocker: {fileID: 0}
 --- !u!1 &4818975431076839593
 GameObject:
   m_ObjectHideFlags: 0
@@ -8535,6 +8650,7 @@ GameObject:
   - component: {fileID: 1525966302013338339}
   - component: {fileID: 5347529469208732980}
   - component: {fileID: 4169876690098381491}
+  - component: {fileID: 3594838319482152913}
   m_Layer: 5
   m_Name: NoButton
   m_TagString: Untagged
@@ -8643,7 +8759,45 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5347529469208732980}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5272240784591974440}
+        m_TargetAssemblyTypeName: UpgradeStatLevel, Assembly-CSharp
+        m_MethodName: DeleteEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3594838319482152913}
+        m_TargetAssemblyTypeName: CloseUI, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3594838319482152913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6531099971000432682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cb5e4a981168c44ad59a945864cb12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3561001440490532338}
+  blocker: {fileID: 0}
 --- !u!1 &6533435184191169457
 GameObject:
   m_ObjectHideFlags: 0
@@ -11008,6 +11162,7 @@ GameObject:
   - component: {fileID: 8199050672518512506}
   - component: {fileID: 383946670496754594}
   - component: {fileID: 6759953869851346325}
+  - component: {fileID: 7774663649012151324}
   m_Layer: 5
   m_Name: HealthButton
   m_TagString: Untagged
@@ -11116,7 +11271,46 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 383946670496754594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7774663649012151324}
+        m_TargetAssemblyTypeName: OpenUI, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7774663649012151324}
+        m_TargetAssemblyTypeName: OpenStatUpUI, Assembly-CSharp
+        m_MethodName: AddHpEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7774663649012151324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947081637788867477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52deae193da33af43a8ba750dd7a40f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetUI: {fileID: 3561001440490532338}
+  blocker: {fileID: 0}
+  statLevel: {fileID: 5272240784591974440}
 --- !u!1 &8008338288115243134
 GameObject:
   m_ObjectHideFlags: 0
@@ -12298,6 +12492,7 @@ GameObject:
   - component: {fileID: 3355810001076557998}
   - component: {fileID: 4518762894116300556}
   - component: {fileID: 1725582404461518901}
+  - component: {fileID: 5272240784591974440}
   m_Layer: 5
   m_Name: StatusBtn
   m_TagString: Untagged
@@ -12433,6 +12628,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetUI: {fileID: 151649381284055020}
   blocker: {fileID: 3872916205768332657}
+--- !u!114 &5272240784591974440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652859105209095714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b2f909d1bad4447a1d426e155051fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8702407317023673739
 GameObject:
   m_ObjectHideFlags: 0
@@ -12579,6 +12786,7 @@ GameObject:
   - component: {fileID: 230814163850984935}
   - component: {fileID: 3443682930852237528}
   - component: {fileID: 8589235431877761882}
+  - component: {fileID: 7381651175421169252}
   m_Layer: 5
   m_Name: SpeedButton
   m_TagString: Untagged
@@ -12687,7 +12895,46 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3443682930852237528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7381651175421169252}
+        m_TargetAssemblyTypeName: OpenUI, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7381651175421169252}
+        m_TargetAssemblyTypeName: OpenStatUpUI, Assembly-CSharp
+        m_MethodName: AddSpeedEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7381651175421169252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744634240952439983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52deae193da33af43a8ba750dd7a40f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetUI: {fileID: 3561001440490532338}
+  blocker: {fileID: 0}
+  statLevel: {fileID: 5272240784591974440}
 --- !u!1 &8765946193483658151
 GameObject:
   m_ObjectHideFlags: 0

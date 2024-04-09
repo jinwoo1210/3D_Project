@@ -23,9 +23,9 @@ public class StatusInfoUI : BindingUI
     public void ShowStatusInfo()
     {
         // 플레이어 스탯 표기
-        texts["HPText"].text = (PlayerStatManager.Inventory.hpLevel.ToString() + 1);
-        texts["StaminaText"].text = (PlayerStatManager.Inventory.staminaLevel.ToString() + 1);
-        texts["SpeedText"].text = (PlayerStatManager.Inventory.speedLevel.ToString() + 1);
+        texts["HPText"].text = (PlayerStatManager.Inventory.hpLevel + 1).ToString();
+        texts["StaminaText"].text = (PlayerStatManager.Inventory.staminaLevel + 1).ToString();
+        texts["SpeedText"].text = (PlayerStatManager.Inventory.speedLevel + 1).ToString();
 
         texts["LevelText"].text = (PlayerStatManager.Inventory.hpLevel + PlayerStatManager.Inventory.staminaLevel + PlayerStatManager.Inventory.speedLevel + 3).ToString();
     }

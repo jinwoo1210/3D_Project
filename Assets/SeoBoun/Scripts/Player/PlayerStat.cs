@@ -45,6 +45,7 @@ public class PlayerStat : MonoBehaviour
 
     private void Start()
     {
+        FirstInit();
         SetUp();
     }
 

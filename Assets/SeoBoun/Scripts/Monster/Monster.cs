@@ -1,10 +1,7 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.UI.GridLayoutGroup;
-
 // 좀비의 기본 상태
 public enum States { Idle, Trace, Attack, Return, Patrol, Die, Size }
 
@@ -18,6 +15,9 @@ public class Monster : PooledObject, IDamagable
     [SerializeField] AnimationClip attackClip;
     [SerializeField] Transform playerTransform;
 
+    [SerializeField] SkinnedMeshRenderer[] meshRenderer;
+
+    [Header("ZombieStat")]
     [SerializeField] int hp;                // hp 
     [SerializeField] int moveSpeed;         // 이동속도
     [SerializeField] int targetSpeed;       // TODO.. Trace, Idle 이동속도 변경하기
@@ -30,8 +30,6 @@ public class Monster : PooledObject, IDamagable
     [SerializeField] LayerMask playerLayer;
 
     StatesMachine fsm;
-    Coroutine findRoutine;
-    Coroutine hitRoutine;
 
     public States curState = new States();
     public AttackStates attackState = new AttackStates();
@@ -48,6 +46,15 @@ public class Monster : PooledObject, IDamagable
     private void Awake()
     {
         cosRange = Mathf.Cos(Mathf.Deg2Rad * 45);
+    }
+
+    private void OnDisable()
+    {
+        for (int i = 0; i < meshRenderer.Length; i++)
+        {
+            meshRenderer[i].gameObject.SetActive(false);
+            Debug.Log(meshRenderer[i].name);
+        }
     }
 
     private void Start()
@@ -73,8 +80,7 @@ public class Monster : PooledObject, IDamagable
         attackRange = zombieData.attackRange;
         attackRate = zombieData.attackRate;
         damage = zombieData.damage;
-        GetComponentInChildren<SkinnedMeshRenderer>().BakeMesh(zombieData.zombieMesh);
-        GetComponentInChildren<SkinnedMeshRenderer>().material = zombieData.zombieMaterial;
+        meshRenderer[Random.Range(0, meshRenderer.Length)].gameObject.SetActive(true);
     }
 
     private void Update()
@@ -108,6 +114,7 @@ public class Monster : PooledObject, IDamagable
 
             target?.TakeHit((int)damage);
             break;
+
         }
     }
 
@@ -270,6 +277,7 @@ public class Monster : PooledObject, IDamagable
         {
             owner.Targeting();
             owner.StartTrace();
+            owner.Animator.SetFloat("IsWalk", owner.agent.speed);
         }
 
         public override void Transition()
@@ -306,7 +314,7 @@ public class Monster : PooledObject, IDamagable
 
         public override void Enter()
         {
-            owner.Animator.SetFloat("IsWalk", 1.0f);
+            owner.Animator.SetFloat("IsWalk", owner.agent.speed);
         }
 
         public override void Update()
