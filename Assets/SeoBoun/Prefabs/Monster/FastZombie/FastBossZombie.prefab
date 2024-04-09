@@ -704,7 +704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3485040584812509453}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
@@ -779,10 +779,10 @@ MonoBehaviour:
   attackClip: {fileID: 7400000, guid: f5be1a195ddb8084c8dd946789142f9f, type: 2}
   playerTransform: {fileID: 0}
   meshRenderer:
-  - {fileID: 4247336177603556703, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
-  - {fileID: 1532999592884030463, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
-  - {fileID: 3132239981578716402, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
-  - {fileID: 2796288718685247214, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+  - {fileID: 9151227283047183572}
+  - {fileID: 1337275120999839031}
+  - {fileID: 2670304996460086183}
+  - {fileID: 4040844233217120524}
   hp: 0
   moveSpeed: 0
   targetSpeed: 0

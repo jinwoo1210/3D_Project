@@ -1254,10 +1254,10 @@ MonoBehaviour:
   attackClip: {fileID: 7400000, guid: f5be1a195ddb8084c8dd946789142f9f, type: 2}
   playerTransform: {fileID: 0}
   meshRenderer:
-  - {fileID: 4247336177603556703, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
-  - {fileID: 1532999592884030463, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
-  - {fileID: 3132239981578716402, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
-  - {fileID: 2796288718685247214, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+  - {fileID: 368839704980042071}
+  - {fileID: 3872712275353506920}
+  - {fileID: 658991759720593851}
+  - {fileID: 8390889160265095163}
   hp: 0
   moveSpeed: 0
   targetSpeed: 0

@@ -114,6 +114,7 @@ public class Monster : PooledObject, IDamagable
 
             target?.TakeHit((int)damage);
             break;
+
         }
     }
 

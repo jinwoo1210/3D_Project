@@ -8,7 +8,7 @@ public class ZombieSpanwer : ObjectPool
     [SerializeField] float spawnRate;       // 스폰 시간, 간격
 
     // TODO..
-    // 좀비 데이터 추가하고, 프리팹 스폰 시 해당 데이터 넘겨주기
+    // 좀비 데이터 추가하고, 프리팹 스폰 시 해당 데이터 넘겨주기 -> 레벨별 조절
     [SerializeField] List<ZombieData> spawnData;
 
     Coroutine spawnRoutine;

@@ -18,8 +18,15 @@ public class SpawnPointActivator : MonoBehaviour
         }
     }
 
+    public void SpawnCounting()
+    {
+        curZombieCount++;
+    }
+
     private void OnDisable()
     {
         StopAllCoroutines();
     }
+
+
 }

@@ -268,18 +268,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 151649381284055020, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2408823862757762813, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 50521190}
-    - target: {fileID: 3561001440490532338, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5823256379000947913, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -361,14 +353,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8662471595559148585, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8662471595559148585, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8662471595559148585, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 50521190}
@@ -376,22 +360,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 50521190}
-    - target: {fileID: 8662471595559148585, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8662471595559148585, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: ShowInfo
-      objectReference: {fileID: 0}
-    - target: {fileID: 8662471595559148585, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: ExitScene, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8662471595559148585, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8907966506726391327, guid: 2051e735ad197fd4bab92df520f61a4e, type: 3}
       propertyPath: m_Name
       value: HideOutCanvas

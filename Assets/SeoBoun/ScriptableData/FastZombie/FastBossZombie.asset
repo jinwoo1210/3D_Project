@@ -19,3 +19,4 @@ MonoBehaviour:
   attackRange: 2
   attackRate: 1
   damage: 30
+  zombieMaterial: {fileID: 2100000, guid: 5ab68027ade8d2d44bc077011d31f743, type: 2}
