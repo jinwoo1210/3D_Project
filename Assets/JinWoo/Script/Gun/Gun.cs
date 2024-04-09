@@ -64,16 +64,16 @@ public class Gun : MonoBehaviour
         // 만약 탄창이 비어있다면 Reload 진행
         if (state == State.Empty)
             Reload();
-        Debug.Log("발사 if문");
+        //Debug.Log("발사 if문");
         // 총의 상태가 준비상태(Ready) 이며 이전 발사 시점에서 충분히 지나야 발사 가능
         if (state == State.Ready &&                             // 총이 발사 준비 상태이며,
             Time.time >= lastFireTime + shootSpeed)    // 이전 시점에서 충분히 지난 상태라면(timeBetFire : 발사 간격)
         {
-            Debug.Log("발사 1");
+            //Debug.Log("발사 1");
             animator.SetTrigger("Fire");    // 발사 트리거 재생
-            Debug.Log("Shoot 시작");
+            //Debug.Log("Shoot 시작");
             Shoot();                        // 실제 발사
-            Debug.Log("Shoot 종료");
+            //Debug.Log("Shoot 종료");
             lastFireTime = Time.time;       // 마지막 발사 지점 기록(마지막 발사 시점으로부터 timeBetFire만큼 지나면 발사 가능)
         }
     }
