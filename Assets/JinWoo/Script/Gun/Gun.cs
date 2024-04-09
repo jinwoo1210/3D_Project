@@ -64,16 +64,16 @@ public class Gun : MonoBehaviour
         // 만약 탄창이 비어있다면 Reload 진행
         if (state == State.Empty)
             Reload();
-        Debug.Log("발사 if문");
+        //Debug.Log("발사 if문");
         // 총의 상태가 준비상태(Ready) 이며 이전 발사 시점에서 충분히 지나야 발사 가능
         if (state == State.Ready &&                             // 총이 발사 준비 상태이며,
             Time.time >= lastFireTime + shootSpeed)    // 이전 시점에서 충분히 지난 상태라면(timeBetFire : 발사 간격)
         {
-            Debug.Log("발사 1");
+            //Debug.Log("발사 1");
             animator.SetTrigger("Fire");    // 발사 트리거 재생
-            Debug.Log("Shoot 시작");
+            //Debug.Log("Shoot 시작");
             Shoot();                        // 실제 발사
-            Debug.Log("Shoot 종료");
+            //Debug.Log("Shoot 종료");
             lastFireTime = Time.time;       // 마지막 발사 지점 기록(마지막 발사 시점으로부터 timeBetFire만큼 지나면 발사 가능)
         }
     }
@@ -84,7 +84,7 @@ public class Gun : MonoBehaviour
         if (player.equipWeaponIndex == -1 ||    // 플레이어가 아무것도 장비하지 않았거나(-1),
             state == State.Empty)               // 총이 비어있는 상태(Empty)라면
             return;                             // 밑의 문장을 실행하지 않고 종료(return)
-
+        
         //Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
         
         Vector3 pos = muzzlePoint.forward;
@@ -93,7 +93,6 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(muzzlePoint.position, pos, out RaycastHit hit, fireDistance, shootableLayer))
         {
             // muzzlePoint에서, muzzlePoint 앞 방향으로, 사거리(fireDistance) 만큼 몬스터에게 레이를 쏘겠다
-            //Debug.Log(hit);
 
             // 만약 타겟이 IDamagable 인터페이스를 가지고 있다면
             IDamagable target = hit.collider.gameObject.GetComponent<IDamagable>();
@@ -106,6 +105,9 @@ public class Gun : MonoBehaviour
                 // 타겟에게 펑 터지는 이펙트 발생
                 ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 effect.transform.parent = hit.transform;
+
+                // 2초 뒤에 해당 오브젝트 삭제
+                Destroy(effect, 2);
             }
         }
         // 맞지 않더라도, 총구에서 화염구는 항상 나오며
@@ -130,7 +132,7 @@ public class Gun : MonoBehaviour
         StartCoroutine("Fire");
     }
 
-    protected IEnumerator Fire()
+    protected  IEnumerator Fire()
     {
         // 트레일을 그릴 총알을 생성하고
         GameObject instantBullet = Instantiate(bulletObject, bulletPos.position, bulletPos.rotation);
@@ -138,9 +140,10 @@ public class Gun : MonoBehaviour
         // 해당 총알에게 앞 방향으로 가속주기
         bulletRigid.velocity = bulletPos.forward * 50;
 
-        // 2초 뒤에 해당 오브젝트 삭제
-        yield return new WaitForSeconds(2f);
-        Destroy(instantBullet);
+        yield return null;
+        //// 2초 뒤에 해당 오브젝트 삭제
+        //yield return new WaitForSeconds(2f);
+        //Destroy(instantBullet);
     }
 
     //protected IEnumerator Blood()
