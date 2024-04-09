@@ -11,7 +11,6 @@ public class OpenUI : MonoBehaviour
 
     public void Open()
     {
-        Debug.Log(targetUI.name);
         targetUI.SetActive(true);
 
         if (blocker != null)
