@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8004814307657054513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1971359648633810679}
+  - component: {fileID: 330357236322000629}
+  m_Layer: 0
+  m_Name: ElectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1971359648633810679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004814307657054513}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &330357236322000629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004814307657054513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9164738f3efabb4f8d9e6449d12b9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 528928381416714949, guid: afb761e427c94094da422646ed0d8c9b, type: 3}
+  - {fileID: 3512679605284340646, guid: 220adbdd81c415e47828556f829051c8, type: 3}
+  - {fileID: 7475489429547497323, guid: 97bfa2168a528b54191e71608bba1f02, type: 3}
+  - {fileID: 6103406295390711010, guid: adfc044bf91dff04086c101d7a9f4b7b, type: 3}
+  - {fileID: 8658715537932285911, guid: c6dd14fb791271c48976b9f5ed783fe0, type: 3}
+  - {fileID: 2582872305115562531, guid: 5aad435752b9f9845a5d71e8b36c82ae, type: 3}
+  - {fileID: 1981065748207404956, guid: b0f477c0df8012347a065eb11f014c29, type: 3}
+  percentage: 1901000019010000a9000000a9000000380000001c00000010000000
