@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64ffcc21a973888489d21e904f61fea8, type: 3}
-  m_Name: FastNormalZombie1
+  m_Name: FastNormalZombie
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 10
   moveSpeed: 2
-  targetSpeed: 2
-  findRange: 2
+  targetSpeed: 5
+  findRange: 15
   attackRange: 2
-  attackRate: 2
-  damage: 2
-  zombieMesh: {fileID: 4300000, guid: acf0f0e736a79ba4f9f333a40f5b0c78, type: 2}
-  zombieMaterial: {fileID: 2100000, guid: 2f1c91ba698069b4082da29632b17912, type: 2}
+  attackRate: 1
+  damage: 10

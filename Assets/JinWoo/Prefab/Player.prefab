@@ -491,6 +491,7 @@ MonoBehaviour:
   reloadAmmo: 0
   shootSpeed: 0
   reloadTime: 1.8
+  lastFireTime: 0
   fireDistance: 100
 --- !u!1001 &1974911906308540951
 PrefabInstance:
@@ -718,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.y
@@ -726,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -844,13 +845,13 @@ PrefabInstance:
       addedObject: {fileID: 7511753471809627746}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4535375396076140147}
-    - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2857740289343277952}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8389396232223051233}
+    - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7501471447253602989}
   m_SourcePrefab: {fileID: 100100000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
 --- !u!4 &1974911906308411551 stripped
 Transform:
@@ -928,7 +929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068c41881c05e5e42af47fab0ea213af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStat: {fileID: 4535375396076140147}
   controller: {fileID: 4308484585695836160}
   animator: {fileID: 1974911906315845495}
   moveSpeed: 3
@@ -1041,19 +1041,6 @@ MonoBehaviour:
   - {fileID: 517141592039751854}
   - {fileID: 5229160697614024625}
   hasWeapon: 0000
---- !u!114 &4535375396076140147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974911906308443327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0acaa446310e644db6eb8aba574508f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 23e4f6983d5be354aa62465ae3477609, type: 2}
 --- !u!114 &2857740289343277952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,7 +1053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05be87d4f43f984c9a743ab4b263c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStat: {fileID: 4535375396076140147}
   OnDie:
     m_PersistentCalls:
       m_Calls: []
@@ -1085,6 +1071,21 @@ MonoBehaviour:
   gunData: {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
   gun: {fileID: 105278236337491863}
   level: 0
+--- !u!114 &7501471447253602989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974911906308443327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c898a68441dff524496a0cdd795f39e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!95 &1974911906315845495 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
@@ -1208,6 +1209,7 @@ MonoBehaviour:
   reloadAmmo: 0
   shootSpeed: 0
   reloadTime: 1.8
+  lastFireTime: 0
   fireDistance: 100
 --- !u!1001 &5256377640868047167
 PrefabInstance:

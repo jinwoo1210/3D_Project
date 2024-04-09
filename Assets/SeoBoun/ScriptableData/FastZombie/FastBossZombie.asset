@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64ffcc21a973888489d21e904f61fea8, type: 3}
-  m_Name: FastNormalZombie3
+  m_Name: FastBossZombie
   m_EditorClassIdentifier: 
-  hp: 40
-  moveSpeed: 4
-  targetSpeed: 4
-  findRange: 4
-  attackRange: 4
-  attackRate: 4
-  damage: 4
-  zombieMesh: {fileID: 4300000, guid: 9a088fc56e3210b4c819708a2f6c7f07, type: 2}
-  zombieMaterial: {fileID: 2100000, guid: f95369fcde7288940a8f731c0abb8a0e, type: 2}
+  hp: 500
+  moveSpeed: 3
+  targetSpeed: 7
+  findRange: 15
+  attackRange: 2
+  attackRate: 1
+  damage: 30
