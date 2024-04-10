@@ -9,11 +9,11 @@ public class ExitPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("≈ª√‚±∏ ¡¯¿‘");
-        Manager.Scene.LoadScene("ExitScene");
+        Manager.Scene.LoadScene("HideScene");
         if (((1 << playerLayer) & other.gameObject.layer) != 0)
         {
             Debug.Log("æ¿ ¿Ãµø");
-            Manager.Scene.LoadScene("ExitScene");
+            Manager.Scene.LoadScene("HideScene");
         }
     }
 }

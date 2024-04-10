@@ -13158,7 +13158,7 @@ GameObject:
   - component: {fileID: 6856564381544249499}
   - component: {fileID: 3502519775028039569}
   m_Layer: 5
-  m_Name: HideOutCanvas
+  m_Name: HideOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

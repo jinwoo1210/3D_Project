@@ -35,13 +35,20 @@ public class MonsterFov : MonoBehaviour
 
     private void OnDisable()
     {
-        StopCoroutine(findRoutine);
+        if (findRoutine != null)
+            StopCoroutine(findRoutine);
     }
 
     IEnumerator FindRoutine()
     {
         while (true)
         {
+            if(Manager.Game.playerPos == null)
+            {
+                yield return null;
+                continue;
+            }
+
             if ((transform.position - Manager.Game.playerPos.position).sqrMagnitude > range * range)
             {
                 yield return new WaitForSeconds(1f);

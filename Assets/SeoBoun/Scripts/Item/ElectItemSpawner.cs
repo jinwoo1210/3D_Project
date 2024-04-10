@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ElectItemSpawner : ItemSpawner
 {
+    private void Start()
+    {
+        Spawn();
+    }
+
     public override void Spawn()
     {
         rand = Random.Range(0, 1000) + 1;
