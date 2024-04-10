@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OpenStatUpUI : OpenUI
 {
+    // 스탯에 대한 이벤트 등록
     [SerializeField] UpgradeStatLevel statLevel;
 
     public void AddHpEvent()

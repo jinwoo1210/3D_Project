@@ -51,6 +51,15 @@ public class BindingUI : MonoBehaviour
             if(images != null)
             {
                 images.Add(name, image);
+                Debug.Log(name);
+            }
+            else if(image.enabled == false)
+            {
+                if (images.ContainsKey(name))
+                    return;
+
+                images.Add(name, image);
+                Debug.Log($"Ãß°¡ : {name}");
             }
         }
     }

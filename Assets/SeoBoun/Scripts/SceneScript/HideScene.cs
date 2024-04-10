@@ -11,7 +11,7 @@ public class HideScene : BaseScene
         yield return null;
     }
 
-    public void ShowInfo()
+    public void UpdateInfo()
     {
         if(statusInfoUI == null)
         {
@@ -19,10 +19,6 @@ public class HideScene : BaseScene
         }
 
         statusInfoUI.ShowPackInfo();
-    }
-
-    public void ShowStatInfo()
-    {
         statusInfoUI.ShowStatusInfo();
     }
 

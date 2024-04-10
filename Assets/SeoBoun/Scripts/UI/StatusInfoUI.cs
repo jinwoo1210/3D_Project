@@ -19,6 +19,9 @@ public class StatusInfoUI : BindingUI
     {
         // 플레이어 스탯 표기
 
+        if (PlayerStatManager.Inventory == null)
+            return;
+
         int hpLevel = PlayerStatManager.Inventory.hpLevel;
         int staminaLevel = PlayerStatManager.Inventory.staminaLevel;
         int speedLevel = PlayerStatManager.Inventory.speedLevel;
