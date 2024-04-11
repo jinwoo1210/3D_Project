@@ -35078,10 +35078,90 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 385656671092233720, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+    - target: {fileID: 385656671092233720, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 385656671092233720, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 385656671092233720, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
+    - target: {fileID: 517044925578428337, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+    - target: {fileID: 517044925578428337, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 517044925578428337, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 517044925578428337, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
+    - target: {fileID: 922450759781287551, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     - target: {fileID: 922450759781287551, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
       propertyPath: spawnData.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 922450759781287551, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 922450759781287551, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 922450759781287551, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
+    - target: {fileID: 3482411547123885888, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+    - target: {fileID: 3482411547123885888, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 3482411547123885888, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 3482411547123885888, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
+    - target: {fileID: 3809607181244627515, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+    - target: {fileID: 3809607181244627515, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 3809607181244627515, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 3809607181244627515, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
     - target: {fileID: 3894826408600132135, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
       propertyPath: m_Name
       value: ZombieSpawner
@@ -35126,6 +35206,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5646902191835384232, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+    - target: {fileID: 5646902191835384232, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 5646902191835384232, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 5646902191835384232, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
+    - target: {fileID: 5894983745938531503, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+    - target: {fileID: 5894983745938531503, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 5894983745938531503, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 5894983745938531503, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
+    - target: {fileID: 8918876448511142769, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+    - target: {fileID: 8918876448511142769, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 8918876448511142769, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 8918876448511142769, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
+    - target: {fileID: 9166401078474519572, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.prefab
+      value: 
+      objectReference: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
+    - target: {fileID: 9166401078474519572, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.bossZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
+    - target: {fileID: 9166401078474519572, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.eliteZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
+    - target: {fileID: 9166401078474519572, guid: f06c5a87f94cc404db8cec482f1e6bb3, type: 3}
+      propertyPath: zombieData.normalZombieData
+      value: 
+      objectReference: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39352,7 +39496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791460653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4185248, y: 0.34116477, z: -0.17335862, w: 0.82364464}
+  m_LocalRotation: {x: 0.41852477, y: 0.34116477, z: -0.17335865, w: 0.82364464}
   m_LocalPosition: {x: 18, y: 16.046246, z: 44.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -41922,7 +42066,7 @@ PrefabInstance:
     - target: {fileID: 1523201803015824849, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
       propertyPath: stat
       value: 
-      objectReference: {fileID: 1479931053}
+      objectReference: {fileID: 0}
     - target: {fileID: 3347866293150295649, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -46501,6 +46645,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4991869443904894, guid: 49a6dbfeee02cae49bead22c1e9aae93, type: 3}
   m_PrefabInstance: {fileID: 936513770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &937108839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1739641295372260, guid: 0cee5f343e1618e4d9b4cdf0cea994c9, type: 3}
+  m_PrefabInstance: {fileID: 1495472728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &937246792
 PrefabInstance:
@@ -56220,7 +56369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.4185248
+      value: 0.41852477
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -56228,7 +56377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17335862
+      value: -0.17335865
       objectReference: {fileID: 0}
     - target: {fileID: 4589582948706383833, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -70409,17 +70558,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4571672860089054, guid: 08e7fa694cf2f0a42abac3bb71f497e1, type: 3}
   m_PrefabInstance: {fileID: 1472184089}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1479931053 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4535375396076140147, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
-  m_PrefabInstance: {fileID: 1163952283}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0acaa446310e644db6eb8aba574508f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1483542332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71344,20 +71482,44 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 447dc53fa48380a4fa063de19aa75b00, type: 2}
     - target: {fileID: 64950824583024048, guid: 0cee5f343e1618e4d9b4cdf0cea994c9, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1443573965294466, guid: 0cee5f343e1618e4d9b4cdf0cea994c9, type: 3}
     - {fileID: 1113613377977132, guid: 0cee5f343e1618e4d9b4cdf0cea994c9, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1739641295372260, guid: 0cee5f343e1618e4d9b4cdf0cea994c9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1495472730}
   m_SourcePrefab: {fileID: 100100000, guid: 0cee5f343e1618e4d9b4cdf0cea994c9, type: 3}
 --- !u!4 &1495472729 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4375917383470778, guid: 0cee5f343e1618e4d9b4cdf0cea994c9, type: 3}
   m_PrefabInstance: {fileID: 1495472728}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1495472730
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937108839}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.378825, y: 7.2036157, z: 12.479076}
+  m_Center: {x: 0.0000009536743, y: 3.6018078, z: -0.0000026226044}
 --- !u!1001 &1495571235
 PrefabInstance:
   m_ObjectHideFlags: 0

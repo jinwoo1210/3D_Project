@@ -14,6 +14,9 @@ public class TransparentObject : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Manager.Game.playerPos == null)
+            return;
+
         Vector3 direction = (Manager.Game.playerPos.position - transform.position).normalized;
 
         RaycastHit[] hits = Physics.RaycastAll(transform.position, direction, 20f, obstacleLayer);

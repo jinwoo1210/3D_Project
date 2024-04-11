@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieSpanwer : ObjectPool
@@ -9,13 +9,14 @@ public class ZombieSpanwer : ObjectPool
 
     // TODO..
     // 좀비 데이터 추가하고, 프리팹 스폰 시 해당 데이터 넘겨주기 -> 레벨별 조절
-    [SerializeField] List<ZombieData> spawnData;
+    [SerializeField] Zombies zombieData;
 
     Coroutine spawnRoutine;
     bool isSpawn = false;
 
     public void CreatePool()
     {
+        base.prefab = zombieData.prefab;
         base.CreatePool(prefab, 7, 7);
     }
 
@@ -46,9 +47,9 @@ public class ZombieSpanwer : ObjectPool
 
         if (monster != null)
         {
-            monster.GetComponent<Monster>().Init(spawnData[Random.Range(0, spawnData.Count)]);
+            monster.GetComponent<Monster>().Init(zombieData.normalZombieData);
             monster.gameObject.SetActive(true);
-            monster.transform.position += new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
+            monster.transform.position += new Vector3(UnityEngine.Random.Range(-5f, 5f), 0, UnityEngine.Random.Range(-5f, 5f));
         }
 
         isSpawn = false;
@@ -60,4 +61,14 @@ public class ZombieSpanwer : ObjectPool
             StopCoroutine(spawnRoutine);
     }
 
+}
+
+[Serializable]
+public struct Zombies
+{
+    public ZombieData normalZombieData;
+    public ZombieData eliteZombieData;
+    public ZombieData bossZombieData;
+
+    public PooledObject prefab;
 }

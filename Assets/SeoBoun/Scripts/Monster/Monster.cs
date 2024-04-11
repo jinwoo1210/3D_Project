@@ -53,22 +53,13 @@ public class Monster : PooledObject, IDamagable
         for (int i = 0; i < meshRenderer.Length; i++)
         {
             meshRenderer[i].gameObject.SetActive(false);
-            Debug.Log(meshRenderer[i].name);
         }
     }
 
     private void Start()
     {
         // ½ÃÀÛÀº Idle
-        fsm = new StatesMachine();
-        fsm.Init(this, States.Idle);
-        curState = States.Idle;
         startPos = transform.position;
-
-        if (Manager.Game.playerPos == null)
-            return;
-
-        playerTransform = Manager.Game.playerPos;
     }
 
     public void Init(ZombieData zombieData)
@@ -81,6 +72,10 @@ public class Monster : PooledObject, IDamagable
         attackRate = zombieData.attackRate;
         damage = zombieData.damage;
         meshRenderer[Random.Range(0, meshRenderer.Length)].gameObject.SetActive(true);
+        playerTransform = Manager.Game.playerPos;
+        fsm = new StatesMachine();
+        fsm.Init(this, States.Idle);
+        curState = States.Idle;
     }
 
     private void Update()

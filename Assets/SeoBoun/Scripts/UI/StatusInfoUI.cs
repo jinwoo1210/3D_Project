@@ -12,22 +12,36 @@ public class StatusInfoUI : BindingUI
 
     public void ShowGunInfo(GunData gunData, int level)
     {
-        // 건 정보 표기 -> 선택한 Gun에대한 데이터 넣기 + level 관리하기
-        // texts["DamageText"].text
-        // texts["ShootSpeedText"].text
-        // texts["MagCapacityText"].text
-        // texts["ReloadTimeText"].text
-        // texts["FireDistanceText"].text
+        // TODO... 건 정보 표기
     }
 
     public void ShowStatusInfo()
     {
         // 플레이어 스탯 표기
-        texts["HPText"].text = (PlayerStatManager.Inventory.hpLevel + 1).ToString();
-        texts["StaminaText"].text = (PlayerStatManager.Inventory.staminaLevel + 1).ToString();
-        texts["SpeedText"].text = (PlayerStatManager.Inventory.speedLevel + 1).ToString();
 
-        texts["LevelText"].text = (PlayerStatManager.Inventory.hpLevel + PlayerStatManager.Inventory.staminaLevel + PlayerStatManager.Inventory.speedLevel + 3).ToString();
+        if (PlayerStatManager.Inventory == null)
+            return;
+
+        int hpLevel = PlayerStatManager.Inventory.hpLevel;
+        int staminaLevel = PlayerStatManager.Inventory.staminaLevel;
+        int speedLevel = PlayerStatManager.Inventory.speedLevel;
+
+        texts["LevelText"].text = $"LV. {hpLevel + staminaLevel + speedLevel + 1}";
+
+        // 이미지 표기
+        for(int i = 0; i < hpLevel; i++)
+        {
+            images[$"HPLevel{i + 1}"].gameObject.SetActive(true);
+        }
+        for (int i = 0; i < staminaLevel; i++)
+        {
+            images[$"STLevel{i + 1}"].gameObject.SetActive(true);
+        }
+        for (int i = 0; i < speedLevel; i++)
+        {
+            images[$"SPLevel{i + 1}"].gameObject.SetActive(true);
+        }
+
     }
 
     public void ShowPackInfo()
@@ -36,12 +50,12 @@ public class StatusInfoUI : BindingUI
             return;
 
         texts["MedicalPoint"].text = PlayerStatManager.Inventory.medicalPoint.ToString();
-        texts["MedicalLevel"].text = $"{PlayerStatManager.Inventory.medicalLevel + 1}/{4}";
+        texts["MedicalLevel"].text = $"{PlayerStatManager.Inventory.medicalLevel + 1}";
         texts["FoodPoint"].text = PlayerStatManager.Inventory.foodPoint.ToString();
-        texts["FoodLevel"].text = $"{PlayerStatManager.Inventory.foodLevel + 1}/{4}";
+        texts["FoodLevel"].text = $"{PlayerStatManager.Inventory.foodLevel + 1}";
         texts["ElectPoint"].text = PlayerStatManager.Inventory.electPoint.ToString();
-        texts["ElectLevel"].text = $"{PlayerStatManager.Inventory.electLevel + 1}/{4}";
+        texts["ElectLevel"].text = $"{PlayerStatManager.Inventory.electLevel + 1}";
         texts["ToolPoint"].text = PlayerStatManager.Inventory.toolPoint.ToString();
-        texts["ToolLevel"].text = $"{PlayerStatManager.Inventory.toolLevel + 1}/{4}";
+        texts["ToolLevel"].text = $"{PlayerStatManager.Inventory.toolLevel + 1}";
     }
 }

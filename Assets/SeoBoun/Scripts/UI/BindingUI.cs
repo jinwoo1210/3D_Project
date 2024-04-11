@@ -8,7 +8,8 @@ public class BindingUI : MonoBehaviour
 {
     protected Dictionary<string, RectTransform> transforms;
     protected Dictionary<string, Button> buttons;
-    protected Dictionary<string, Text> texts;
+    protected Dictionary<string, TMP_Text> texts;
+    protected Dictionary<string, Image> images;
         
     protected virtual void Awake()
     {
@@ -19,7 +20,8 @@ public class BindingUI : MonoBehaviour
     {
         transforms = new Dictionary<string, RectTransform>();
         buttons = new Dictionary<string, Button>();
-        texts = new Dictionary<string, Text>();
+        texts = new Dictionary<string, TMP_Text>();
+        images = new Dictionary<string, Image>();
 
         RectTransform[] children = GetComponentsInChildren<RectTransform>();
 
@@ -39,10 +41,16 @@ public class BindingUI : MonoBehaviour
                 buttons.Add(name, button);
             }
 
-            Text text = child.GetComponent<Text>();
+            TMP_Text text = child.GetComponent<TMP_Text>();
             if(text != null)
             {
                 texts.Add(name, text);
+            }
+
+            Image image = child.GetComponent<Image>();
+            if(images != null)
+            {
+                images.Add(name, image);
             }
         }
     }
