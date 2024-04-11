@@ -50,12 +50,12 @@ public class StatusInfoUI : BindingUI
             return;
 
         texts["MedicalPoint"].text = PlayerStatManager.Inventory.medicalPoint.ToString();
-        texts["MedicalLevel"].text = $"{PlayerStatManager.Inventory.medicalLevel + 1}/{4}";
+        texts["MedicalLevel"].text = $"{PlayerStatManager.Inventory.medicalLevel + 1}";
         texts["FoodPoint"].text = PlayerStatManager.Inventory.foodPoint.ToString();
-        texts["FoodLevel"].text = $"{PlayerStatManager.Inventory.foodLevel + 1}/{4}";
+        texts["FoodLevel"].text = $"{PlayerStatManager.Inventory.foodLevel + 1}";
         texts["ElectPoint"].text = PlayerStatManager.Inventory.electPoint.ToString();
-        texts["ElectLevel"].text = $"{PlayerStatManager.Inventory.electLevel + 1}/{4}";
+        texts["ElectLevel"].text = $"{PlayerStatManager.Inventory.electLevel + 1}";
         texts["ToolPoint"].text = PlayerStatManager.Inventory.toolPoint.ToString();
-        texts["ToolLevel"].text = $"{PlayerStatManager.Inventory.toolLevel + 1}/{4}";
+        texts["ToolLevel"].text = $"{PlayerStatManager.Inventory.toolLevel + 1}";
     }
 }
