@@ -28,18 +28,25 @@ public class StatusInfoUI : BindingUI
 
         texts["LevelText"].text = $"LV. {hpLevel + staminaLevel + speedLevel + 1}";
 
+        for(int i = 0; i < 3; i++)
+        {
+            images[$"HPLevel{i + 1}"].enabled = false;
+            images[$"STLevel{i + 1}"].enabled = false;
+            images[$"SPLevel{i + 1}"].enabled = false;
+        }
+
         // 이미지 표기
         for(int i = 0; i < hpLevel; i++)
         {
-            images[$"HPLevel{i + 1}"].gameObject.SetActive(true);
+            images[$"HPLevel{i + 1}"].enabled = true;
         }
         for (int i = 0; i < staminaLevel; i++)
         {
-            images[$"STLevel{i + 1}"].gameObject.SetActive(true);
+            images[$"STLevel{i + 1}"].enabled = true;
         }
         for (int i = 0; i < speedLevel; i++)
         {
-            images[$"SPLevel{i + 1}"].gameObject.SetActive(true);
+            images[$"SPLevel{i + 1}"].enabled = true;
         }
 
     }

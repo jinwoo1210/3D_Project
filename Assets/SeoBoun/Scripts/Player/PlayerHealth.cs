@@ -22,6 +22,10 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     [ContextMenu("Heal")]
     public bool Heal()
     {
+        if (PlayerStatManager.Inventory.FieldInventory.MedicalPoint == 0)
+            return false;
+
+        PlayerStatManager.Inventory.FieldInventory.MedicalPoint--;
         int targetHp = PlayerStatManager.Inventory.playerStat.CurHp + 35 < PlayerStatManager.Inventory.playerStat.MaxHp? PlayerStatManager.Inventory.playerStat.CurHp + 35 : PlayerStatManager.Inventory.playerStat.MaxHp;
         
         StartCoroutine(HealRoutine(PlayerStatManager.Inventory.playerStat.CurHp, targetHp));

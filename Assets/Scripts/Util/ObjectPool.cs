@@ -4,12 +4,12 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] protected PooledObject prefab;
-    [SerializeField] int size;
-    [SerializeField] int capacity;
+    [SerializeField] protected int size;
+    [SerializeField] protected int capacity;
 
-    private Stack<PooledObject> objectPool;
+    protected Stack<PooledObject> objectPool;
 
-    public void CreatePool(PooledObject prefab, int size, int capacity)
+    public virtual void CreatePool(PooledObject prefab, int size, int capacity)
     {
         this.prefab = prefab;
         this.size = size;
