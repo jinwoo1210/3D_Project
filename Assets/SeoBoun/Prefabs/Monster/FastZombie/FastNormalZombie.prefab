@@ -1198,6 +1198,7 @@ GameObject:
   - component: {fileID: 889951627375754432}
   - component: {fileID: 2274474304112880489}
   - component: {fileID: 8254157627887025932}
+  - component: {fileID: 1762388338064132851}
   m_Layer: 8
   m_Name: FastNormalZombie
   m_TagString: Untagged
@@ -1374,6 +1375,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.25469208, y: 1.4430292, z: 0.21845913}
   m_Center: {x: -0.035102844, y: 0.99526227, z: -0.041380405}
+--- !u!136 &1762388338064132851
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122228642653282766}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6153407973758911768
 GameObject:
   m_ObjectHideFlags: 0
