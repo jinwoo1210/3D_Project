@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : BaseItem
 {   
-    public ItemType type;
     public int value;
 
     private void Update()

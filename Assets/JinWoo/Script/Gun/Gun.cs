@@ -140,7 +140,7 @@ public class Gun : MonoBehaviour
         Debug.Log("Fire 루틴");
 
         //2초 뒤에 해당 오브젝트 삭제
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.3f);
         if (!(instantBullet.gameObject == null))
         Destroy(instantBullet);
     }

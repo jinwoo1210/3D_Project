@@ -15,13 +15,21 @@ public class Player : MonoBehaviour
     public bool isSwap;
     public int equipWeaponIndex = -1;
 
-    GameObject nearObject;
+    SwapWeapon swap;
+
+    public GameObject nearObject;
     Gun equipWeapon;
     public PlayerHealth health;
     public BulletData[] bulletData;
     public BulletUI bullet;
     public GameObject[] weapons;
     public bool[] hasWeapon;
+
+    public GameObject[] allWeapons;     // 전체 무기 리스트
+    public GameObject[] hasWeapons;     // 가지고 있는 무기 리스트
+
+    // 다른 무기를 먹을 때, 가지고 있는 무기 리스트중 현재 들고 있는 무기의 hasWeapons의 앞으로 가져오고 
+
     
     private void Update()
     {
@@ -39,18 +47,20 @@ public class Player : MonoBehaviour
         fDown = Input.GetButtonDown("Fire1");
     }
 
-    private void OnPick()
+    public void OnPick()
     {
         if (iDown && nearObject != null)
-        {
+        {   // 근처의 오브젝트 테그가 무기 이면
             if (nearObject.tag == "Weapon")
             {
                 Item item = nearObject.GetComponent<Item>();
                 int weaponIndex = item.value;
                 hasWeapon[weaponIndex] = true;
 
+                swap.Swap();
+
                 Destroy(nearObject);
-            }
+            }// 근처의 오브젝트가 아이템이면
             else if (nearObject.tag == "Item")
             {
                 Destroy(nearObject);
@@ -62,7 +72,7 @@ public class Player : MonoBehaviour
 
     private void OnShow()
     {
-        if (sDown1 && (!hasWeapon[0] || equipWeaponIndex == 0))
+        if (sDown1 && (!hasWeapon[0] || equipWeaponIndex == 0))     
             return;
         if (sDown2 && (!hasWeapon[1] || equipWeaponIndex == 1))
             return;
@@ -74,7 +84,7 @@ public class Player : MonoBehaviour
         if (sDown1 || sDown2)
         {
             if (equipWeapon != null)
-                equipWeapon.gameObject.SetActive(false);
+            equipWeapon.gameObject.SetActive(false);
             equipWeaponIndex = weaponIndex;
             equipWeapon = weapons[weaponIndex].GetComponent<Gun>();
             equipWeapon.gameObject.SetActive(true);

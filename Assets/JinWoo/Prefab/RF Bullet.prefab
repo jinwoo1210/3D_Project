@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 2446019642811602718}
   - component: {fileID: 3950905703714487190}
   - component: {fileID: 3727783218577366872}
-  - component: {fileID: 1698067336842571550}
   - component: {fileID: -5999098540394390913}
   - component: {fileID: -7155076550572205183}
   m_Layer: 11
-  m_Name: Bullet Layger
+  m_Name: RF Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,24 +197,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1698067336842571550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7242100510980987772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec8b22d74faceca47ba0215cb426e556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 256
-  hitEffect: {fileID: 7662160287446461198, guid: 701e7ff7150afb1479314714e783fc72, type: 3}
-  rigid: {fileID: 3950905703714487190}
-  bulletDamage: 0
 --- !u!23 &-5999098540394390913
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -236,7 +217,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1134714066672644336, guid: 430a99591a3e4864790cf16d644f4395, type: 3}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
