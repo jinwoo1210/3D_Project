@@ -26,4 +26,6 @@ public class BulletRayger : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    // 데미지 설정 함수 구현
 }

@@ -23,7 +23,7 @@ public class ShotGunRe : Gun
         muzzleFlash.Play();
 
         // 트레일 렌더러 활성화
-        for (int i = 0; i < bulletSpawner.Length; i++)
+        for (int i = 0; i < bulletSpawner.Length; i++)      // 샷건이기에 총알생성을 배열로 만들어둠.
         {
             // 트레일을 그릴 총알을 생성하고
             GameObject instantBullet = Instantiate(bulletObject, bulletSpawner[i].position, bulletSpawner[i].rotation);

@@ -19,7 +19,7 @@ MonoBehaviour:
   curAmmo: 0
   icon: {fileID: 0}
   datas:
-  - damage: 105
+  - damage: 15
     shootSpeed: 0.25
     remainAmmo: 7
     reloadTime: 2.1
