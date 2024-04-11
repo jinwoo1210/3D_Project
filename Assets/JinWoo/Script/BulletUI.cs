@@ -7,7 +7,7 @@ public class BulletUI : MonoBehaviour
 {
     [SerializeField] public int curAmmo;
     [SerializeField] public int remainAmmo;
-    // public int bulletCount;
+
     public Gun gun;
     public GunData data;
     
