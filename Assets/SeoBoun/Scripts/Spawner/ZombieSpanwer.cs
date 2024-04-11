@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class ZombieSpanwer : ObjectPool
 {
@@ -10,14 +12,32 @@ public class ZombieSpanwer : ObjectPool
     // TODO..
     // 좀비 데이터 추가하고, 프리팹 스폰 시 해당 데이터 넘겨주기 -> 레벨별 조절
     [SerializeField] Zombies zombieData;
+    [SerializeField] ZombieData[] zombies;
+    [SerializeField] Monster[] prefabs;
 
     Coroutine spawnRoutine;
     bool isSpawn = false;
 
-    public void CreatePool()
+    public void Create()
     {
-        base.prefab = zombieData.prefab;
-        base.CreatePool(prefab, 7, 7);
+        
+    }
+
+    public override void CreatePool(PooledObject prefab, int size, int capacity)
+    {
+        this.prefab = prefab;
+        this.size = size;
+        this.capacity = capacity;
+
+        objectPool = new Stack<PooledObject>(capacity);
+        for (int i = 0; i < size; i++)
+        {
+            PooledObject instance = Instantiate(prefab);
+            instance.gameObject.SetActive(false);
+            instance.Pool = this;
+            instance.transform.parent = transform;
+            objectPool.Push(instance);
+        }
     }
 
     public void StartSpawn()
@@ -38,10 +58,9 @@ public class ZombieSpanwer : ObjectPool
 
     IEnumerator SpawnRoutine()
     {
-        // 최대 좀비 수만큼만 하도록 수정 -> 스폰 지점 별 10마리 최댓값 설정
         isSpawn = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         PooledObject monster = GetPool(transform.position, Quaternion.identity);
 
@@ -60,7 +79,7 @@ public class ZombieSpanwer : ObjectPool
         if (spawnRoutine != null)
             StopCoroutine(spawnRoutine);
     }
-
+    
 }
 
 [Serializable]

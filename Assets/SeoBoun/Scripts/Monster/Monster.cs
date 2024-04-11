@@ -64,6 +64,8 @@ public class Monster : PooledObject, IDamagable
 
     public void Init(ZombieData zombieData)
     {
+        int rand = Random.Range(0, meshRenderer.Length);
+
         hp = zombieData.hp;
         moveSpeed = zombieData.moveSpeed;
         targetSpeed = zombieData.targetSpeed;
@@ -71,7 +73,8 @@ public class Monster : PooledObject, IDamagable
         attackRange = zombieData.attackRange;
         attackRate = zombieData.attackRate;
         damage = zombieData.damage;
-        meshRenderer[Random.Range(0, meshRenderer.Length)].gameObject.SetActive(true);
+        meshRenderer[rand].gameObject.SetActive(true);
+        meshRenderer[rand].material = zombieData.zombieMaterial;
         playerTransform = Manager.Game.playerPos;
         fsm = new StatesMachine();
         fsm.Init(this, States.Idle);
