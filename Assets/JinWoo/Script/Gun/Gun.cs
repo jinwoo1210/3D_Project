@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
     public int reloadAmmo;         // 재장전시 필요한 탄약
     public float shootSpeed;       // 연사력
     public float reloadTime;       // 장전속도
-    public float lastFireTime;    // 마지막 발사 시점 기록용
+    public float lastFireTime;     // 마지막 발사 시점 기록용
     public float fireDistance;     // 사거리
 
     protected virtual void OnEnable()
@@ -136,6 +136,8 @@ public class Gun : MonoBehaviour
         Rigidbody bulletRigid = instantBullet.GetComponent<Rigidbody>();
         // 해당 총알에게 앞 방향으로 가속주기
         bulletRigid.velocity = bulletPos.forward * 50;
+
+        Debug.Log("Fire 루틴");
 
         //2초 뒤에 해당 오브젝트 삭제
         yield return new WaitForSeconds(2f);
