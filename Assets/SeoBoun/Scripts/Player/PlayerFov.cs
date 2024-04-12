@@ -26,7 +26,7 @@ public class PlayerFov : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             int size = Physics.OverlapSphereNonAlloc(transform.position, activeRange, colliders, targetMask);
             
             for (int i = 0; i < size; i++)
@@ -36,8 +36,8 @@ public class PlayerFov : MonoBehaviour
                     continue;
                 }
 
-                ZombieSpanwer target = colliders[i].GetComponent<ZombieSpanwer>();
-                target?.StartSpawn();
+                SpawnManagement target = colliders[i].GetComponent<SpawnManagement>();
+                target?.Spawn();
             }
         }
     }

@@ -1935,6 +1935,7 @@ GameObject:
   - component: {fileID: 8822067532571016540}
   - component: {fileID: 2540419780049586458}
   - component: {fileID: 171177327146608082}
+  - component: {fileID: 6216611713275604747}
   m_Layer: 3
   m_Name: EnduerBossZombie
   m_TagString: Untagged
@@ -2019,6 +2020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoRelease: 0
   releaseTime: 10
+  curType: 0
   agent: {fileID: 6788211803756253324}
   animator: {fileID: 5261490741802341211}
   monsterFov: {fileID: 8822067532571016540}
@@ -2036,6 +2038,7 @@ MonoBehaviour:
   attackRange: 0
   attackRate: 0
   damage: 0
+  type: 0
   startPos: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
@@ -2111,6 +2114,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.25469208, y: 1.4430292, z: 0.21845913}
   m_Center: {x: -0.035102844, y: 0.99526227, z: -0.041380405}
+--- !u!136 &6216611713275604747
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673915357606251026}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5769161447031899302
 GameObject:
   m_ObjectHideFlags: 0

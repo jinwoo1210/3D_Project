@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    [SerializeField] SpawnPointActivator spawnPointActivator;
     public override IEnumerator LoadingRoutine()
     {
         yield return null;
@@ -11,6 +12,10 @@ public class GameScene : BaseScene
         {
             Manager.Game.playerPos = GameObject.FindWithTag("Player").transform;
         }
+        // 좀비 클래스 설정 및 오브젝트 풀 활성화
+        spawnPointActivator.SetZombieClass();
+        spawnPointActivator.StartGame();
+
     }
 
 }

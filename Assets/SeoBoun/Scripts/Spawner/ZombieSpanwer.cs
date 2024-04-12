@@ -2,26 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Pool;
 
-public class ZombieSpanwer : ObjectPool
+public abstract class ZombieSpanwer : ObjectPool
 {
-    SpawnPointActivator spawnPointActivator;
     [SerializeField] float spawnRate;       // 스폰 시간, 간격
 
-    // TODO..
-    // 좀비 데이터 추가하고, 프리팹 스폰 시 해당 데이터 넘겨주기 -> 레벨별 조절
-    [SerializeField] Zombies zombieData;
-    [SerializeField] ZombieData[] zombies;
-    [SerializeField] Monster[] prefabs;
+    [SerializeField] protected ZombieClass type;      // 좀비 타입
+    [SerializeField] protected ZombieType rank;       // 좀비 등급
+    [SerializeField] protected ZombieData curData;
+
 
     Coroutine spawnRoutine;
-    bool isSpawn = false;
+    protected bool isSpawn = false;
 
-    public void Create()
-    {
-        
-    }
+    public UnityEvent bossDecount;
+    public UnityEvent elietDecount;
+    public UnityEvent normalDecount;
+
+    public abstract void Create(ZombieClass type);
 
     public override void CreatePool(PooledObject prefab, int size, int capacity)
     {
@@ -51,27 +51,27 @@ public class ZombieSpanwer : ObjectPool
         StopCoroutine(spawnRoutine);
     }
 
-    public void SetActivator(SpawnPointActivator spawnPointActivator)
-    {
-        this.spawnPointActivator = spawnPointActivator;
-    }
-
-    IEnumerator SpawnRoutine()
+    protected virtual IEnumerator SpawnRoutine()
     {
         isSpawn = true;
 
         yield return new WaitForSeconds(0.5f);
 
-        PooledObject monster = GetPool(transform.position, Quaternion.identity);
+        Vector3 randRotation = new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0);
+
+        PooledObject monster = GetPool(transform.position, Quaternion.Euler(randRotation));
 
         if (monster != null)
         {
-            monster.GetComponent<Monster>().Init(zombieData.normalZombieData);
+            monster.GetComponent<Monster>().Init(curData);
+            monster.GetComponent<MonsterPooledObject>().SetType(rank);
             monster.gameObject.SetActive(true);
             monster.transform.position += new Vector3(UnityEngine.Random.Range(-5f, 5f), 0, UnityEngine.Random.Range(-5f, 5f));
         }
 
         isSpawn = false;
+
+        yield return null;
     }
 
     private void OnDestroy()
@@ -79,15 +79,21 @@ public class ZombieSpanwer : ObjectPool
         if (spawnRoutine != null)
             StopCoroutine(spawnRoutine);
     }
-    
+
+    public void DeCount(ZombieType type)
+    {
+        if (type == ZombieType.normal)
+            normalDecount?.Invoke();
+        else if (type == ZombieType.eliet)
+            elietDecount?.Invoke();
+        else if (type == ZombieType.boss)
+            bossDecount?.Invoke();
+    }
 }
 
 [Serializable]
 public struct Zombies
 {
-    public ZombieData normalZombieData;
-    public ZombieData eliteZombieData;
-    public ZombieData bossZombieData;
-
-    public PooledObject prefab;
+    public Monster prefab;
+    public ZombieData data;
 }
