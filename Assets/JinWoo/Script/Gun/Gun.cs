@@ -11,18 +11,21 @@ public class Gun : MonoBehaviour
     public enum State { Ready, Empty, Reloading }    // 발사 준비, 탄창 빔, 재장전 중
     public State state;                              // 현재 총의 상태
 
-    [SerializeField]protected Animator animator;              // 발사 애니메이션
-    [SerializeField]protected Transform muzzlePoint;          // 발사 위치(레이캐스트 위치)
-    [SerializeField]protected LayerMask shootableLayer;       // 타격 레이어(총을 맞을 수 있는)
-    [SerializeField]protected LayerMask monsterLayer;         // 타격 레이어(몬스터)
-    [SerializeField]protected LayerMask obstacleLayer;        // 타격 레이어(장애물 / 건물...)
-    [SerializeField]protected Player player;                  // 발사할 플레이어
-    [SerializeField]protected ParticleSystem muzzleFlash;     // 총구 이펙트(총구 플래시)
-    [SerializeField]protected ParticleSystem hitEffect;       // 히트 이펙트(타격 이펙트)
-    [SerializeField]protected ParticleSystem bloodEffect;     // 히트 이펙트(피 이펙트)
-    [SerializeField]protected GunData gunData;                // 실제 총 데이터 스크립터블 오브젝트
-    [SerializeField]protected Transform bulletPos;            // 총알 위치(총구 이펙트 위치)
-    [SerializeField]protected GameObject bulletObject;        // 실제 총알 오브젝트
+    public enum GunType { Ar,Smg, Sg, Sr}
+    public GunType type;
+
+    [SerializeField]public Animator animator;              // 발사 애니메이션
+    [SerializeField]public Transform muzzlePoint;          // 발사 위치(레이캐스트 위치)
+    [SerializeField]public LayerMask shootableLayer;       // 타격 레이어(총을 맞을 수 있는)
+    [SerializeField]public LayerMask monsterLayer;         // 타격 레이어(몬스터)
+    [SerializeField]public LayerMask obstacleLayer;        // 타격 레이어(장애물 / 건물...)
+    [SerializeField]public Player player;                  // 발사할 플레이어
+    [SerializeField]public ParticleSystem muzzleFlash;     // 총구 이펙트(총구 플래시)
+    [SerializeField]public ParticleSystem hitEffect;       // 히트 이펙트(타격 이펙트)
+    [SerializeField]public ParticleSystem bloodEffect;     // 히트 이펙트(피 이펙트)
+    [SerializeField]public GunData gunData;                // 실제 총 데이터 스크립터블 오브젝트
+    [SerializeField]public Transform bulletPos;            // 총알 위치(총구 이펙트 위치)
+    [SerializeField]public GameObject bulletObject;        // 실제 총알 오브젝트
 
     public int damage;             // 공격력
     public int curAmmo;            // 실제로 사용되어지는 탄약
@@ -140,7 +143,7 @@ public class Gun : MonoBehaviour
         Debug.Log("Fire 루틴");
 
         //2초 뒤에 해당 오브젝트 삭제
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.3f);
         if (!(instantBullet.gameObject == null))
         Destroy(instantBullet);
     }
