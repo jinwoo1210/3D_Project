@@ -26,7 +26,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public PooledObject GetPool(Vector3 position, Quaternion rotation)
+    public virtual PooledObject GetPool(Vector3 position, Quaternion rotation)
     {
         if (objectPool.Count > 0)
         {

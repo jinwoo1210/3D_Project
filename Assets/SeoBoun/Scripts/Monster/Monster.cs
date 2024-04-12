@@ -2,12 +2,13 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 // 좀비의 기본 상태
 public enum States { Idle, Trace, Attack, Return, Patrol, Die, Size }
 
 // 어택은 구분이 조금 필요함. -> 공격 중에는 Trace도, 무엇도 불가능하며 특히 쿨타임을 계산하려면 필수 항목일지도..?
 public enum AttackStates { BeginAttack, Attacking, EndAttacking, Size}
-public class Monster : PooledObject, IDamagable
+public class Monster : MonsterPooledObject, IDamagable
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
@@ -25,6 +26,7 @@ public class Monster : PooledObject, IDamagable
     [SerializeField] float attackRange;     // 공격 범위   
     [SerializeField] float attackRate;      // 어택 쿨타임? 빈도?
     [SerializeField] int damage;            // 데미지 TODO.. IDamagable or LivingClass로 따로 빼기
+    [SerializeField] ZombieType type;
 
     [SerializeField] Vector3 startPos;
     [SerializeField] LayerMask playerLayer;
@@ -33,6 +35,8 @@ public class Monster : PooledObject, IDamagable
 
     public States curState = new States();
     public AttackStates attackState = new AttackStates();
+
+    public UnityEvent OnDied;
 
     bool isAttackCoolTime = false;
     bool isAttacking = false;
@@ -159,6 +163,7 @@ public class Monster : PooledObject, IDamagable
         {
             hp = 0;
             fsm.ChangeState(States.Die);
+            OnDied?.Invoke();
         }
         else
         {
@@ -383,6 +388,7 @@ public class Monster : PooledObject, IDamagable
             owner.animator.SetTrigger("Die");
             owner.GetComponent<Collider>().enabled = false;
             owner.agent.isStopped = true;
+
             owner.ReturnPool();
         }
     }
