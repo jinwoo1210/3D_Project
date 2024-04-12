@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 143994059860707679}
+  - component: {fileID: 2441466140341498607}
   m_Layer: 3
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -35,6 +36,23 @@ Transform:
   - {fileID: 3389869659744412536}
   m_Father: {fileID: 1974911906308411583}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+--- !u!114 &2441466140341498607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159155184284971869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be5df5f6e972ca4cbfef4fdf5c9a010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  player: {fileID: 7511753471809627746}
+  item: {fileID: 0}
+  index: 0
+  pickGun: 0
 --- !u!1 &1611237962572013223
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1900586067242068, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1900586067242068, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
       propertyPath: m_TagString
@@ -793,6 +811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  type: 0
   animator: {fileID: 1974911906315845495}
   muzzlePoint: {fileID: 4589582948706383833}
   shootableLayer:
@@ -1437,7 +1456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSwap: 0
-  equipWeaponIndex: -1
+  equipWeaponIndex: 0
+  nearObject: {fileID: 0}
   health: {fileID: 2857740289343277952}
   bulletData:
   - {fileID: 11400000, guid: 622a32383f76a8040a591231fada89c6, type: 2}
@@ -1445,10 +1465,14 @@ MonoBehaviour:
   bullet: {fileID: 0}
   weapons:
   - {fileID: 517141592039751854}
+  - {fileID: 0}
+  hasWeapon: 01000000
+  WeaponList:
+  - {fileID: 517141592039751854}
   - {fileID: 5229160697614024625}
   - {fileID: 2397446438307962569}
   - {fileID: 3395054832481079346}
-  hasWeapon: 00000000
+  hasTrue: 1
 --- !u!114 &2857740289343277952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,9 +1500,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e59fb1457a86bc48bb736067f1ad643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunData: {fileID: 0}
-  gun: {fileID: 0}
+  gunData:
+  - {fileID: 11400000, guid: 64dea1ad7f474164b85918151624a212, type: 2}
+  - {fileID: 11400000, guid: 72ba31ebfd1437143a768f7ed1bf13ff, type: 2}
+  - {fileID: 11400000, guid: fb0314200ebcdd143827c97e3edeab42, type: 2}
+  - {fileID: 11400000, guid: 423f99a0553c1ec4b9ebfe530115a996, type: 2}
+  gun:
+  - {fileID: 9106723007583102767}
+  - {fileID: 7880195311290070585}
+  - {fileID: 2598778722153814069}
+  - {fileID: 4627548346081538341}
   level: 0
+  player: {fileID: 7511753471809627746}
 --- !u!114 &7501471447253602989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1706,6 +1739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  type: 2
   animator: {fileID: 1974911906315845495}
   muzzlePoint: {fileID: 4589582948706383833}
   shootableLayer:
@@ -1874,6 +1908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  type: 3
   animator: {fileID: 1974911906315845495}
   muzzlePoint: {fileID: 2072466533707911216}
   shootableLayer:
@@ -2031,6 +2066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  type: 1
   animator: {fileID: 1974911906315845495}
   muzzlePoint: {fileID: 7670829396478309560}
   shootableLayer:
