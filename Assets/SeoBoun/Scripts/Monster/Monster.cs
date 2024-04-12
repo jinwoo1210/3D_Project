@@ -36,6 +36,8 @@ public class Monster : MonsterPooledObject, IDamagable
     public States curState = new States();
     public AttackStates attackState = new AttackStates();
 
+    public UnityEvent OnDied;
+
     bool isAttackCoolTime = false;
     bool isAttacking = false;
     float cosRange;
@@ -161,6 +163,7 @@ public class Monster : MonsterPooledObject, IDamagable
         {
             hp = 0;
             fsm.ChangeState(States.Die);
+            OnDied?.Invoke();
         }
         else
         {
@@ -385,6 +388,7 @@ public class Monster : MonsterPooledObject, IDamagable
             owner.animator.SetTrigger("Die");
             owner.GetComponent<Collider>().enabled = false;
             owner.agent.isStopped = true;
+
             owner.ReturnPool();
         }
     }

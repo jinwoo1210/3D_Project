@@ -49,7 +49,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -57,7 +67,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &856976725045145550
 GameObject:
@@ -404,7 +414,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -463,7 +483,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -522,7 +552,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -581,7 +621,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -640,7 +690,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -699,7 +759,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -758,7 +828,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -817,7 +897,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -825,7 +915,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &3270416036087624764
 GameObject:
@@ -876,7 +966,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -935,7 +1035,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -994,7 +1104,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -1002,7 +1122,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &3863640695401038495
 GameObject:
@@ -1053,7 +1173,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -1112,7 +1242,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -1244,7 +1384,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -1252,7 +1402,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &6067945681393502763
 GameObject:
@@ -1303,7 +1453,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -1362,7 +1522,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -1370,7 +1540,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &6382076020732099421
 GameObject:
@@ -1421,7 +1591,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -1429,7 +1609,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &6400073521425561055
 GameObject:
@@ -1480,7 +1660,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -1488,7 +1678,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &6608660625476922572
 GameObject:
@@ -1539,7 +1729,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -1671,7 +1871,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -1803,7 +2013,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -1862,7 +2082,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -1921,7 +2151,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastBoss:
     prefab: {fileID: 4930318115615235352, guid: 1f28b762b1e02184a9782ee33fec57ac, type: 3}
     data: {fileID: 11400000, guid: f7e358751deb8da4a93b249737ff94ff, type: 2}
@@ -1980,7 +2220,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastEliet:
     prefab: {fileID: 8257126284591111589, guid: 1c9f71262333ed741bb4aa62cee8eebe, type: 3}
     data: {fileID: 11400000, guid: 141203a5b8073de42a6107f8eab874a1, type: 2}
@@ -2185,7 +2435,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -2193,7 +2453,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &8276289217512204639
 GameObject:
@@ -2390,7 +2650,17 @@ MonoBehaviour:
   capacity: 0
   spawnRate: 0
   type: 0
+  rank: 0
   curData: {fileID: 0}
+  bossDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  elietDecount:
+    m_PersistentCalls:
+      m_Calls: []
+  normalDecount:
+    m_PersistentCalls:
+      m_Calls: []
   fastNormal:
     prefab: {fileID: 2571732086041420915, guid: 7decf102cc3bce84890c3105e051c087, type: 3}
     data: {fileID: 11400000, guid: eec7fc7fbbb36a0409b39da773ad9976, type: 2}
@@ -2398,7 +2668,7 @@ MonoBehaviour:
     prefab: {fileID: 3767971274349580610, guid: c0a979a1b699b9c4781605e139ce316f, type: 3}
     data: {fileID: 11400000, guid: c99b10afd1060214c9b5746bb1dfe6ad, type: 2}
   strongNormal:
-    prefab: {fileID: 3447821487993836731, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
+    prefab: {fileID: 4182084408757560006, guid: 4cb6aff4541af8141bc4d348de320510, type: 3}
     data: {fileID: 11400000, guid: e07c7470bfb7864409c1566907f9c501, type: 2}
 --- !u!1 &8954878618854487951
 GameObject:

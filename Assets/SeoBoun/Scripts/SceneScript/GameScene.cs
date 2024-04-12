@@ -15,7 +15,7 @@ public class GameScene : BaseScene
         // 좀비 클래스 설정 및 오브젝트 풀 활성화
         spawnPointActivator.SetZombieClass();
         spawnPointActivator.StartGame();
-
+        PlayerStatManager.Inventory.playerStat.SetUp();
     }
 
 }
