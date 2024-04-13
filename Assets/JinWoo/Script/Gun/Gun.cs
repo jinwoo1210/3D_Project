@@ -51,7 +51,8 @@ public class Gun : MonoBehaviour
             ChangeAmmoRemainEvent?.Invoke(ammoRemain);
         }
     }
-
+    
+    public GunData GunData { get { return gunData; } }
     public State GunState { get { return gunState; } }
 
     private void Awake()
@@ -129,7 +130,7 @@ public class Gun : MonoBehaviour
             gunState = State.Ready;
     }
 
-    protected IEnumerator ShotEffect(Vector3 hitPosition)
+    protected virtual IEnumerator ShotEffect(Vector3 hitPosition)
     {
         // ShotEffet 재생
         muzzleFlash.Play();

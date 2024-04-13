@@ -1199,6 +1199,7 @@ GameObject:
   - component: {fileID: 2274474304112880489}
   - component: {fileID: 8254157627887025932}
   - component: {fileID: 1762388338064132851}
+  - component: {fileID: 4296670599864797521}
   m_Layer: 8
   m_Name: FastNormalZombie
   m_TagString: Untagged
@@ -1283,6 +1284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoRelease: 0
   releaseTime: 10
+  curType: 0
   agent: {fileID: 5906197999700972669}
   animator: {fileID: 1696907360401289006}
   monsterFov: {fileID: 889951627375754432}
@@ -1300,12 +1302,28 @@ MonoBehaviour:
   attackRange: 0
   attackRate: 0
   damage: 0
+  type: 0
   startPos: {x: 0, y: 0, z: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   curState: 0
   attackState: 0
+  OnDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4296670599864797521}
+        m_TargetAssemblyTypeName: MonsterItemDrop, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &889951627375754432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,6 +1416,19 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4296670599864797521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122228642653282766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043c810a574912e45adbdeda279edbcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItem: {fileID: 2580228854660522214, guid: 502c88fe9eaae034b8e6abd80834d571, type: 3}
 --- !u!1 &6153407973758911768
 GameObject:
   m_ObjectHideFlags: 0

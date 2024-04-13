@@ -52,7 +52,7 @@ MonoBehaviour:
   guns:
   - {fileID: 1035079042462133157}
   - {fileID: 7278947629566414100}
-  - {fileID: 7257434756496415727}
+  - {fileID: 7752340419113593658}
   - {fileID: 6100276606286687418}
   bulletUI: {fileID: 0}
 --- !u!114 &1388385004858230274
@@ -1093,9 +1093,6 @@ PrefabInstance:
       addedObject: {fileID: 2857740289343277952}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8389396232223051233}
-    - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7501471447253602989}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       insertIndex: -1
@@ -1283,18 +1280,6 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8389396232223051233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974911906308443327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e59fb1457a86bc48bb736067f1ad643, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7501471447253602989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1543,6 +1528,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5607925431217307302, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
+      propertyPath: m_Name
+      value: SGMuzzlePoint
+      objectReference: {fileID: 0}
     - target: {fileID: 8659709143948411363, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1585,29 +1574,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 258225813248176230, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
+    - {fileID: 1620610413711863389, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1931989283806962697, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7447756276979176013}
+    - targetCorrespondingSourceObject: {fileID: 1931989283806962697, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7752340419113593658}
   m_SourcePrefab: {fileID: 100100000, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
 --- !u!4 &785721410716546129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8659709143948411363, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
   m_PrefabInstance: {fileID: 8271431225249559986}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7257434756496415727 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1620610413711863389, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
+--- !u!4 &5298178083230969739 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4273051853097212473, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
   m_PrefabInstance: {fileID: 8271431225249559986}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7495618038121501115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd0ebac494852948abe42c109f8541f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7495618038121501115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1931989283806962697, guid: 16b174a40c0760345a8b14e90addffbe, type: 3}
@@ -1717,3 +1704,23 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7752340419113593658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495618038121501115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b84b1bdb9a6d446bd174d560813d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunData: {fileID: 11400000, guid: fb0314200ebcdd143827c97e3edeab42, type: 2}
+  gunState: 0
+  muzzlePoint: {fileID: 5298178083230969739}
+  muzzleFlash: {fileID: 2625416079673950622, guid: cfc657ef3c0c012479b259167ad89c2e, type: 3}
+  bloodEffect: {fileID: 7662160287446461198, guid: 701e7ff7150afb1479314714e783fc72, type: 3}
+  bulletLineRenderer: {fileID: 7447756276979176013}
+  magAmmo: 0
+  ammoRemain: 0

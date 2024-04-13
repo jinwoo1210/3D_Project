@@ -16,6 +16,7 @@ public class GameScene : BaseScene
         spawnPointActivator.SetZombieClass();
         spawnPointActivator.StartGame();
         PlayerStatManager.Inventory.playerStat.SetUp();
+        Manager.Game.FindTarget();
     }
 
 }

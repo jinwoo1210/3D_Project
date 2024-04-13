@@ -53,7 +53,7 @@ public class WeaponHolder : MonoBehaviour
 
     private void ChangeWeapon(WeaponType type)
     {
-        if (curEquipGun != null && curEquipGun.GunState != State.Ready) // 재장전이거나 슈팅 딜레이에는 변경 불가능
+        if (curEquipGun != null && (curEquipGun.GunState == State.Reloading || curEquipGun.GunState == State.Shooting)) // 재장전이거나 슈팅 딜레이에는 변경 불가능
             return;
 
         if (curEquipGun != null)

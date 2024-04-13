@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ffcc21a973888489d21e904f61fea8, type: 3}
   m_Name: FastNormalZombie
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 100
   moveSpeed: 2
   targetSpeed: 5
   findRange: 15

@@ -1,4 +1,5 @@
 using Autodesk.Fbx;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,14 +8,23 @@ public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] WeaponHolder holder;
     [SerializeField] Animator animator;
+
+    Coroutine fireStart;
+
+    bool isRoutine;
+
     private void OnFire(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && !isRoutine && holder.CurEquipGun.GunState != State.Empty)
         {
-            if(holder.CurEquipGun.Fire())
-            {
-                animator.SetTrigger("Fire");
-            }
+            isRoutine = true;
+            fireStart = StartCoroutine(FireStart());
+        }
+
+        if(value.isPressed == false)
+        {
+            isRoutine = false;
+            StopCoroutine(fireStart);
         }
     }
 
@@ -23,6 +33,21 @@ public class PlayerShooter : MonoBehaviour
         if(holder.CurEquipGun.Reload())
         {
             animator.SetTrigger("Reload");
+        }
+    }
+
+    IEnumerator FireStart()
+    {
+        while (true)
+        {
+            if (holder.CurEquipGun.GunState == State.Empty)
+                break;
+
+            if (holder.CurEquipGun.Fire())
+            {
+                animator.SetTrigger("Fire");
+            }
+            yield return null;
         }
     }
 }

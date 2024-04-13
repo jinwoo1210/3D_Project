@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4143390047248620719}
   - component: {fileID: 88280243224702737}
   - component: {fileID: 7031896960201091198}
-  - component: {fileID: 1551951593522571527}
   - component: {fileID: 2580228854660522214}
-  m_Layer: 0
+  - component: {fileID: 5384192036366462510}
+  m_Layer: 10
   m_Name: AmmoBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,28 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1551951593522571527
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5164315336966049911}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43064406330798826, guid: aa7dfa96989b9484491d128482db7852, type: 2}
 --- !u!114 &2580228854660522214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +99,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   cost: 0
+--- !u!135 &5384192036366462510
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5164315336966049911}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.9
+  m_Center: {x: 0, y: 0.4, z: 0}

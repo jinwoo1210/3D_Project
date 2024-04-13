@@ -80,6 +80,9 @@ public class Monster : MonsterPooledObject, IDamagable
         meshRenderer[rand].gameObject.SetActive(true);
         meshRenderer[rand].material = zombieData.zombieMaterial;
         playerTransform = Manager.Game.playerPos;
+
+        gameObject.GetComponent<CapsuleCollider>().enabled = true;
+        gameObject.GetComponent<BoxCollider>().enabled = true;
         fsm = new StatesMachine();
         fsm.Init(this, States.Idle);
         curState = States.Idle;
@@ -386,7 +389,8 @@ public class Monster : MonsterPooledObject, IDamagable
         {
             owner.curState = States.Die;
             owner.animator.SetTrigger("Die");
-            owner.GetComponent<Collider>().enabled = false;
+            owner.GetComponent<CapsuleCollider>().enabled = false;
+            owner.GetComponent<BoxCollider>().enabled = false;
             owner.agent.isStopped = true;
 
             owner.ReturnPool();
