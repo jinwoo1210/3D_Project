@@ -1,47 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BulletUI : MonoBehaviour
 {
-    [SerializeField] public int curAmmo;
-    [SerializeField] public int remainAmmo;
+    [SerializeField] TMP_Text magAmmoText;
+    [SerializeField] TMP_Text remainAmmoText;
+    [SerializeField] WeaponHolder holder;
 
-    public Player player;
-    public Gun[] gun;
-    public GunData[] data;
-    
-    Text text;
-
-    public void inIt(GunData gunData)
+    [ContextMenu("SetUp")]
+    public void SetUp()
     {
-        for (int i = 0; i < player.hasWeapon.Length; i++)
-        {
-            if (player.equipWeaponIndex == i)
-            {
-                Debug.Log($"{player.equipWeaponIndex}");
-                Debug.Log($"{i}");
-                curAmmo = gun[i].curAmmo;       //i¹øÂ° ÃÑÀÇ ÃÑ¾Ë ¹ß»ç -1
-                remainAmmo = gun[i].remainAmmo;// i¹øÂ° ÃÑÀÇ »ç¿ëµÉ ÃÑÅºÃ¢ 
-            }
-        }
+        holder.CurEquipGun.DeleteEvent();
+        holder.CurEquipGun.AddMagAmmo(ShowMagAmmoText);
+        holder.CurEquipGun.AddAmmoRemain(ShowRemainAmmoText);
     }
 
-    private void Awake()
+    private void Start()
     {
-        for(int i = 0; i < data.Length; i++)
-        {
-            //Debug.Log(data[i].name);
-            inIt(data[i]);
-            Text[] texts = GetComponentsInChildren<Text>();
-            text = texts[i];
-        }
+        SetUp();
     }
 
-    private void LateUpdate()
+    public void ShowMagAmmoText(int magAmmo)
     {
-        for(int i = 0; i < player.hasWeapon.Length; i++)
-        text.text = $"{gun[i].curAmmo} / {gun[i].remainAmmo}";
+        magAmmoText.text = magAmmo.ToString();
+    }
+
+    public void ShowRemainAmmoText(int remainAmmo)
+    {
+        remainAmmoText.text = remainAmmo.ToString();
     }
 }

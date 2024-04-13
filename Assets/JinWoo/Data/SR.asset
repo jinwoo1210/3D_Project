@@ -12,31 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b15aea648f009f4598f06922969938a, type: 3}
   m_Name: SR
   m_EditorClassIdentifier: 
-  gunType: 3
-  gunId: 0
-  gunName: SR
-  gunDesc: 
-  curAmmo: 0
-  icon: {fileID: 0}
-  datas:
+  gunShotClip: {fileID: 0}
+  gunReloadClip: {fileID: 0}
+  gunLevelData:
   - damage: 50
     shootSpeed: 0.3
-    remainAmmo: 5
+    magCapacity: 5
     reloadTime: 2.4
     fireDistance: 100
   - damage: 100
     shootSpeed: 0.25
-    remainAmmo: 10
+    magCapacity: 10
     reloadTime: 2
     fireDistance: 150
   - damage: 150
     shootSpeed: 0.2
-    remainAmmo: 15
+    magCapacity: 15
     reloadTime: 1.6
     fireDistance: 200
   - damage: 200
     shootSpeed: 0.15
-    remainAmmo: 20
+    magCapacity: 20
     reloadTime: 1.2
     fireDistance: 250
-  projectile: {fileID: 0}
