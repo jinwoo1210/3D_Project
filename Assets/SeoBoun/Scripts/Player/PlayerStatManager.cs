@@ -43,6 +43,8 @@ public class PlayerStatManager : MonoBehaviour
     public int staminaLevel;        // 스테미나 레벨
     public int speedLevel;          // 스피드 레벨
 
+    public GunStatLevel[] gunStatLevel; // 0 : SMG, 1 : AR, 2 : SG, 3 : SR
+
     public List<int> maxMedicalPoint = new List<int>();      // 레벨별 맥스포인트
     public List<int> maxFoodPoint = new List<int>();
     public List<int> maxElectPoint = new List<int>();
@@ -50,6 +52,7 @@ public class PlayerStatManager : MonoBehaviour
 
     public PackLevelUpPoint[] packLevelUpPoint;
     public StatLevelUpPoint[] statLevelUpPoint;
+    public GunLevelUpPoint[] gunLevelUpPoint;
 
     public void UsePoint(ItemType type, int cost)
     {
@@ -71,6 +74,7 @@ public class PlayerStatManager : MonoBehaviour
         }
     }
 
+    #region backpackLevelUp
     public bool IsLevelUp(ItemType type)
     {   // 배낭 레벨 업 가능여부
         bool isLevelUp = false;
@@ -137,7 +141,8 @@ public class PlayerStatManager : MonoBehaviour
                 break;
         }
     }
-
+    #endregion
+    #region statLevelUp
     public bool IsLevelUp(Stats type)
     {
         bool isLevelUp = false;
@@ -194,19 +199,75 @@ public class PlayerStatManager : MonoBehaviour
                 break;
         }
     }
+    #endregion
+    #region gunLevelUp
+    public bool IsLevelUp(WeaponType type)
+    {
+        int needElectPoint = gunLevelUpPoint[(gunStatLevel[(int)type].totalLevel) / 3].electPoint;
+        int needToolPoint = gunLevelUpPoint[(gunStatLevel[(int)type].totalLevel) / 3].toolPoint;
 
-}
+        if(gunStatLevel[(int)type].totalLevel == 15)
+        {
+            return false;
+        }
+        else
+        {
+            return (needElectPoint <= electPoint && needToolPoint <= toolPoint);
+        }
+    }
 
-[Serializable]
-public struct PackLevelUpPoint
-{
-    public int electPoint;
-    public int toolPoint;
-}
+    public void LevelUp(WeaponType type)
+    {
+        int needElectPoint = gunLevelUpPoint[(gunStatLevel[(int)type].totalLevel) / 3].electPoint;
+        int needToolPoint = gunLevelUpPoint[(gunStatLevel[(int)type].totalLevel) / 3].toolPoint;
 
-[Serializable]
-public struct StatLevelUpPoint
-{
-    public int medicalPoint;
-    public int foodPoint;
+        electPoint -= needElectPoint;
+        toolPoint -= needToolPoint;
+        GunRandomLevelUp(type);
+    }
+
+    private void GunRandomLevelUp(WeaponType type)
+    {
+        while (true)
+        {
+            int rand = UnityEngine.Random.Range(0, 5); // dmg, shootSpeed, capacity, reload, fireDistance 중 하나
+
+            if (rand == 0)
+            {
+                if (gunStatLevel[(int)type].damageLevel == 3)
+                    continue;
+                gunStatLevel[(int)type].damageLevel++;
+                return;
+            }
+            else if (rand == 1)
+            {
+                if (gunStatLevel[(int)type].shootSpeedLevel == 3)
+                    continue;
+                gunStatLevel[(int)type].shootSpeedLevel++;
+                return;
+            }
+            else if (rand == 2)
+            {
+                if (gunStatLevel[(int)type].magCapacityLevel == 3)
+                    continue;
+                gunStatLevel[(int)type].magCapacityLevel++;
+                return;
+            }
+            else if (rand == 3)
+            {
+                if (gunStatLevel[(int)type].reloadLevel == 3)
+                    continue;
+                gunStatLevel[(int)type].reloadLevel++;
+                return;
+            }
+            else if (rand == 4)
+            {
+                if (gunStatLevel[(int)type].fireDistanceLevel == 4)
+                    continue;
+                gunStatLevel[(int)type].fireDistanceLevel++;
+                return;
+            }
+        }
+    }
+    #endregion
 }

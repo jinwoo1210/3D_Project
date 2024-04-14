@@ -90,10 +90,3 @@ public abstract class ZombieSpanwer : ObjectPool
             bossDecount?.Invoke();
     }
 }
-
-[Serializable]
-public struct Zombies
-{
-    public Monster prefab;
-    public ZombieData data;
-}

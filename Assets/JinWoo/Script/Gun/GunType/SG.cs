@@ -9,7 +9,7 @@ public class SG : Gun
     // 벽까지 레이쏴보기.
     protected override IEnumerator FireRoutine()
     {
-        gunState = State.Shooting;
+        gunState = GunState.Shooting;
 
         int parrel = Random.Range(7, 13); // 7 ~ 12발 쏘기?
 
@@ -40,12 +40,12 @@ public class SG : Gun
 
         MagAmmo--;
         if (MagAmmo <= 0)
-            gunState = State.Empty;
+            gunState = GunState.Empty;
 
         yield return new WaitForSeconds(curShootSpeed);
 
-        if (gunState != State.Empty)
-            gunState = State.Ready;
+        if (gunState != GunState.Empty)
+            gunState = GunState.Ready;
     }
 
     protected IEnumerator ShotEffect(Vector3 hitPosition, int i, int parrel)

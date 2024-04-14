@@ -6,12 +6,11 @@ using UnityEngine.Android;
 using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 
-public enum State { Ready, Empty, Shooting, Reloading }    // 발사 준비, 탄창 빔, 재장전 중
 public class Gun : MonoBehaviour
 {
     // BaseGun
     [SerializeField] protected GunData gunData;
-    [SerializeField] protected State gunState;
+    [SerializeField] protected GunState gunState;
 
     [SerializeField] protected Transform muzzlePoint;   // 발사 위치
     [SerializeField] protected ParticleSystem muzzleFlash;
@@ -19,6 +18,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] protected LineRenderer bulletLineRenderer;
 
+    [SerializeField] protected int magCapacity; // 한 탄창
     [SerializeField] protected int magAmmo;     // 현재 탄창에 남아 있는 탄알
     [SerializeField] protected int ammoRemain;  // 남은 전체 탄알
 
@@ -53,7 +53,7 @@ public class Gun : MonoBehaviour
     }
     
     public GunData GunData { get { return gunData; } }
-    public State GunState { get { return gunState; } }
+    public GunState GunState { get { return gunState; } }
 
     private void Awake()
     {
@@ -63,33 +63,34 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        Init();
-        gunState = State.Ready;
+        // Init();
+        gunState = GunState.Ready;
         ChangeMagAmmoEvent?.Invoke(magAmmo);
         ChangeAmmoRemainEvent?.Invoke(ammoRemain);
     }
 
-    public void Init()
+    public void Init(WeaponType type)
     {
-        // TODO... GunLevelData를 불러와서 적용하기
-        ammoRemain = gunData.gunLevelData[0].magCapacity * 3;   // 전체 예비 탄창
-        magAmmo = gunData.gunLevelData[0].magCapacity;          // 현재 탄창
-        curDamage = gunData.gunLevelData[0].damage;             // 레벨 데미지
-        curShootSpeed = gunData.gunLevelData[0].shootSpeed;
-        curFireDistance = gunData.gunLevelData[0].fireDistance;
-        curReloadSpeed = gunData.gunLevelData[0].reloadTime;
+        ammoRemain = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].magCapacityLevel].magCapacity * 3;
+        magCapacity = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].magCapacityLevel].magCapacity;
+        magAmmo = magCapacity;
+        curDamage = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].damageLevel].damage;
+        curShootSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].shootSpeedLevel].shootSpeed;
+        curFireDistance = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].fireDistanceLevel].fireDistance;
+        curReloadSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].reloadLevel].reloadTime;
+
     }
 
     public bool Fire()
     {
-        if (gunState == State.Empty)
+        if (gunState == GunState.Empty)
         {
             // Reload
             Reload();
             return false;
         }
 
-        if (gunState == State.Ready)
+        if (gunState == GunState.Ready)
         {
             fireRoutine = StartCoroutine(FireRoutine());
             return true;
@@ -100,7 +101,7 @@ public class Gun : MonoBehaviour
 
     protected virtual IEnumerator FireRoutine()
     {
-        gunState = State.Shooting;
+        gunState = GunState.Shooting;
 
         RaycastHit hit;
         Vector3 hitPosition;
@@ -122,12 +123,12 @@ public class Gun : MonoBehaviour
 
         MagAmmo--;
         if (MagAmmo <= 0)
-            gunState = State.Empty;
+            gunState = GunState.Empty;
 
         yield return new WaitForSeconds(curShootSpeed);
 
-        if (gunState != State.Empty)
-            gunState = State.Ready;
+        if (gunState != GunState.Empty)
+            gunState = GunState.Ready;
     }
 
     protected virtual IEnumerator ShotEffect(Vector3 hitPosition)
@@ -149,7 +150,7 @@ public class Gun : MonoBehaviour
     public bool Reload()
     {
         // TODO.. 레벨에 따라 바꾸기
-        if(gunState == State.Reloading || gunState == State.Shooting || AmmoRemain <= 0 || MagAmmo >= gunData.gunLevelData[0].magCapacity)
+        if(gunState == GunState.Reloading || gunState == GunState.Shooting || AmmoRemain <= 0 || MagAmmo >= magCapacity)
         {
             return false;
         }
@@ -161,13 +162,13 @@ public class Gun : MonoBehaviour
 
     IEnumerator ReloadRoutine()
     {
-        gunState = State.Reloading;
+        gunState = GunState.Reloading;
 
         // TODO.. 재생소리
 
         yield return new WaitForSeconds(curReloadSpeed);
 
-        int ammoToFill = gunData.gunLevelData[0].magCapacity - MagAmmo;
+        int ammoToFill = magCapacity - MagAmmo;
 
         if(AmmoRemain < ammoToFill)
         {
@@ -177,7 +178,7 @@ public class Gun : MonoBehaviour
         MagAmmo += ammoToFill;
         AmmoRemain -= ammoToFill;
 
-        gunState = State.Ready;
+        gunState = GunState.Ready;
     }
 
     public void AddMagAmmo(Action<int> ChangeEvent)

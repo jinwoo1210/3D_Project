@@ -303,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217954955}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.41852477, y: 0.3411648, z: -0.17335865, w: 0.82364464}
+  m_LocalRotation: {x: 0.41852474, y: 0.34116474, z: -0.17335862, w: 0.82364464}
   m_LocalPosition: {x: -8, y: 16, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -401,8 +401,16 @@ PrefabInstance:
       value: 0.82364464
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.41852474
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.3411648
+      value: 0.34116474
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.17335862
       objectReference: {fileID: 0}
     - target: {fileID: 5745012018079963779, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: bulletUI
@@ -421,6 +429,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunStatLevel.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[0].toolPoint
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[1].toolPoint
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[2].toolPoint
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[3].toolPoint
+      value: 1100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[4].toolPoint
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[0].electPoint
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[1].electPoint
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[2].electPoint
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[3].electPoint
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136343759143475048, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
+      propertyPath: gunLevelUpPoint.Array.data[4].electPoint
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 7420689600798877658, guid: 16acf6b8711529f439359c354773a6b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

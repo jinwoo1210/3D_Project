@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum WeaponType { SMG, AR, SG, SR, Size}
 public class WeaponHolder : MonoBehaviour
 {
     // 변경할 총 리스트
@@ -53,7 +52,7 @@ public class WeaponHolder : MonoBehaviour
 
     private void ChangeWeapon(WeaponType type)
     {
-        if (curEquipGun != null && (curEquipGun.GunState == State.Reloading || curEquipGun.GunState == State.Shooting)) // 재장전이거나 슈팅 딜레이에는 변경 불가능
+        if (curEquipGun != null && (curEquipGun.GunState == GunState.Reloading || curEquipGun.GunState == GunState.Shooting)) // 재장전이거나 슈팅 딜레이에는 변경 불가능
             return;
 
         if (curEquipGun != null)

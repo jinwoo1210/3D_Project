@@ -15,10 +15,18 @@ public class PlayerShooter : MonoBehaviour
 
     private void OnFire(InputValue value)
     {
-        if (value.isPressed && !isRoutine && holder.CurEquipGun.GunState != State.Empty)
+        if (value.isPressed && !isRoutine && holder.CurEquipGun.GunState != GunState.Empty)
         {
             isRoutine = true;
             fireStart = StartCoroutine(FireStart());
+        }
+
+        if(value.isPressed == true && holder.CurEquipGun.GunState == GunState.Empty)
+        {
+            if (holder.CurEquipGun.Reload())
+            {
+                animator.SetTrigger("Reload");
+            }
         }
 
         if(value.isPressed == false)
@@ -40,7 +48,7 @@ public class PlayerShooter : MonoBehaviour
     {
         while (true)
         {
-            if (holder.CurEquipGun.GunState == State.Empty)
+            if (holder.CurEquipGun.GunState == GunState.Empty)
                 break;
 
             if (holder.CurEquipGun.Fire())

@@ -99,10 +99,6 @@ public class SpawnPointActivator : MonoBehaviour
         int maxEliet = maxZombieCount[(int)ZombieType.eliet];
         int maxBoss = maxZombieCount[(int)ZombieType.boss];
 
-        Debug.Log($"좀비의 총 수 : {totalCount}");
-        Debug.Log($"normal : {normalCount}, eliet : {elietCount}, boss : {bossCount}");
-        Debug.Log($"스폰 레벨 : {spawnLevel}, (maxNormal : {maxNormal}, maxEliet : {maxEliet}, maxBoss : {maxBoss}");
-
         if(totalCount >= maxNormal + maxEliet + maxBoss)
         {   // 좀비의 총 수가 벗어났다면, 스폰 정지
             return SpawnState.noSpawn;
@@ -117,12 +113,4 @@ public class SpawnPointActivator : MonoBehaviour
         return SpawnState.boss;
 
     }
-}
-
-[Serializable]
-public struct SpawnTable
-{
-    public int normalSpawnCount;
-    public int elietSpawnCount;
-    public int bossSpawnCount;
 }

@@ -8,7 +8,7 @@ public class SR : Gun
     // 벽까지 레이쏴보기.
     protected override IEnumerator FireRoutine()
     {
-        gunState = State.Shooting;
+        gunState = GunState.Shooting;
 
         Vector3 hitPosition = Vector3.zero;
 
@@ -27,11 +27,11 @@ public class SR : Gun
 
         MagAmmo--;
         if (MagAmmo <= 0)
-            gunState = State.Empty;
+            gunState = GunState.Empty;
 
         yield return new WaitForSeconds(curShootSpeed);
 
-        if (gunState != State.Empty)
-            gunState = State.Ready;
+        if (gunState != GunState.Empty)
+            gunState = GunState.Ready;
     }
 }
