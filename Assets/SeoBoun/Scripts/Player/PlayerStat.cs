@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-public enum Stats { Hp, Stamina, MoveSpeed }
 public class PlayerStat : MonoBehaviour
 {
     [SerializeField] PlayerData playerData;

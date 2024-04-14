@@ -1,53 +1,61 @@
+using Autodesk.Fbx;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerShooter : MonoBehaviour
 {
-    // [SerializeField] Gun gun;
-
+    [SerializeField] WeaponHolder holder;
     [SerializeField] Animator animator;
-    [SerializeField] Transform muzzlePoint;
-    [SerializeField] LayerMask monsterLayer;
-    [SerializeField] Player player;
-    [SerializeField] BulletUI bullet;
-    [SerializeField] ParticleSystem muzzleFlash;
-    [SerializeField] ParticleSystem hitEffect;
-    
 
-    //public void OnFire(InputValue value)
-    //{
-    //    animator.SetTrigger("Fire");
-    //    Shoot();
-    //    player.Attack();
-    //}
+    Coroutine fireStart;
 
-    //private void OnReload(InputValue value)
-    //{
-    //    Reload();
-    //}
+    bool isRoutine;
 
-    //public void Shoot()
-    //{
-    //    bullet.magCapacity--;
-    //    muzzleFlash.Play();
-    //    Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
-    //    if (Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, 100f, monsterLayer))
-    //    {
-    //        IDamagable target = hit.collider.gameObject.GetComponent<IDamagable>();
+    private void OnFire(InputValue value)
+    {
+        if (value.isPressed && !isRoutine && holder.CurEquipGun.GunState != GunState.Empty)
+        {
+            isRoutine = true;
+            fireStart = StartCoroutine(FireStart());
+        }
 
-    //        target?.TakeHit(gun.damage);
-    //        Debug.Log("몬스터 공격");
+        if(value.isPressed == true && holder.CurEquipGun.GunState == GunState.Empty)
+        {
+            if (holder.CurEquipGun.Reload())
+            {
+                animator.SetTrigger("Reload");
+            }
+        }
 
-    //        ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-    //        effect.transform.parent = hit.transform;
-    //    }
-    //}
+        if(value.isPressed == false)
+        {
+            isRoutine = false;
+            StopCoroutine(fireStart);
+        }
+    }
 
-    //private void Reload()
-    //{
-    //    animator.SetTrigger("Reload");
-    //}
+    private void OnReload(InputValue value)
+    {
+        if(holder.CurEquipGun.Reload())
+        {
+            animator.SetTrigger("Reload");
+        }
+    }
+
+    IEnumerator FireStart()
+    {
+        while (true)
+        {
+            if (holder.CurEquipGun.GunState == GunState.Empty)
+                break;
+
+            if (holder.CurEquipGun.Fire())
+            {
+                animator.SetTrigger("Fire");
+            }
+            yield return null;
+        }
+    }
 }

@@ -8,6 +8,8 @@ public class TransparentObject : MonoBehaviour
     [SerializeField] Material normalMaterial;
     [SerializeField] Material transparentMaterial;
 
+    GameObject targetObject;
+
     MeshRenderer target;
 
     bool isReseting = false;
@@ -23,8 +25,8 @@ public class TransparentObject : MonoBehaviour
 
         for(int i = 0; i < hits.Length; i++)
         {
-            target = hits[i].collider.GetComponent<MeshRenderer>();
-            target.material = transparentMaterial;
+            targetObject = hits[i].collider.gameObject;
+            targetObject.gameObject.SetActive(false);
 
             StartCoroutine(CheckRoutine());
         }
@@ -41,7 +43,7 @@ public class TransparentObject : MonoBehaviour
             if(time > 3f)
             {
                 isReseting = true;
-                StartReset(target);
+                StartReset(targetObject);
                 break;
             }
 
@@ -49,8 +51,8 @@ public class TransparentObject : MonoBehaviour
         }
     }
 
-    private void StartReset(MeshRenderer target)
+    private void StartReset(GameObject target)
     {
-        target.material = normalMaterial;
+        targetObject.SetActive(true);
     }
 }

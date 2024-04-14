@@ -7,6 +7,7 @@ public class ShowNeedETPoint : MonoBehaviour
 {
     // Ω∫≈»¿∫ Medical, Food
     // πÈ∆—¿∫ Elect, Tool
+    // √—µµ Elect, Tool
 
     [SerializeField] TMP_Text electPoint;
     [SerializeField] TMP_Text toolPoint;
@@ -54,4 +55,43 @@ public class ShowNeedETPoint : MonoBehaviour
         electPoint.text = (PlayerStatManager.Inventory.packLevelUpPoint[toolLevel].electPoint).ToString();
         toolPoint.text = (PlayerStatManager.Inventory.packLevelUpPoint[toolLevel].toolPoint).ToString();
     }
+
+    public void ShowSMGPoint()
+    {
+        int SMGTotal = PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SMG].totalLevel;
+
+        if (SMGTotal == 15)
+            return;
+        electPoint.text = (PlayerStatManager.Inventory.gunLevelUpPoint[SMGTotal / 3].electPoint).ToString();
+        toolPoint.text = (PlayerStatManager.Inventory.gunLevelUpPoint[SMGTotal / 3].toolPoint).ToString();
+    }
+
+    public void ShowARPoint()
+    {
+        int ARTotal = PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.AR].totalLevel;
+
+        if (ARTotal == 15)
+            return;
+        electPoint.text = (PlayerStatManager.Inventory.gunLevelUpPoint[ARTotal / 3].electPoint).ToString();
+        toolPoint.text = (PlayerStatManager.Inventory.gunLevelUpPoint[ARTotal / 3].toolPoint).ToString();
+    }
+    public void ShowSGPoint()
+    {
+        int SGTotal = PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SG].totalLevel;
+
+        if (SGTotal == 15)
+            return;
+        electPoint.text = (PlayerStatManager.Inventory.gunLevelUpPoint[SGTotal / 3].electPoint).ToString();
+        toolPoint.text = (PlayerStatManager.Inventory.gunLevelUpPoint[SGTotal / 3].toolPoint).ToString();
+    }
+    public void ShowSRPoint()
+    {
+        int SRTotal = PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SR].totalLevel;
+
+        if (SRTotal == 15)
+            return;
+        electPoint.text = (PlayerStatManager.Inventory.gunLevelUpPoint[SRTotal / 3].electPoint).ToString();
+        toolPoint.text = (PlayerStatManager.Inventory.gunLevelUpPoint[SRTotal / 3].toolPoint).ToString();
+    }
+
 }

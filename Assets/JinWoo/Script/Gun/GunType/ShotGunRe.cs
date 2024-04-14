@@ -3,16 +3,12 @@ using UnityEngine;
 public class ShotGunRe : Gun
 {
     public Transform[] bulletSpawner;
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-    }
+    /*
 
     public override void Shoot()
     {
         // 실제 내부에서 발사
-        if (player.equipWeaponIndex == -1 ||    // 플레이어가 아무것도 장비하지 않았거나(-1),
+        if (    // 플레이어가 아무것도 장비하지 않았거나(-1),
             state == State.Empty)               // 총이 비어있는 상태(Empty)라면
             return;                             // 밑의 문장을 실행하지 않고 종료(return)
 
@@ -41,4 +37,5 @@ public class ShotGunRe : Gun
             state = State.Empty;    // 총이 비어 있는 상태(Empty)로 전환
         }
     }
+    */
 }

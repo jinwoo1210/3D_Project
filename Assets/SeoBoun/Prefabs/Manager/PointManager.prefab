@@ -152,6 +152,31 @@ MonoBehaviour:
   hpLevel: 0
   staminaLevel: 0
   speedLevel: 0
+  gunStatLevel:
+  - damageLevel: 0
+    shootSpeedLevel: 0
+    magCapacityLevel: 0
+    reloadLevel: 0
+    fireDistanceLevel: 0
+    totalLevel: 0
+  - damageLevel: 0
+    shootSpeedLevel: 0
+    magCapacityLevel: 0
+    reloadLevel: 0
+    fireDistanceLevel: 0
+    totalLevel: 0
+  - damageLevel: 0
+    shootSpeedLevel: 0
+    magCapacityLevel: 0
+    reloadLevel: 0
+    fireDistanceLevel: 0
+    totalLevel: 0
+  - damageLevel: 0
+    shootSpeedLevel: 0
+    magCapacityLevel: 0
+    reloadLevel: 0
+    fireDistanceLevel: 0
+    totalLevel: 0
   maxMedicalPoint: 0400000006000000080000000a000000
   maxFoodPoint: 3200000064000000c800000090010000
   maxElectPoint: 320000006400000096000000c8000000
@@ -170,3 +195,14 @@ MonoBehaviour:
     foodPoint: 400
   - medicalPoint: 50
     foodPoint: 700
+  gunLevelUpPoint:
+  - electPoint: 75
+    toolPoint: 250
+  - electPoint: 150
+    toolPoint: 400
+  - electPoint: 300
+    toolPoint: 700
+  - electPoint: 500
+    toolPoint: 1100
+  - electPoint: 700
+    toolPoint: 1500

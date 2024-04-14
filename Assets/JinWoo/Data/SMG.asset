@@ -12,31 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b15aea648f009f4598f06922969938a, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
-  gunType: 1
-  gunId: 0
-  gunName: SMG
-  gunDesc: 
-  curAmmo: 0
-  icon: {fileID: 0}
-  datas:
+  gunShotClip: {fileID: 0}
+  gunReloadClip: {fileID: 0}
+  gunLevelData:
   - damage: 25
     shootSpeed: 0.12
-    remainAmmo: 25
+    magCapacity: 25
     reloadTime: 1.8
     fireDistance: 50
   - damage: 50
     shootSpeed: 0.09
-    remainAmmo: 50
+    magCapacity: 50
     reloadTime: 1.4
     fireDistance: 60
   - damage: 75
     shootSpeed: 0.06
-    remainAmmo: 75
+    magCapacity: 75
     reloadTime: 1
     fireDistance: 70
   - damage: 100
     shootSpeed: 0.03
-    remainAmmo: 100
+    magCapacity: 100
     reloadTime: 0.6
     fireDistance: 80
-  projectile: {fileID: 0}

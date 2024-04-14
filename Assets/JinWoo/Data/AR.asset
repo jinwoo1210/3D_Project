@@ -12,32 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b15aea648f009f4598f06922969938a, type: 3}
   m_Name: AR
   m_EditorClassIdentifier: 
-  gunType: 0
-  gunId: 0
-  gunName: AK47
-  gunDesc: 
-  startAmmoRemain: 50
-  curAmmo: 0
-  icon: {fileID: 0}
-  datas:
+  gunShotClip: {fileID: 0}
+  gunReloadClip: {fileID: 0}
+  gunLevelData:
   - damage: 30
     shootSpeed: 0.15
-    remainAmmo: 30
+    magCapacity: 30
     reloadTime: 2.1
     fireDistance: 75
   - damage: 60
     shootSpeed: 0.12
-    remainAmmo: 60
+    magCapacity: 60
     reloadTime: 1.7
     fireDistance: 90
   - damage: 90
     shootSpeed: 0.09
-    remainAmmo: 90
+    magCapacity: 90
     reloadTime: 1.3
     fireDistance: 105
   - damage: 120
     shootSpeed: 0.06
-    remainAmmo: 120
+    magCapacity: 120
     reloadTime: 0.9
     fireDistance: 120
-  projectile: {fileID: 0}

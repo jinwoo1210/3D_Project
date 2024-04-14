@@ -10,6 +10,7 @@ public class ExitPoint : MonoBehaviour
     {
         Debug.Log("≈ª√‚±∏ ¡¯¿‘");
         Manager.Scene.LoadScene("HideScene");
+        PlayerStatManager.Inventory.FieldInventory.ExitScene();
         if (((1 << playerLayer) & other.gameObject.layer) != 0)
         {
             Debug.Log("æ¿ ¿Ãµø");

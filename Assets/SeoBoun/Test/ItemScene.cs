@@ -9,13 +9,13 @@ public class ItemScene : BaseScene
         yield return null;
 
         PlayerStatManager.Inventory.FieldInventory.EnterScene();
-        PlayerStatManager.Inventory.FieldInventory.SetUp();
-
+        
         if(PlayerStatManager.Inventory.playerStat == null)
         {
             PlayerStatManager.Inventory.playerStat = GameObject.FindObjectOfType<PlayerStat>();
         }
 
+        PlayerStatManager.Inventory.FieldInventory.SetUp();
         PlayerStatManager.Inventory.playerStat.LevelUp();
         PlayerStatManager.Inventory.playerStat.GameInit();
     }

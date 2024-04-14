@@ -85,7 +85,7 @@ public class FieldInventory : MonoBehaviour
     public void EnterScene()
     {
         // 씬에 들어갈 때, 모든 포인트는 0이며 최댓값 설정하기
-        medicalPoint = foodPoint = electPoint = toolPoint = 0;
+        foodPoint = electPoint = toolPoint = 0;
 
         maxPoints = new Dictionary<ItemType, int>();
 
@@ -93,6 +93,8 @@ public class FieldInventory : MonoBehaviour
         maxPoints.Add(ItemType.Food, PlayerStatManager.Inventory.maxFoodPoint[PlayerStatManager.Inventory.foodLevel]);
         maxPoints.Add(ItemType.Elect, PlayerStatManager.Inventory.maxElectPoint[PlayerStatManager.Inventory.electLevel]);
         maxPoints.Add(ItemType.Tool, PlayerStatManager.Inventory.maxToolPoint[PlayerStatManager.Inventory.toolLevel]);
+
+        SetUp();
     }
 
     public void ExitScene()
@@ -104,6 +106,14 @@ public class FieldInventory : MonoBehaviour
         PlayerStatManager.Inventory.toolPoint += toolPoint;
 
         // Todo... 플레이어가 탈출하지 못하였을 경우 포인트 누적은 없음
+    }
+
+    public void ExitScene_PlayerDie()
+    {
+        PlayerStatManager.Inventory.medicalPoint += 0;
+        PlayerStatManager.Inventory.foodPoint += 0;
+        PlayerStatManager.Inventory.electPoint += 0;
+        PlayerStatManager.Inventory.toolPoint += 0;
     }
 
     public void SetUp()

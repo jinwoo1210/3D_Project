@@ -1,6 +1,5 @@
 using UnityEngine;
 
-public enum ItemType { Ammo, Medical, Food, Elect, Tool, Weapon, Size }
 public class BaseItem : MonoBehaviour, IInteractable
 {
     // 모든 아이템이 가질 베이스 클래스

@@ -13,7 +13,6 @@ public class MonsterPooledObject : PooledObject
 
     public void Decount(ZombieType type)
     {
-        Debug.Log($"{gameObject.name}ÀÌ Á×À½");
         this.Pool.GetComponent<ZombieSpanwer>()?.DeCount(type);
     }
 
