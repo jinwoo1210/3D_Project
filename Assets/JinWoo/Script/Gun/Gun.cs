@@ -63,21 +63,20 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        // Init();
-        gunState = GunState.Ready;
+        Init();
         ChangeMagAmmoEvent?.Invoke(magAmmo);
         ChangeAmmoRemainEvent?.Invoke(ammoRemain);
     }
 
-    public void Init(WeaponType type)
+    public void SetGun()
     {
-        ammoRemain = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].magCapacityLevel].magCapacity * 3;
-        magCapacity = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].magCapacityLevel].magCapacity;
-        magAmmo = magCapacity;
-        curDamage = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].damageLevel].damage;
-        curShootSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].shootSpeedLevel].shootSpeed;
-        curFireDistance = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].fireDistanceLevel].fireDistance;
-        curReloadSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)type].reloadLevel].reloadTime;
+        Init();
+        ChangeMagAmmoEvent?.Invoke(magAmmo);
+        ChangeAmmoRemainEvent?.Invoke(ammoRemain);
+    }
+
+    public virtual void Init()
+    {
 
     }
 

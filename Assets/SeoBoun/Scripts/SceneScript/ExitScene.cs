@@ -7,7 +7,6 @@ public class ExitScene : BaseScene
     [SerializeField] StatusInfoUI statusInfoUI;
     public override IEnumerator LoadingRoutine()
     {
-        PlayerStatManager.Inventory.FieldInventory.ExitScene();
         yield return null;
 
         statusInfoUI = FindObjectOfType<StatusInfoUI>();

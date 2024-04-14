@@ -3,6 +3,16 @@ using UnityEngine;
 
 public class AR : Gun
 {
+    public override void Init()
+    {
+        ammoRemain = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.AR].magCapacityLevel].magCapacity * 3;
+        magCapacity = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.AR].magCapacityLevel].magCapacity;
+        magAmmo = magCapacity;
+        curDamage = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.AR].damageLevel].damage;
+        curShootSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.AR].shootSpeedLevel].shootSpeed;
+        curFireDistance = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.AR].fireDistanceLevel].fireDistance;
+        curReloadSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.AR].reloadLevel].reloadTime;
+    }
     // TODO 벽 관련하여 추가작업 필요
     // 벽까지 레이쏴보기.
     protected override IEnumerator FireRoutine()

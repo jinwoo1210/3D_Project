@@ -236,8 +236,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6399713164001484115}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.41852477, y: 0.3411648, z: -0.17335865, w: 0.82364464}
-  m_LocalPosition: {x: -8, y: 16, z: -8}
+  m_LocalRotation: {x: 0.41852477, y: 0.34116477, z: -0.17335863, w: 0.82364464}
+  m_LocalPosition: {x: -8, y: 15.999999, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -967,15 +967,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.3
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1133,7 +1133,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
-  m_Height: 2
+  m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!143 &4308484585695836160
@@ -1279,7 +1279,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameScene, Assembly-CSharp
+        m_MethodName: PlayerDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7501471447253602989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,5 +1734,6 @@ MonoBehaviour:
   muzzleFlash: {fileID: 2625416079673950622, guid: cfc657ef3c0c012479b259167ad89c2e, type: 3}
   bloodEffect: {fileID: 7662160287446461198, guid: 701e7ff7150afb1479314714e783fc72, type: 3}
   bulletLineRenderer: {fileID: 7447756276979176013}
+  magCapacity: 0
   magAmmo: 0
   ammoRemain: 0

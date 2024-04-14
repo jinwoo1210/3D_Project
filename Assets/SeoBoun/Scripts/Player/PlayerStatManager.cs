@@ -60,6 +60,7 @@ public class PlayerStatManager : MonoBehaviour
         switch (type)
         {
             case ItemType.Medical:
+
                 medicalPoint -= cost;
                 break;
             case ItemType.Food:
@@ -237,6 +238,7 @@ public class PlayerStatManager : MonoBehaviour
                 if (gunStatLevel[(int)type].damageLevel == 3)
                     continue;
                 gunStatLevel[(int)type].damageLevel++;
+                gunStatLevel[(int)type].totalLevel++;
                 return;
             }
             else if (rand == 1)
@@ -244,6 +246,7 @@ public class PlayerStatManager : MonoBehaviour
                 if (gunStatLevel[(int)type].shootSpeedLevel == 3)
                     continue;
                 gunStatLevel[(int)type].shootSpeedLevel++;
+                gunStatLevel[(int)type].totalLevel++;
                 return;
             }
             else if (rand == 2)
@@ -251,6 +254,7 @@ public class PlayerStatManager : MonoBehaviour
                 if (gunStatLevel[(int)type].magCapacityLevel == 3)
                     continue;
                 gunStatLevel[(int)type].magCapacityLevel++;
+                gunStatLevel[(int)type].totalLevel++;
                 return;
             }
             else if (rand == 3)
@@ -258,6 +262,7 @@ public class PlayerStatManager : MonoBehaviour
                 if (gunStatLevel[(int)type].reloadLevel == 3)
                     continue;
                 gunStatLevel[(int)type].reloadLevel++;
+                gunStatLevel[(int)type].totalLevel++;
                 return;
             }
             else if (rand == 4)
@@ -265,6 +270,7 @@ public class PlayerStatManager : MonoBehaviour
                 if (gunStatLevel[(int)type].fireDistanceLevel == 4)
                     continue;
                 gunStatLevel[(int)type].fireDistanceLevel++;
+                gunStatLevel[(int)type].totalLevel++;
                 return;
             }
         }

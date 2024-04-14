@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 {
     public UnityEvent OnDie;
 
+    bool isHeal;
+
     public bool TakeHit(int damage)
     {
         PlayerStatManager.Inventory.playerStat.CurHp -= damage;
@@ -22,9 +24,10 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     [ContextMenu("Heal")]
     public bool Heal()
     {
-        if (PlayerStatManager.Inventory.FieldInventory.MedicalPoint == 0)
+        if (PlayerStatManager.Inventory.FieldInventory.MedicalPoint == 0 && isHeal)
             return false;
 
+        isHeal = true;
         PlayerStatManager.Inventory.FieldInventory.MedicalPoint--;
         int targetHp = PlayerStatManager.Inventory.playerStat.CurHp + 35 < PlayerStatManager.Inventory.playerStat.MaxHp? PlayerStatManager.Inventory.playerStat.CurHp + 35 : PlayerStatManager.Inventory.playerStat.MaxHp;
         
@@ -35,7 +38,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     private void Die()
     {
-        Debug.Log("Player Die");
+        OnDie?.Invoke();
     }
 
     IEnumerator HealRoutine(int curHp, int targetHp)
@@ -49,6 +52,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
             yield return new WaitForSeconds(0.03f);
         }
+        isHeal = false;
     }
 }
 

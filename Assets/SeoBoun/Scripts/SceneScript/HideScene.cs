@@ -5,6 +5,9 @@ using UnityEngine;
 public class HideScene : BaseScene
 {
     [SerializeField] StatusInfoUI statusInfoUI;
+
+    public int Count = 0;
+
     public override IEnumerator LoadingRoutine()
     {
         PlayerStatManager.Inventory.FieldInventory.ExitScene();
@@ -20,6 +23,22 @@ public class HideScene : BaseScene
 
         statusInfoUI.ShowPackInfo();
         statusInfoUI.ShowStatusInfo();
+        switch (Count)
+        {
+
+            case 0:
+                statusInfoUI.ShowGunInfo(WeaponType.SMG);
+                break;
+            case 1:
+                statusInfoUI.ShowGunInfo(WeaponType.AR);
+                break;
+            case 2:
+                statusInfoUI.ShowGunInfo(WeaponType.SG);
+                break;
+            case 3:
+                statusInfoUI.ShowGunInfo(WeaponType.SR);
+                break;
+        }
     }
 
     public void ExitScene()

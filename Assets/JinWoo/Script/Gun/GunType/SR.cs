@@ -6,6 +6,17 @@ public class SR : Gun
 {
     // TODO 벽 관련하여 추가작업 필요
     // 벽까지 레이쏴보기.
+    public override void Init()
+    {
+        ammoRemain = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SR].magCapacityLevel].magCapacity * 3;
+        magCapacity = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SR].magCapacityLevel].magCapacity;
+        magAmmo = magCapacity;
+        curDamage = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SR].damageLevel].damage;
+        curShootSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SR].shootSpeedLevel].shootSpeed;
+        curFireDistance = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SR].fireDistanceLevel].fireDistance;
+        curReloadSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SR].reloadLevel].reloadTime;
+    }
+
     protected override IEnumerator FireRoutine()
     {
         gunState = GunState.Shooting;

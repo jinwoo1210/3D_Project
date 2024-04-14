@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class SG : Gun
 {
+    public override void Init()
+    {
+        ammoRemain = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SG].magCapacityLevel].magCapacity * 3;
+        magCapacity = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SG].magCapacityLevel].magCapacity;
+        magAmmo = magCapacity;
+        curDamage = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SG].damageLevel].damage;
+        curShootSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SG].shootSpeedLevel].shootSpeed;
+        curFireDistance = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SG].fireDistanceLevel].fireDistance;
+        curReloadSpeed = gunData.gunLevelData[PlayerStatManager.Inventory.gunStatLevel[(int)WeaponType.SG].reloadLevel].reloadTime;
+    }
+
     // 샷건...
     // TODO 벽 관련하여 추가작업 필요
     // 벽까지 레이쏴보기.
