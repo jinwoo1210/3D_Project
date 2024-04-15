@@ -89,7 +89,7 @@ public class Gun : MonoBehaviour
             return false;
         }
 
-        if (gunState == GunState.Ready)
+        if (gunState != GunState.Reloading && gunState == GunState.Ready)
         {
             fireRoutine = StartCoroutine(FireRoutine());
             return true;
