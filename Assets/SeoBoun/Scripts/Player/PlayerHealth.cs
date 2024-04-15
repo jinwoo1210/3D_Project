@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class PlayerHealth : MonoBehaviour, IDamagable
 {
@@ -19,6 +20,11 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         }
 
         return false;
+    }
+
+    private void OnHeal(InputValue value)
+    {
+        Heal();
     }
 
     [ContextMenu("Heal")]
