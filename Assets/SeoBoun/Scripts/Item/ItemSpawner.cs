@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class ItemSpawner : MonoBehaviour
 {
-    // TODO... 아이템 스폰기능 만들기
     [SerializeField] protected BaseItem[] prefab;
     [SerializeField] protected int[] percentage;
 

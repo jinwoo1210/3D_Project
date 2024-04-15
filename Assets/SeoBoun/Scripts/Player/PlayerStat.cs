@@ -56,9 +56,14 @@ public class PlayerStat : MonoBehaviour
 
     public void FirstInit()
     {
-        curHp = maxHp = playerData.maxHp;
-        curStamina = maxStamina = playerData.maxStamina;
-        moveSpeed = playerData.moveSpeed;
+        if (maxHp == 0)
+        {
+            maxHp = playerData.maxHp;
+            maxStamina = playerData.maxStamina;
+            moveSpeed = playerData.moveSpeed;
+        }
+
+        GameInit();
     }
 
     public void LevelUp()

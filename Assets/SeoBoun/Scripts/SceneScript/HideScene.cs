@@ -21,6 +21,7 @@ public class HideScene : BaseScene
             statusInfoUI = FindObjectOfType<StatusInfoUI>();
         }
 
+        PlayerStatManager.Inventory.playerStat.LevelUp();
         statusInfoUI.ShowPackInfo();
         statusInfoUI.ShowStatusInfo();
         switch (Count)
