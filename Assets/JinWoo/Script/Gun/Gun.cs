@@ -86,7 +86,8 @@ public class Gun : MonoBehaviour
         if (gunState == GunState.Empty)
         {
             // Reload
-            Reload();
+            Manager.Sound.PlaySFX(gunData.gunEmptyClip);
+            //playerAudioSource.PlayOneShot(gunData.gunEmptyClip);
             return false;
         }
 
@@ -137,6 +138,8 @@ public class Gun : MonoBehaviour
         muzzleFlash.Play();
 
         // TODO.. 소리 집어넣기
+        Manager.Sound.PlaySFX(gunData.gunShotClip);
+        //playerAudioSource.PlayOneShot(gunData.gunShotClip);
 
         bulletLineRenderer.SetPosition(0, muzzlePoint.position);
         bulletLineRenderer.SetPosition(1, hitPosition);
@@ -165,6 +168,8 @@ public class Gun : MonoBehaviour
         gunState = GunState.Reloading;
 
         // TODO.. 재생소리
+        Manager.Sound.PlaySFX(gunData.gunReloadClip);
+        //playerAudioSource.PlayOneShot(gunData.gunReloadClip);
 
         yield return new WaitForSeconds(curReloadSpeed);
 

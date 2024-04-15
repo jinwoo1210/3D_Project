@@ -8,6 +8,7 @@ public class GunData : ScriptableObject
 {
     public AudioClip gunShotClip;
     public AudioClip gunReloadClip;
+    public AudioClip gunEmptyClip;
 
     public GunLevelData[] gunLevelData;
 }
