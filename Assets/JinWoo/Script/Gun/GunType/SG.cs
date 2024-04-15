@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SG : Gun
@@ -21,6 +20,8 @@ public class SG : Gun
     protected override IEnumerator FireRoutine()
     {
         gunState = GunState.Shooting;
+
+        Manager.Sound.PlaySFX(gunData.gunShotClip);
 
         int parrel = Random.Range(7, 13); // 7 ~ 12¹ß ½î±â?
 
