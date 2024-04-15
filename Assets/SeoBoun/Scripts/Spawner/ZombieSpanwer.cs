@@ -54,9 +54,6 @@ public abstract class ZombieSpanwer : ObjectPool
     protected virtual IEnumerator SpawnRoutine()
     {
         isSpawn = true;
-
-        yield return new WaitForSeconds(0.5f);
-
         Vector3 randRotation = new Vector3(0, UnityEngine.Random.Range(-180f, 180f), 0);
 
         PooledObject monster = GetPool(transform.position, Quaternion.Euler(randRotation));

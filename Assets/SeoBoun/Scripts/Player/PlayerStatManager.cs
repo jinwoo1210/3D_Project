@@ -267,7 +267,7 @@ public class PlayerStatManager : MonoBehaviour
             }
             else if (rand == 4)
             {
-                if (gunStatLevel[(int)type].fireDistanceLevel == 4)
+                if (gunStatLevel[(int)type].fireDistanceLevel == 3)
                     continue;
                 gunStatLevel[(int)type].fireDistanceLevel++;
                 gunStatLevel[(int)type].totalLevel++;

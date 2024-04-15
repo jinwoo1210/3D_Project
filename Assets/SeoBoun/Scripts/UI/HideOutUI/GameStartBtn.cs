@@ -13,11 +13,15 @@ public class GameStartBtn : MonoBehaviour
 
     IEnumerator StartRoutine()
     {
-        float time = 0f;
+        float time = 5f;
 
-        while (time < 5f)
+        while (time > 0f)
         {
-            time += Time.deltaTime;
+            time -= Time.deltaTime;
+
+            if (time < 0f)
+                time = 0f;
+
             timeText.text = $"{time:F3}";
 
             yield return null;
