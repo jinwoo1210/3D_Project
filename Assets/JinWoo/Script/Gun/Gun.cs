@@ -54,6 +54,7 @@ public class Gun : MonoBehaviour
     
     public GunData GunData { get { return gunData; } }
     public GunState GunState { get { return gunState; } }
+    public int MagCapacity { get { return magCapacity; } }
 
     private void Awake()
     {
