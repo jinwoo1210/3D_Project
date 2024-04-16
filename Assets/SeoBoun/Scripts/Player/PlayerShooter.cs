@@ -20,13 +20,13 @@ public class PlayerShooter : MonoBehaviour
             fireStart = StartCoroutine(FireStart());
         }
 
-        if(value.isPressed == true && holder.CurEquipGun.GunState == GunState.Empty)
-        {
-            if (holder.CurEquipGun.Reload())
-            {
-                animator.SetTrigger("Reload");
-            }
-        }
+        //if(value.isPressed == true && holder.CurEquipGun.GunState == GunState.Empty)
+        //{
+        //    if (holder.CurEquipGun.Reload())
+        //    {
+        //        animator.SetTrigger("Reload");
+        //    }
+        //}
 
         if(value.isPressed == false)
         {

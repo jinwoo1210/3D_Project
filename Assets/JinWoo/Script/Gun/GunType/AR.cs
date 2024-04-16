@@ -31,6 +31,7 @@ public class AR : Gun
             IDamagable target = hit[i].collider.GetComponent<IDamagable>();
 
             target?.TakeHit(curDamage);
+            Manager.Sound.PlaySFX(gunData.damagedClip);
             ParticleSystem effect = Instantiate(hitEffect, hit[i].point, Quaternion.LookRotation(hit[i].normal));
             effect.transform.parent = hit[i].transform;
             Destroy(effect, 2f);
