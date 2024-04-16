@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b15aea648f009f4598f06922969938a, type: 3}
   m_Name: ShootGun
   m_EditorClassIdentifier: 
-  gunShotClip: {fileID: 0}
-  gunReloadClip: {fileID: 0}
+  gunShotClip: {fileID: 8300000, guid: 803f711cf941c194586e2148e81046b8, type: 3}
+  gunReloadClip: {fileID: 8300000, guid: 497e3dc2a89366245b8be0a59aa06dfc, type: 3}
+  gunEmptyClip: {fileID: 8300000, guid: a723a91da040f2642a54f80b53f32e77, type: 3}
+  damagedClip: {fileID: 8300000, guid: 8db08a5dfea40eb42adb73eb32347366, type: 3}
   gunLevelData:
   - damage: 15
     shootSpeed: 0.25

@@ -52,6 +52,7 @@ public class HideScene : BaseScene
 
     public void ExitScene()
     {
+        Manager.Sound.StopBGM();
         Manager.Scene.LoadScene("GameScene");
     }
 

@@ -8,8 +8,14 @@ public class BossZombieSpawner : ZombieSpanwer
     [SerializeField] Zombies endureBoss;
     [SerializeField] Zombies strongBoss;
 
+    bool isSound = false;
+    Coroutine spawnSound;
+
     public override void Create(ZombieClass type)
     {
+        if (!isSound)
+            spawnSound = StartCoroutine(SoundRoutine());
+
         this.rank = ZombieType.boss;
         this.type = type;
         switch (type)
@@ -29,4 +35,13 @@ public class BossZombieSpawner : ZombieSpanwer
         }
     }
 
+    IEnumerator SoundRoutine()
+    {
+        isSound = true;
+        while (true)
+        {
+            Manager.Sound.PlaySFX(Manager.Scene.GetCurScene().GetComponent<GameScene>().Normal);
+            yield return new WaitForSeconds(5f);
+        }
+    }
 }

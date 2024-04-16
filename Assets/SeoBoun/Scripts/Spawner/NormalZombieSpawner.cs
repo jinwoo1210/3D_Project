@@ -8,8 +8,14 @@ public class NormalZombieSpawner : ZombieSpanwer
     [SerializeField] Zombies endureNormal;
     [SerializeField] Zombies strongNormal;
 
+    bool isSpawn = false;
+    Coroutine spawnSound;
+
     public override void Create(ZombieClass type)
     {
+        if (!isSpawn)
+            spawnSound = StartCoroutine(SoundRoutine());
+
         this.rank = ZombieType.normal;
         this.type = type;
         switch (type)
@@ -26,6 +32,17 @@ public class NormalZombieSpawner : ZombieSpanwer
                 CreatePool(strongNormal.prefab, 16, 16);
                 curData = strongNormal.data;
                 break;
+        }
+    }
+    
+    IEnumerator SoundRoutine()
+    {
+        isSpawn = true;
+        AudioClip clip = Manager.Scene.GetCurScene().GetComponent<GameScene>().Normal;
+        while (true)
+        {
+            Manager.Sound.PlaySFX(clip);
+            yield return new WaitForSeconds(5f);
         }
     }
 }
