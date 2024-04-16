@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     [ContextMenu("Heal")]
     public bool Heal()
     {
-        if (PlayerStatManager.Inventory.FieldInventory.MedicalPoint == 0 && isHeal)
+        if (PlayerStatManager.Inventory.FieldInventory.MedicalPoint == 0 && isHeal && PlayerStatManager.Inventory.playerStat.CurHp == PlayerStatManager.Inventory.playerStat.MaxHp)
             return false;
 
         isHeal = true;

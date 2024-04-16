@@ -8,10 +8,18 @@ public class HideScene : BaseScene
 
     public int Count = 0;
 
+    [SerializeField] AudioClip bgmClip;
+
     public override IEnumerator LoadingRoutine()
     {
         PlayerStatManager.Inventory.FieldInventory.ExitScene();
         yield return null;
+    }
+
+    private void Start()
+    {
+        if (bgmClip != null)
+            Manager.Sound.PlayBGM(bgmClip);
     }
 
     public void UpdateInfo()
