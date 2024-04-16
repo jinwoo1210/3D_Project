@@ -20,6 +20,8 @@ public class GameScene : BaseScene
         spawnPointActivator.SetZombieClass();
         spawnPointActivator.StartGame();
         PlayerStatManager.Inventory.playerStat.SetUp();
+        PlayerStatManager.Inventory.FieldInventory.EnterScene();
+        PlayerStatManager.Inventory.FieldInventory.SetUp();
         Manager.Game.FindTarget();
         Gun gun = GameObject.FindObjectOfType<Gun>();
         gun.SetGun();

@@ -1149,7 +1149,7 @@ PrefabInstance:
       objectReference: {fileID: 782565690}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8236447
+      value: 0.82364464
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1157,11 +1157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.34116474
+      value: 0.3411648
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17335857
+      value: -0.17335865
       objectReference: {fileID: 0}
     - target: {fileID: 5745012018079963779, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: bulletUI
@@ -1291,6 +1291,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 240004071936319782, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1100445705425232229, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
       propertyPath: holder
       value: 
@@ -1417,6 +1421,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c409d2a466634a4eb1eea57b4706e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &518205702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4717021267190841849, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+  m_PrefabInstance: {fileID: 518205700}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &600679690
@@ -1652,7 +1667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPointActivator: {fileID: 426700335723407813}
-  dieImage: {fileID: 0}
+  dieImage: {fileID: 518205702}
 --- !u!1 &783505476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3038210159367472974, guid: e9acf3bedabfe3c4089c2ee6b0f8eeb8, type: 3}
@@ -1775,7 +1790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791460653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.41852477, y: 0.34116474, z: -0.17335857, w: 0.8236447}
+  m_LocalRotation: {x: 0.41852477, y: 0.3411648, z: -0.17335865, w: 0.82364464}
   m_LocalPosition: {x: 18.63, y: 16.66, z: 48.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
