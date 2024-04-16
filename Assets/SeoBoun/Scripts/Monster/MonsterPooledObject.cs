@@ -13,6 +13,9 @@ public class MonsterPooledObject : PooledObject
 
     public void Decount(ZombieType type)
     {
+        if (type == ZombieType.size)
+            return;
+
         this.Pool.GetComponent<ZombieSpanwer>()?.DeCount(type);
     }
 

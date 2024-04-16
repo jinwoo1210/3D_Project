@@ -2015,28 +2015,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.x
+<<<<<<< HEAD
       value: 0.41852477
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.34116477
+=======
+      value: 0.41852474
+>>>>>>> origin/Develop
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17335865
+      value: -0.17335862
       objectReference: {fileID: 0}
     - target: {fileID: 5745012018079963779, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: bulletUI
       value: 
       objectReference: {fileID: 518205701}
-    - target: {fileID: 7354638922668400338, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
-      propertyPath: activeRange
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7354638922668400338, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
-      propertyPath: disableRange
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5063,7 +5059,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791460653}
   serializedVersion: 2
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.41852477, y: 0.34116477, z: -0.17335865, w: 0.8236446}
+=======
+  m_LocalRotation: {x: 0.41852474, y: 0.34116474, z: -0.17335862, w: 0.82364464}
+>>>>>>> origin/Develop
   m_LocalPosition: {x: 18.63, y: 16.66, z: 48.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

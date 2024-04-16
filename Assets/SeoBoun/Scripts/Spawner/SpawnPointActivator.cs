@@ -10,6 +10,7 @@ public enum SpawnState { normal, eliet, boss, noSpawn, size}
 public class SpawnPointActivator : MonoBehaviour
 {
     [SerializeField] List<SpawnManagement> spawnPointer = new List<SpawnManagement>();
+    [SerializeField] List<FixedSpawner> fixedSpawner = new List<FixedSpawner>();
 
     [SerializeField] int spawnLevel = 0;
     [SerializeField] int totalCount = 0;              // ÃÑÇÕ ¼ö
@@ -23,6 +24,7 @@ public class SpawnPointActivator : MonoBehaviour
 
     public int[] MaxZombieCount { get { return maxZombieCount; } }
     public int SpawnLevel { get { return spawnLevel; } }
+    public ZombieClass CurClass { get { return curClass; } }
 
     [ContextMenu("Create")]
     public void StartGame()
@@ -34,6 +36,10 @@ public class SpawnPointActivator : MonoBehaviour
         {
             spawnPointer[i].SetActivator(this);
             spawnPointer[i].SetSpawn(curClass);
+        }
+        for(int i = 0; i < fixedSpawner.Count; i++)
+        {
+            fixedSpawner[i].SetActivator(this);
         }
         StartCoroutine(SpawnLevelUpRoutine());
     }

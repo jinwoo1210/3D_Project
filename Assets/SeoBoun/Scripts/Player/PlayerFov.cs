@@ -11,11 +11,8 @@ public class PlayerFov : MonoBehaviour
     [SerializeField] float disableRange;
     [SerializeField] LayerMask targetMask;
 
-    [SerializeField] int spawnCount;    // 10번 스폰 시
-    [SerializeField] int spawnLevel;    // 스폰레벨 ++
-
     // 시야각 안에 있는 스포너 비활성화 시켜보기?
-    Collider[] colliders = new Collider[20];
+    Collider[] colliders = new Collider[30];
 
     private void Start()
     {
@@ -38,6 +35,9 @@ public class PlayerFov : MonoBehaviour
 
                 SpawnManagement target = colliders[i].GetComponent<SpawnManagement>();
                 target?.Spawn();
+
+                FixedSpawner fixedTarget = colliders[i].GetComponent<FixedSpawner>();
+                fixedTarget?.Spawn();
             }
         }
     }
