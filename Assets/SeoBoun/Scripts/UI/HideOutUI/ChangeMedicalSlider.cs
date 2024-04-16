@@ -9,10 +9,18 @@ public class ChangeMedicalSlider : MonoBehaviour
     [SerializeField] TMP_Text sliderValue;
     [SerializeField] Slider slider;
 
+    int maxPoint;
+
+    public void SetMaxValue()
+    {
+        maxPoint = PlayerStatManager.Inventory.medicalPoint < 3 ? PlayerStatManager.Inventory.medicalPoint : 3;
+    }
+
     public void ChangeValue()
     {
-        if (PlayerStatManager.Inventory.medicalPoint < slider.value)
+        if (maxPoint < slider.value)
         {
+            slider.value = maxPoint;
             return;
         }
 
