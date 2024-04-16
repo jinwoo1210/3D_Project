@@ -338,10 +338,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 143994059860707679}
     m_Modifications:
     - target: {fileID: 679504925799919954, guid: fe335ef74e1c0d543a3d68bc6b4f709f, type: 3}
-      propertyPath: hitEffect
-      value: 
-      objectReference: {fileID: 6617546470662919692, guid: 071ad0752fec90046b2596b9daba0c77, type: 3}
-    - target: {fileID: 679504925799919954, guid: fe335ef74e1c0d543a3d68bc6b4f709f, type: 3}
       propertyPath: bloodEffect
       value: 
       objectReference: {fileID: 7662160287446461198, guid: 701e7ff7150afb1479314714e783fc72, type: 3}
@@ -639,10 +635,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8989961643831126655, guid: 54b73b4683191a44c9ab1c229b629136, type: 3}
-      propertyPath: hitEffect
-      value: 
-      objectReference: {fileID: 6617546470662919692, guid: 071ad0752fec90046b2596b9daba0c77, type: 3}
     - target: {fileID: 8989961643831126655, guid: 54b73b4683191a44c9ab1c229b629136, type: 3}
       propertyPath: bloodEffect
       value: 
@@ -1011,11 +1003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: -5.6840677
-=======
       value: 26.63
->>>>>>> origin/Develop
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1023,11 +1011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD
-      value: 4.708905
-=======
       value: 56.4
->>>>>>> origin/Develop
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1398,10 +1382,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SRMuzzlePoint
       objectReference: {fileID: 0}
-    - target: {fileID: 7377738486687421223, guid: 45c14fb0041c1f64594bf9b802c0b31b, type: 3}
-      propertyPath: hitEffect
-      value: 
-      objectReference: {fileID: 6617546470662919692, guid: 071ad0752fec90046b2596b9daba0c77, type: 3}
     - target: {fileID: 7377738486687421223, guid: 45c14fb0041c1f64594bf9b802c0b31b, type: 3}
       propertyPath: bulletLineRenderer
       value: 
@@ -1830,7 +1810,6 @@ MonoBehaviour:
   muzzleFlash: {fileID: 2625416079673950622, guid: cfc657ef3c0c012479b259167ad89c2e, type: 3}
   bloodEffect: {fileID: 7662160287446461198, guid: 701e7ff7150afb1479314714e783fc72, type: 3}
   bulletLineRenderer: {fileID: 7447756276979176013}
-  hitEffect: {fileID: 6617546470662919692, guid: 071ad0752fec90046b2596b9daba0c77, type: 3}
   magCapacity: 0
   magAmmo: 0
   ammoRemain: 0

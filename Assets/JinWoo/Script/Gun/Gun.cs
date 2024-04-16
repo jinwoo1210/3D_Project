@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
-using UnityEngine.Animations.Rigging;
 using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 
@@ -18,7 +17,6 @@ public class Gun : MonoBehaviour
     [SerializeField] protected ParticleSystem bloodEffect;
 
     [SerializeField] protected LineRenderer bulletLineRenderer;
-    [SerializeField] protected ParticleSystem hitEffect;           // 히트 이펙트(타격 이펙트)
 
     [SerializeField] protected int magCapacity; // 한 탄창
     [SerializeField] protected int magAmmo;     // 현재 탄창에 남아 있는 탄알
@@ -89,7 +87,7 @@ public class Gun : MonoBehaviour
         {
             // Reload
             Manager.Sound.PlaySFX(gunData.gunEmptyClip);
-            
+            //playerAudioSource.PlayOneShot(gunData.gunEmptyClip);
             return false;
         }
 
@@ -114,11 +112,6 @@ public class Gun : MonoBehaviour
             IDamagable target = hit.collider.GetComponent<IDamagable>();
 
             target?.TakeHit(curDamage);
-            ParticleSystem effect = Instantiate(hitEffect,hit.point, Quaternion.LookRotation(hit.normal));
-            effect.transform.parent = hit.transform;
-
-            Destroy(effect, 2f);
-            
 
             hitPosition = hit.point;
         }

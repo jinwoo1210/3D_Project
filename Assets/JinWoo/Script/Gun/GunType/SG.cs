@@ -40,9 +40,6 @@ public class SG : Gun
                 IDamagable target = hit.collider.gameObject.GetComponent<IDamagable>();
 
                 target?.TakeHit(curDamage);
-                ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                effect.transform.parent = hit.transform;
-                Destroy(effect, 2f);
 
                 hitPosition[i] = hit.point;
             }

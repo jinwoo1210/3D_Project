@@ -11,10 +11,7 @@ public class GeneralSpawner : ItemSpawner
         rand = Random.Range(0, 10) + 1;
 
         if (rand > 7)
-        {
             Spawn();
-            Debug.Log("½ºÆù¤¼µõ");
-        }
     }
 
     public override void Spawn()
