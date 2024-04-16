@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ElectItemSpawner : ItemSpawner
@@ -12,7 +13,7 @@ public class ElectItemSpawner : ItemSpawner
             Spawn();
     }
 
-    public override void Spawn()
+    public override BaseItem Spawn()
     {
         rand = Random.Range(0, 1000) + 1;
         int count = 0;
@@ -22,9 +23,12 @@ public class ElectItemSpawner : ItemSpawner
             count += percentage[i];
             if (rand <= count)
             {
-                Instantiate(prefab[i], transform.position, Quaternion.identity);
-                break;
+                BaseItem instance = Instantiate(prefab[i], transform.position, Quaternion.identity);
+                instance.transform.position = transform.position;
+                return instance;
             }
         }
+
+        return null;
     }
 }

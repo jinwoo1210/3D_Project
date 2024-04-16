@@ -13,10 +13,12 @@ public class PlayerFov : MonoBehaviour
 
     // 시야각 안에 있는 스포너 비활성화 시켜보기?
     Collider[] colliders = new Collider[30];
+    Collider[] fixedColliders = new Collider[20];
 
     private void Start()
     {
         StartCoroutine(SetSpawner());
+        StartCoroutine(SetFixedSpawner());
     }
 
     IEnumerator SetSpawner()
@@ -37,6 +39,21 @@ public class PlayerFov : MonoBehaviour
                 target?.Spawn();
 
                 FixedSpawner fixedTarget = colliders[i].GetComponent<FixedSpawner>();
+                fixedTarget?.Spawn();
+            }
+        }
+    }
+
+    IEnumerator SetFixedSpawner()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            int fixedSize = Physics.OverlapSphereNonAlloc(transform.position, activeRange, fixedColliders, targetMask);
+
+            for (int i = 0; i < fixedSize; i++)
+            {
+                FixedSpawner fixedTarget = fixedColliders[i].GetComponent<FixedSpawner>();
                 fixedTarget?.Spawn();
             }
         }

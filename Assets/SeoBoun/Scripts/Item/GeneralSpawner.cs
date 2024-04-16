@@ -13,13 +13,16 @@ public class GeneralSpawner : ItemSpawner
         if (rand > 7)
         {
             Spawn();
-            Debug.Log("½ºÆù¤¼µõ");
         }
     }
 
-    public override void Spawn()
+    public override BaseItem Spawn()
     {
         int rand = Random.Range(0, itemSpawner.Length);
-        itemSpawner[rand].Spawn();
+        BaseItem instance = itemSpawner[rand].Spawn();
+
+        instance.transform.position = transform.position;
+
+        return null;
     }
 }

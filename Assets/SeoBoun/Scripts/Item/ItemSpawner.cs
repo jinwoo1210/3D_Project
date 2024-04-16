@@ -10,5 +10,5 @@ public abstract class ItemSpawner : MonoBehaviour
     protected int rand;
     // 확률 테이블 존재 -> 확률 테이블에 따른 1회 스폰
 
-    public abstract void Spawn();
+    public abstract BaseItem Spawn();
 }
