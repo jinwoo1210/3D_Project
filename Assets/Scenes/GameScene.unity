@@ -2015,7 +2015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.41852477
+      value: 0.41852474
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2023,20 +2023,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17335865
+      value: -0.17335862
       objectReference: {fileID: 0}
     - target: {fileID: 5745012018079963779, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: bulletUI
       value: 
       objectReference: {fileID: 518205701}
-    - target: {fileID: 7354638922668400338, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
-      propertyPath: activeRange
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7354638922668400338, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
-      propertyPath: disableRange
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
