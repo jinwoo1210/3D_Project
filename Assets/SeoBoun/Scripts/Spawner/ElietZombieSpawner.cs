@@ -8,8 +8,14 @@ public class ElietZombieSpawner : ZombieSpanwer
     [SerializeField] Zombies endureEliet;
     [SerializeField] Zombies strongEliet;
 
+    bool isSound = false;
+    Coroutine spawnSound;
+
     public override void Create(ZombieClass type)
     {
+        if (!isSound)
+            spawnSound = StartCoroutine(SoundRoutine());
+
         this.rank = ZombieType.eliet;
         this.type = type;
         switch (type)
@@ -26,6 +32,16 @@ public class ElietZombieSpawner : ZombieSpanwer
                 CreatePool(strongEliet.prefab, 16, 16);
                 curData = strongEliet.data;
                 break;
+        }
+    }
+
+    IEnumerator SoundRoutine()
+    {
+        isSound = true;
+        while (true)
+        {
+            Manager.Sound.PlaySFX(Manager.Scene.GetCurScene().GetComponent<GameScene>().Eliet);
+            yield return new WaitForSeconds(5f);
         }
     }
 }

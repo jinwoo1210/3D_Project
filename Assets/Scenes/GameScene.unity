@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17905493, g: 0.21854569, b: 0.27339202, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273121, g: 0.13414422, b: 0.12108286, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -2011,19 +2011,19 @@ PrefabInstance:
       objectReference: {fileID: 782565690}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.82364464
+      value: 0.8236446
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.41852474
+      value: 0.41852477
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.34116474
+      value: 0.34116477
       objectReference: {fileID: 0}
     - target: {fileID: 4581100318975169880, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17335862
+      value: -0.17335865
       objectReference: {fileID: 0}
     - target: {fileID: 5745012018079963779, guid: 6793a3ea4309aff4184cc352b4671e3a, type: 3}
       propertyPath: bulletUI
@@ -3084,6 +3084,38 @@ PrefabInstance:
     - target: {fileID: 3420479360769722147, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615438700992687780, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615438700992687780, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615438700992687780, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615438700992687780, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615438700992687780, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 217.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615438700992687780, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 118.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615438700992687780, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00091552734
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615438700992687780, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.4999084
       objectReference: {fileID: 0}
     - target: {fileID: 3833443456230980221, guid: d70008c7e189d934a9d14d77c0630a32, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4867,6 +4899,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPointActivator: {fileID: 968907378}
   dieImage: {fileID: 518205702}
+  crowClip: {fileID: 8300000, guid: 997b549250e790843bef09fadf6683bb, type: 3}
+  animalClip: {fileID: 8300000, guid: 2122f39e1048c164ea09eb30e0243b99, type: 3}
+  shortWindClip: {fileID: 8300000, guid: d07d2ad63bb1c354b854970d59c103a0, type: 3}
+  wind1Clip: {fileID: 8300000, guid: 362f239611307614999a79c4e3b19c42, type: 3}
+  wind2Clip: {fileID: 8300000, guid: 76cc985083e850a46baab47937e21e11, type: 3}
+  bgmClip: {fileID: 8300000, guid: 6df7a54e3d2fa154d8dd504058e71a49, type: 3}
+  normalSpawnClip: {fileID: 8300000, guid: 5bac56d6e8c8e594db07d6b5b5d9abe7, type: 3}
+  elietSpawnClip: {fileID: 8300000, guid: 358f7dbd711e4c74eb96446890102d6c, type: 3}
+  bossSpawnClip: {fileID: 8300000, guid: 05bdf1bb97ffbd34f9f5090c778c4f43, type: 3}
 --- !u!1 &783505476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3038210159367472974, guid: e9acf3bedabfe3c4089c2ee6b0f8eeb8, type: 3}
@@ -5055,7 +5096,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791460653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.41852474, y: 0.34116474, z: -0.17335862, w: 0.82364464}
+  m_LocalRotation: {x: 0.41852477, y: 0.34116477, z: -0.17335865, w: 0.8236446}
   m_LocalPosition: {x: 18.63, y: 16.66, z: 48.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9936,10 +9977,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 295914237816521682, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
     - target: {fileID: 860116119116726182, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
       propertyPath: m_Name
       value: ZombieSpawner_
       objectReference: {fileID: 0}
+    - target: {fileID: 952288686397949668, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 1089481929953783501, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 1640445461157847421, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 1908935392356906113, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
     - target: {fileID: 2173073315312717580, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9980,6 +10041,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2182698616604205956, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 2827335885599293989, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 2934359794571161013, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 4105757005526723794, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 4611586449804887070, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 5194982172683324008, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 5665726865865296147, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 6469839217415684388, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 7071253000616293512, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 7453401535452989017, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 7566096159020249308, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
+    - target: {fileID: 7894978051282240830, guid: 997782efa00e1e843a7b067de53a36ef, type: 3}
+      propertyPath: strongBoss.prefab
+      value: 
+      objectReference: {fileID: 8724443856684564353, guid: cbbba77e89eb08e489efaffa1a138376, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
