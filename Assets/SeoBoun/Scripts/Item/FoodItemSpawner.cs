@@ -6,7 +6,10 @@ public class FoodItemSpawner : ItemSpawner
 {
     private void Start()
     {
-        Spawn();
+        rand = Random.Range(0, 10) + 1;
+
+        if (rand > 7)
+            Spawn();
     }
     public override void Spawn()
     {
