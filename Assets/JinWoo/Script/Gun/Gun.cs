@@ -117,6 +117,8 @@ public class Gun : MonoBehaviour
             ParticleSystem effect = Instantiate(hitEffect,hit.point, Quaternion.LookRotation(hit.normal));
             effect.transform.parent = hit.transform;
 
+            Manager.Sound.PlaySFX(gunData.damagedClip);
+
             Destroy(effect, 2f);
             
 
@@ -146,7 +148,6 @@ public class Gun : MonoBehaviour
 
         // TODO.. 소리 집어넣기
         Manager.Sound.PlaySFX(gunData.gunShotClip);
-        //playerAudioSource.PlayOneShot(gunData.gunShotClip);
 
         bulletLineRenderer.SetPosition(0, muzzlePoint.position);
         bulletLineRenderer.SetPosition(1, hitPosition);
@@ -176,7 +177,6 @@ public class Gun : MonoBehaviour
 
         // TODO.. 재생소리
         Manager.Sound.PlaySFX(gunData.gunReloadClip);
-        //playerAudioSource.PlayOneShot(gunData.gunReloadClip);
 
         yield return new WaitForSeconds(curReloadSpeed);
 
