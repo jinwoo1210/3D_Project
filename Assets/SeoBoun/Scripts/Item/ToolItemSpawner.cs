@@ -11,7 +11,7 @@ public class ToolItemSpawner : ItemSpawner
         if (rand > 7)
             Spawn();
     }
-    public override void Spawn()
+    public override BaseItem Spawn()
     {
         rand = Random.Range(0, 1000) + 1;
         int count = 0;
@@ -21,9 +21,12 @@ public class ToolItemSpawner : ItemSpawner
             count += percentage[i];
             if (rand <= count)
             {
-                Instantiate(prefab[i], transform.position, Quaternion.identity);
-                break;
+                BaseItem instance = Instantiate(prefab[i], transform.position, Quaternion.identity);
+                instance.transform.position = transform.position;
+                return instance;
             }
         }
+
+        return null;
     }
 }
