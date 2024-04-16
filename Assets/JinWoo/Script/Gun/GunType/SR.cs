@@ -30,6 +30,9 @@ public class SR : Gun
             IDamagable target = hit[i].collider.GetComponent<IDamagable>();
 
             target?.TakeHit(curDamage);
+            ParticleSystem effect = Instantiate(hitEffect, hit[i].point, Quaternion.LookRotation(hit[i].normal));
+            effect.transform.parent = hit[i].transform;
+            Destroy(effect, 2f);
         }
 
         hitPosition = muzzlePoint.position + muzzlePoint.forward * curFireDistance;
