@@ -14,10 +14,5 @@ public class ZombieData : ScriptableObject
     public float attackRate;        // 어택 쿨타임? 빈도?
     public int damage;              // 데미지
 
-    // TODO...
-    // 좀비별 애니메이션 설정
-    // 좀비별 색상 설정
-    // 엘리트 타입 구분?
-    
-
+    public Material zombieMaterial;
 }

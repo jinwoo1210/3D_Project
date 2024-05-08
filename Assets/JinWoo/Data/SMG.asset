@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b15aea648f009f4598f06922969938a, type: 3}
+  m_Name: SMG
+  m_EditorClassIdentifier: 
+  gunShotClip: {fileID: 8300000, guid: b58e0ab39bd67aa44ba81b913bcdcc1c, type: 3}
+  gunReloadClip: {fileID: 8300000, guid: 497e3dc2a89366245b8be0a59aa06dfc, type: 3}
+  gunEmptyClip: {fileID: 8300000, guid: a723a91da040f2642a54f80b53f32e77, type: 3}
+  damagedClip: {fileID: 8300000, guid: 8db08a5dfea40eb42adb73eb32347366, type: 3}
+  gunLevelData:
+  - damage: 25
+    shootSpeed: 0.12
+    magCapacity: 25
+    reloadTime: 1.8
+    fireDistance: 50
+  - damage: 50
+    shootSpeed: 0.09
+    magCapacity: 50
+    reloadTime: 1.4
+    fireDistance: 60
+  - damage: 75
+    shootSpeed: 0.06
+    magCapacity: 75
+    reloadTime: 1
+    fireDistance: 70
+  - damage: 100
+    shootSpeed: 0.03
+    magCapacity: 100
+    reloadTime: 0.6
+    fireDistance: 80

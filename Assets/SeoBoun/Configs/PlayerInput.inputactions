@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "1b384c55-519b-4cb5-84e8-1b43ac9ce62a",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pick",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "b33964fc-8ea2-4729-8338-4b41c6dc330b",
                     "expectedControlType": "Button",
@@ -63,6 +63,24 @@
                     "name": "Heal",
                     "type": "Button",
                     "id": "50032077-eca0-4ac7-abe4-c2db31926338",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "PassThrough",
+                    "id": "9e7639d4-ea7e-4a42-b4b8-8245ef947b47",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LevelUp",
+                    "type": "Button",
+                    "id": "75da397b-912d-49c5-95be-93b8277e4619",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -138,28 +156,6 @@
                 },
                 {
                     "name": "",
-                    "id": "3de25883-7ed8-43aa-8735-de8fce561c03",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9909c7b7-9781-460f-9095-4ce70dbbe0e0",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "fa944d63-63be-44b3-a94d-2913b6a305c8",
                     "path": "<Keyboard>/1",
                     "interactions": "",
@@ -199,6 +195,138 @@
                     "processors": "",
                     "groups": "",
                     "action": "Heal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49f0316e-7eb1-49d8-8fa1-df005a4b444b",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7918d4f3-5cc2-490d-953b-96eccc5d9153",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LevelUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3de25883-7ed8-43aa-8735-de8fce561c03",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9909c7b7-9781-460f-9095-4ce70dbbe0e0",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "WeaponHolder",
+            "id": "64f749c6-4975-4490-8e6f-4067810584cb",
+            "actions": [
+                {
+                    "name": "SetSMG",
+                    "type": "Button",
+                    "id": "833f4fbc-dac4-453f-824f-94212920875e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SetAR",
+                    "type": "Button",
+                    "id": "2155ba8e-ebf8-47bb-87d3-5efdec919d8f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SetSG",
+                    "type": "Button",
+                    "id": "c832554d-5ac0-4022-ac14-8a4bb01eb3b7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SetSR",
+                    "type": "Button",
+                    "id": "010e010e-d28a-416a-a59e-08c06f9fc22d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "23524fd9-a5eb-4b94-9e1e-f2c55c1724ee",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetSMG",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f95ffa5-45f5-4818-ab10-0aabbeaabdcc",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetAR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3988e70-0f85-4551-8c37-e5e3c59af670",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetSG",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48441d85-c1b7-487b-af73-d567f16ccb73",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetSR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

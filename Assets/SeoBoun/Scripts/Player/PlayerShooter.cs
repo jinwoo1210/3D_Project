@@ -1,54 +1,60 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerShooter : MonoBehaviour
 {
-    // [SerializeField] Gun gun;
-
+    [SerializeField] WeaponHolder holder;
     [SerializeField] Animator animator;
-    [SerializeField] Transform muzzlePoint;
-    [SerializeField] LayerMask monsterLayer;
-    [SerializeField] Player player;
-    [SerializeField] public Gun gun;
-    [SerializeField] Bullet bullet;
-    [SerializeField] ParticleSystem muzzleFlash;
-    [SerializeField] ParticleSystem hitEffect;
-    
 
-    public void OnFire(InputValue value)
+    Coroutine fireStart;
+
+    bool isRoutine;
+
+    private void OnFire(InputValue value)
     {
-        animator.SetTrigger("Fire");
-        Shoot();
-        player.Attack();
+        if (value.isPressed && !isRoutine && holder.CurEquipGun.GunState != GunState.Empty)
+        {
+            isRoutine = true;
+            fireStart = StartCoroutine(FireStart());
+        }
+
+        //if(value.isPressed == true && holder.CurEquipGun.GunState == GunState.Empty)
+        //{
+        //    if (holder.CurEquipGun.Reload())
+        //    {
+        //        animator.SetTrigger("Reload");
+        //    }
+        //}
+
+        if(value.isPressed == false)
+        {
+            isRoutine = false;
+            StopCoroutine(fireStart);
+        }
     }
 
     private void OnReload(InputValue value)
     {
-        Reload();
-    }
-
-    public void Shoot()
-    {
-        bullet.magCapacity--;
-        muzzleFlash.Play();
-        Debug.DrawRay(muzzlePoint.position, muzzlePoint.forward, Color.red, 0.5f);
-        if (Physics.Raycast(muzzlePoint.position, muzzlePoint.forward, out RaycastHit hit, 100f, monsterLayer))
+        if(holder.CurEquipGun.Reload())
         {
-            IDamagable target = hit.collider.gameObject.GetComponent<IDamagable>();
-
-            target?.TakeHit(gun.damage);
-            Debug.Log("몬스터 공격");
-
-            ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            effect.transform.parent = hit.transform;
+            animator.SetTrigger("Reload");
         }
     }
 
-    private void Reload()
+    IEnumerator FireStart()
     {
-        animator.SetTrigger("Reload");
+        while (true)
+        {
+            if (holder.CurEquipGun.GunState == GunState.Empty)
+                break;
+
+            if (holder.CurEquipGun.Fire())
+            {
+                animator.SetTrigger("Fire");
+            }
+            yield return null;
+        }
     }
 }

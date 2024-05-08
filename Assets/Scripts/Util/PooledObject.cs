@@ -17,7 +17,7 @@ public class PooledObject : MonoBehaviour
         }
     }
 
-    IEnumerator ReleaseRoutine()
+    protected IEnumerator ReleaseRoutine()
     {
         yield return new WaitForSeconds(releaseTime);
         Release();
@@ -35,7 +35,7 @@ public class PooledObject : MonoBehaviour
         }
     }
 
-    public void SetAutoRelease()
+    public virtual void SetAutoRelease()
     {
         StartCoroutine(ReleaseRoutine());
     }

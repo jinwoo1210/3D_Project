@@ -4,12 +4,12 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] protected PooledObject prefab;
-    [SerializeField] int size;
-    [SerializeField] int capacity;
+    [SerializeField] protected int size;
+    [SerializeField] protected int capacity;
 
-    private Stack<PooledObject> objectPool;
+    protected Stack<PooledObject> objectPool;
 
-    public void CreatePool(PooledObject prefab, int size, int capacity)
+    public virtual void CreatePool(PooledObject prefab, int size, int capacity)
     {
         this.prefab = prefab;
         this.size = size;
@@ -26,7 +26,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public PooledObject GetPool(Vector3 position, Quaternion rotation)
+    public virtual PooledObject GetPool(Vector3 position, Quaternion rotation)
     {
         if (objectPool.Count > 0)
         {
@@ -36,15 +36,8 @@ public class ObjectPool : MonoBehaviour
             instance.transform.parent = null;
             return instance;
         }
-        else
-        {
-            PooledObject instance = Instantiate(prefab);
-            instance.Pool = this;
-            instance.transform.position = position;
-            instance.transform.rotation = rotation;
-            instance.transform.parent = null;
-            return instance;
-        }
+
+        return null;
     }
 
     public void ReturnPool(PooledObject instance)

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+// using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 
 public class SceneManager : Singleton<SceneManager>
 {
@@ -46,12 +46,15 @@ public class SceneManager : Singleton<SceneManager>
         Manager.UI.CloseInGameUI();
 
         Time.timeScale = 0f;
-        loadingBar.gameObject.SetActive(true);
 
-        AsyncOperation oper = UnitySceneManager.LoadSceneAsync(sceneName);
+        if (loadingBar != null)
+            loadingBar.gameObject.SetActive(true);
+
+        AsyncOperation oper = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
         while (oper.isDone == false)
         {
-            loadingBar.value = oper.progress;
+            if (loadingBar != null)
+                loadingBar.value = oper.progress;
             yield return null;
         }
 
@@ -60,7 +63,8 @@ public class SceneManager : Singleton<SceneManager>
         BaseScene curScene = GetCurScene();
         yield return curScene.LoadingRoutine();
 
-        loadingBar.gameObject.SetActive(false);
+        if (loadingBar != null)
+            loadingBar.gameObject.SetActive(false);
         Time.timeScale = 1f;
 
         yield return FadeIn();

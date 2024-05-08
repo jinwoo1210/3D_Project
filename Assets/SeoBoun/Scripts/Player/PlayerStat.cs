@@ -5,10 +5,11 @@ public class PlayerStat : MonoBehaviour
 {
     [SerializeField] PlayerData playerData;
 
-    [SerializeField] int curHp;
-    [SerializeField] int curStamina;
-    int moveSpeed;
-    int runSpeed;
+    int curHp;
+    int curStamina;
+    int maxHp;
+    int maxStamina;
+    float moveSpeed;
 
     public event Action<int, int> ChangePlayerHp;       // max, cur
     public event Action<int, int> ChangePlayerStamina;
@@ -20,8 +21,8 @@ public class PlayerStat : MonoBehaviour
         }
         set
         {
-            curHp = Mathf.Clamp(value, 0, playerData.maxHp);
-            ChangePlayerHp?.Invoke(playerData.maxHp, value);
+            curHp = Mathf.Clamp(value, 0, maxHp);
+            ChangePlayerHp?.Invoke(maxHp, value);
         }
     }
 
@@ -32,29 +33,49 @@ public class PlayerStat : MonoBehaviour
         }
         set
         {
-            curStamina = Mathf.Clamp(value, 0, playerData.maxStamina);
-            ChangePlayerStamina?.Invoke(playerData.maxStamina, value);
+            curStamina = Mathf.Clamp(value, 0, maxStamina);
+            ChangePlayerStamina?.Invoke(maxStamina, value);
         }
     }
-    public int MoveSpeed { get { return moveSpeed; } }
-    public int RunSpeed { get { return runSpeed; } }
+    public float MoveSpeed { get { return moveSpeed; } }
+    public int MaxHp { get { return maxHp; } }
+    public int MaxStamina { get { return maxStamina; } }
     // 처음 초기화 데이터 수정
-    private void Awake()
+
+    private void Start()
     {
-        Init();
+        FirstInit();
+        SetUp();
     }
 
-    public void Init()
+    public void GameInit()
     {
-        curHp = playerData.maxHp;
-        curStamina = playerData.maxStamina;
-        moveSpeed = playerData.moveSpeed;
-        runSpeed = playerData.runSpeed;
+        CurHp = MaxHp;
+        CurStamina = MaxStamina;
     }
 
-    [ContextMenu("SetUp")]
+    public void FirstInit()
+    {
+        if (maxHp == 0)
+        {
+            maxHp = playerData.maxHp;
+            maxStamina = playerData.maxStamina;
+            moveSpeed = playerData.moveSpeed;
+        }
+
+        GameInit();
+    }
+
+    public void LevelUp()
+    {
+        maxHp = 100 + PlayerStatManager.Inventory.hpLevel * 50;
+        maxStamina = 100 + PlayerStatManager.Inventory.staminaLevel * 30;
+        moveSpeed = 3.0f + PlayerStatManager.Inventory.speedLevel * 0.5f;
+    }
+
     public void SetUp()
     {
+        GameInit();
         ChangePlayerHp?.Invoke(playerData.maxHp, curHp);
         ChangePlayerStamina?.Invoke(playerData.maxStamina, curStamina);
     }

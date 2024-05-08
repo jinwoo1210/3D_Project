@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] PlayerStat playerStat;
     [SerializeField] CharacterController controller;
     [SerializeField] Animator animator;
 
@@ -19,11 +18,13 @@ public class PlayerMover : MonoBehaviour
     Coroutine staminaRoutine;
 
     bool isUseStamina = false;
+    bool isTired = false;
 
     private void Start()
     {
-        moveSpeed = playerStat.MoveSpeed;
         staminaRoutine = StartCoroutine(StaminaRoutine());
+        PlayerStatManager.Inventory.playerStat.SetUp();
+        moveSpeed = PlayerStatManager.Inventory.playerStat.MoveSpeed;
     }
 
     private void Update()
@@ -42,8 +43,15 @@ public class PlayerMover : MonoBehaviour
         controller.Move(forwardDir * moveDir.z * moveSpeed * Time.deltaTime);
         controller.Move(rightDir * moveDir.x * moveSpeed * Time.deltaTime);
 
-        animator.SetFloat("PosX", moveDir.x * moveSpeed, 0.1f, Time.deltaTime);
-        animator.SetFloat("PosY", moveDir.z * moveSpeed, 0.1f, Time.deltaTime);
+        animator.SetFloat("PosX", moveDir.x * moveSpeed, 0.25f, Time.deltaTime);
+        animator.SetFloat("PosY", moveDir.z * moveSpeed, 0.25f, Time.deltaTime);
+
+        if (PlayerStatManager.Inventory.playerStat.CurStamina <= 0)
+        {
+            isTired = true;
+            isUseStamina = false;
+            moveSpeed = PlayerStatManager.Inventory.playerStat.MoveSpeed;
+        }
     }
     private void OnMove(InputValue value)   // InputAction
     {
@@ -61,15 +69,20 @@ public class PlayerMover : MonoBehaviour
 
     private void OnRun(InputValue value)
     {
-        if(value.isPressed && playerStat.CurStamina > 0)
+        if (value.isPressed && !isTired)
         {
-            moveSpeed = playerStat.MoveSpeed * 1.8f;
+            moveSpeed = PlayerStatManager.Inventory.playerStat.MoveSpeed * 1.8f;
             isUseStamina = true;
         }
         else
         {
-            moveSpeed = playerStat.MoveSpeed;
+            moveSpeed = PlayerStatManager.Inventory.playerStat.MoveSpeed;
             isUseStamina = false;
+
+            if(PlayerStatManager.Inventory.playerStat.CurStamina >= 10)
+            {
+                isTired = false;
+            }
         }
     }
 
@@ -79,13 +92,15 @@ public class PlayerMover : MonoBehaviour
         {
             if (isUseStamina)
             {
-                playerStat.CurStamina--;
+                PlayerStatManager.Inventory.playerStat.CurStamina -= 2;
             }
             else
             {
-                playerStat.CurStamina++;
+                PlayerStatManager.Inventory.playerStat.CurStamina += 1;
             }
             yield return new WaitForSeconds(0.1f);
         }
     }
+
 }
+

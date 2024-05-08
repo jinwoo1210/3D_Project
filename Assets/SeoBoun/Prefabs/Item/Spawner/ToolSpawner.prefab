@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7095407910303642385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4210092333874698755}
+  - component: {fileID: 3280713037776780346}
+  m_Layer: 0
+  m_Name: ToolSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4210092333874698755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095407910303642385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3280713037776780346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095407910303642385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff835e3579e34d4786fbbec5f4bb78b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 5355063179736601202, guid: 2e5726575df57214aa90dcc56a8e79af, type: 3}
+  - {fileID: 5573910421323511493, guid: f9d0f409186954e479f4a044ff0a149c, type: 3}
+  - {fileID: 7429931522989787752, guid: 3f858b901c72b984da79294c0ecba3f1, type: 3}
+  - {fileID: 5701422793189759610, guid: 32b802b1178b29349af7466f5739e32a, type: 3}
+  - {fileID: 5614379821011937536, guid: 9bb643b4516acc44e9280dda7d7fbd54, type: 3}
+  - {fileID: 7160970098999603966, guid: dcbe1526d1fcb3141bc106987d560edc, type: 3}
+  - {fileID: 7538265545293452676, guid: 20f909e53d8f09a448b7fb1f978f2ee2, type: 3}
+  - {fileID: 7823494923129385359, guid: 74386cc749c98ca45a4f810ef85a75d3, type: 3}
+  - {fileID: 2876768427101314274, guid: 5bdc972e44deacb4eb36a2c214136002, type: 3}
+  percentage: 03010000030100009c0000009c0000003400000034000000190000001900000010000000
