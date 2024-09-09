@@ -189,12 +189,14 @@ public class Monster : MonsterPooledObject, IDamagable
         StopCoroutine(traceRoutine);
     }
 
+    WaitForSeconds tracingSecond = new WaitForSeconds(1f);
+
     IEnumerator TraceRoutine()
     {
         while (true)
         {
             agent.SetDestination(playerTransform.position);
-            yield return new WaitForSeconds(1f);
+            yield return tracingSecond;
         }
     }
 

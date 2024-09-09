@@ -39,6 +39,8 @@ public class MonsterFov : MonoBehaviour
             StopCoroutine(findRoutine);
     }
 
+    WaitForSeconds findingSecond = new WaitForSeconds(1f);
+
     IEnumerator FindRoutine()
     {
         while (true)
@@ -49,13 +51,33 @@ public class MonsterFov : MonoBehaviour
                 continue;
             }
 
-            if ((transform.position - Manager.Game.playerPos.position).sqrMagnitude > range * range)
+            Vector3 playerPos = Manager.Game.playerPos.position;
+
+            if ((transform.position - playerPos).sqrMagnitude > range * range)
             {
-                yield return new WaitForSeconds(1f);
+                yield return findingSecond;
                 continue;
             }
 
-            // 오버랩 실행
+            Vector3 dirToTarget = (playerPos - transform.position).normalized;
+
+            if(Vector3.Dot(transform.forward, dirToTarget) > cosRange)
+            {
+                continue;
+            }
+
+            float distToTarget = Vector3.Distance(transform.position, playerPos);
+            if(Physics.Raycast(transform.position, dirToTarget, distToTarget, obstacleMask))
+            {   // 장애물 존재
+                continue;
+            }
+
+            isFind = true;
+            yield return findingSecond;
+            isFind = false;
+
+            // 기존의 플레이어 루틴(오버랩 실행)
+            /*
             int size = Physics.OverlapSphereNonAlloc(transform.position, range, colliders, targetMask);
             for (int i = 0; i < size; i++)
             {
@@ -78,6 +100,7 @@ public class MonsterFov : MonoBehaviour
                 Debug.DrawRay(transform.position, dirToTarget * distToTarget, Color.red);
                 isFind = true;
             }
+            */
             yield return new WaitForSeconds(1f);
             isFind = false;
         }
