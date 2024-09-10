@@ -30,6 +30,7 @@ public class TransparentObject : MonoBehaviour
 
         for (int i = 0; i < hits.Length; i++)
         {
+
             targetObject = hits[i].collider.gameObject;
             targetObject.gameObject.SetActive(false);
 

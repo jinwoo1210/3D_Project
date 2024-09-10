@@ -51,6 +51,7 @@ public class MonsterFov : MonoBehaviour
                 continue;
             }
 
+            /*
             Vector3 playerPos = Manager.Game.playerPos.position;
 
             if ((transform.position - playerPos).sqrMagnitude > range * range)
@@ -75,9 +76,9 @@ public class MonsterFov : MonoBehaviour
             isFind = true;
             yield return findingSecond;
             isFind = false;
-
+            */
             // 기존의 플레이어 루틴(오버랩 실행)
-            /*
+            
             int size = Physics.OverlapSphereNonAlloc(transform.position, range, colliders, targetMask);
             for (int i = 0; i < size; i++)
             {
@@ -100,7 +101,7 @@ public class MonsterFov : MonoBehaviour
                 Debug.DrawRay(transform.position, dirToTarget * distToTarget, Color.red);
                 isFind = true;
             }
-            */
+            
             yield return new WaitForSeconds(1f);
             isFind = false;
         }

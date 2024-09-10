@@ -91,7 +91,8 @@ public class SpawnPointActivator : MonoBehaviour
 
     public void SetZombieClass()
     {
-        curClass = (ZombieClass)UnityEngine.Random.Range(0, (int)ZombieClass.size) ;
+        curClass = ZombieClass.fast;
+        // curClass = (ZombieClass)UnityEngine.Random.Range(0, (int)ZombieClass.size) ;
         Debug.Log($"이번 맵의 좀비 타입 : {curClass}");
     }
 

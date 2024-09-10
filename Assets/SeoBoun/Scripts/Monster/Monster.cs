@@ -76,6 +76,8 @@ public class Monster : MonsterPooledObject, IDamagable
         meshRenderer[rand].gameObject.SetActive(true);
         meshRenderer[rand].material = zombieData.zombieMaterial;
         playerTransform = Manager.Game.playerPos;
+        attackingRate = new WaitForSeconds(attackRate);
+        attackingTime = new WaitForSeconds(attackClip.length);
 
         gameObject.GetComponent<CapsuleCollider>().enabled = true;
         gameObject.GetComponent<BoxCollider>().enabled = true;
@@ -133,13 +135,16 @@ public class Monster : MonsterPooledObject, IDamagable
         StartCoroutine(AttackCoolTime());
     }
 
+    WaitForSeconds attackingRate;
+    WaitForSeconds attackingTime;
+
     IEnumerator Attacking()
     {
         // 어택 시작
         isAttacking = true;
         attackState = AttackStates.Attacking;
         animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(attackClip.length);
+        yield return attackingTime;
         isAttacking = false;
     }
 
@@ -149,7 +154,7 @@ public class Monster : MonsterPooledObject, IDamagable
 
         yield return Attacking();
 
-        yield return new WaitForSeconds(attackRate);
+        yield return attackingRate;
         isAttackCoolTime = false;
         attackState = AttackStates.EndAttacking;
     }

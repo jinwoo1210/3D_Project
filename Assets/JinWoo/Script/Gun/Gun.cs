@@ -88,7 +88,7 @@ public class Gun : MonoBehaviour
         if (gunState == GunState.Empty)
         {
             // Reload
-            Manager.Sound.PlaySFX(gunData.gunEmptyClip);
+            // Manager.Sound.PlaySFX(gunData.gunEmptyClip);
             
             return false;
         }
@@ -114,12 +114,12 @@ public class Gun : MonoBehaviour
             IDamagable target = hit.collider.GetComponent<IDamagable>();
 
             target?.TakeHit(curDamage);
-            ParticleSystem effect = Instantiate(hitEffect,hit.point, Quaternion.LookRotation(hit.normal));
-            effect.transform.parent = hit.transform;
-
-            Manager.Sound.PlaySFX(gunData.damagedClip);
-
-            Destroy(effect, 2f);
+            // ParticleSystem effect = Instantiate(hitEffect,hit.point, Quaternion.LookRotation(hit.normal));
+            // effect.transform.parent = hit.transform;
+            // 
+            // Manager.Sound.PlaySFX(gunData.damagedClip);
+            // 
+            // Destroy(effect, 2f);
             
 
             hitPosition = hit.point;
@@ -147,7 +147,7 @@ public class Gun : MonoBehaviour
         muzzleFlash.Play();
 
         // TODO.. 소리 집어넣기
-        Manager.Sound.PlaySFX(gunData.gunShotClip);
+        // Manager.Sound.PlaySFX(gunData.gunShotClip);
 
         bulletLineRenderer.SetPosition(0, muzzlePoint.position);
         bulletLineRenderer.SetPosition(1, hitPosition);
@@ -176,7 +176,7 @@ public class Gun : MonoBehaviour
         gunState = GunState.Reloading;
 
         // TODO.. 재생소리
-        Manager.Sound.PlaySFX(gunData.gunReloadClip);
+        // Manager.Sound.PlaySFX(gunData.gunReloadClip);
 
         yield return new WaitForSeconds(curReloadSpeed);
 

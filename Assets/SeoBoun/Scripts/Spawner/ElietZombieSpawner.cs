@@ -40,7 +40,7 @@ public class ElietZombieSpawner : ZombieSpanwer
         isSound = true;
         while (true)
         {
-            Manager.Sound.PlaySFX(Manager.Scene.GetCurScene().GetComponent<GameScene>().Eliet);
+            // Manager.Sound.PlaySFX(Manager.Scene.GetCurScene().GetComponent<GameScene>().Eliet);
             yield return new WaitForSeconds(5f);
         }
     }

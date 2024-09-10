@@ -26,10 +26,11 @@ public class SoundManager : Singleton<SoundManager>
         bgmSource.Stop();
     }
 
-    public void PlaySFX(AudioClip clip)
+    /*public void PlaySFX(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);
     }
+    */
 
     public void StopSFX()
     {

@@ -40,7 +40,7 @@ public class BossZombieSpawner : ZombieSpanwer
         isSound = true;
         while (true)
         {
-            Manager.Sound.PlaySFX(Manager.Scene.GetCurScene().GetComponent<GameScene>().Normal);
+            // Manager.Sound.PlaySFX(Manager.Scene.GetCurScene().GetComponent<GameScene>().Normal);
             yield return new WaitForSeconds(5f);
         }
     }

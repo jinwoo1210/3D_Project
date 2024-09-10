@@ -41,7 +41,7 @@ public class NormalZombieSpawner : ZombieSpanwer
         AudioClip clip = Manager.Scene.GetCurScene().GetComponent<GameScene>().Normal;
         while (true)
         {
-            Manager.Sound.PlaySFX(clip);
+            // Manager.Sound.PlaySFX(clip);
             yield return new WaitForSeconds(5f);
         }
     }

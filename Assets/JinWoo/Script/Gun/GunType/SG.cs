@@ -21,7 +21,7 @@ public class SG : Gun
     {
         gunState = GunState.Shooting;
 
-        Manager.Sound.PlaySFX(gunData.gunShotClip);
+        // Manager.Sound.PlaySFX(gunData.gunShotClip);
 
         int parrel = Random.Range(7, 13); // 7 ~ 12¹ß ½î±â?
 
@@ -40,10 +40,10 @@ public class SG : Gun
                 IDamagable target = hit.collider.gameObject.GetComponent<IDamagable>();
 
                 target?.TakeHit(curDamage);
-                Manager.Sound.PlaySFX(gunData.damagedClip);
-                ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                effect.transform.parent = hit.transform;
-                Destroy(effect, 2f);
+                // Manager.Sound.PlaySFX(gunData.damagedClip);
+                // ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                // effect.transform.parent = hit.transform;
+                // Destroy(effect, 2f);
 
                 hitPosition[i] = hit.point;
             }
