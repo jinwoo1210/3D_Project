@@ -1,4 +1,5 @@
 using System.Collections;
+using System.ComponentModel.Design;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,7 +30,7 @@ public class Monster : MonsterPooledObject, IDamagable
 
     StatesMachine fsm;
 
-    public ZombieState curState = new ZombieState();
+    private ZombieState curState = new ZombieState();
     public AttackStates attackState = new AttackStates();
 
     public UnityEvent OnDied;
@@ -42,6 +43,7 @@ public class Monster : MonsterPooledObject, IDamagable
 
     public Animator Animator { get => animator;}
     public bool IsAttack { get => isAttackCoolTime; }
+    public ZombieState CurState { get { return curState; } set { curState = value; } }
 
     private void Awake()
     {
@@ -83,7 +85,7 @@ public class Monster : MonsterPooledObject, IDamagable
         gameObject.GetComponent<BoxCollider>().enabled = true;
         fsm = new StatesMachine();
         fsm.Init(this, ZombieState.Idle);
-        curState = ZombieState.Idle;
+        CurState = ZombieState.Idle;
     }
 
     private void Update()
@@ -144,8 +146,30 @@ public class Monster : MonsterPooledObject, IDamagable
         isAttacking = true;
         attackState = AttackStates.Attacking;
         animator.SetTrigger("Attack");
+        StartCoroutine(AttackPointMove());
         yield return attackingTime;
         isAttacking = false;
+    }
+
+    IEnumerator AttackPointMove()
+    {   
+        Vector3 targetPos = Manager.Game.playerPos.position;
+        Vector3 startPos = transform.position;
+        
+        float rate = 0f;
+        float dist = (targetPos - transform.position).magnitude;
+
+        while(rate < 0.7f)
+        {
+            rate += Time.deltaTime;
+
+            targetPos = Manager.Game.playerPos.position;
+
+            transform.position = Vector3.Lerp(startPos, targetPos, rate);
+        
+            yield return null;
+        }
+        
     }
 
     IEnumerator AttackCoolTime()
@@ -267,7 +291,7 @@ public class Monster : MonsterPooledObject, IDamagable
         {
             if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) < owner.findRange && owner.monsterFov.isFind)
             {
-                owner.curState = ZombieState.Trace;
+                owner.CurState = ZombieState.Trace;
                 fsm.ChangeState(ZombieState.Trace);
             }
         }
@@ -293,13 +317,13 @@ public class Monster : MonsterPooledObject, IDamagable
         {
             if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) < owner.attackRange)
             {
-                owner.curState = ZombieState.Attack;
+                owner.CurState = ZombieState.Attack;
                 fsm.ChangeState(ZombieState.Attack);
             }
 
             if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) > owner.findRange && !owner.monsterFov.isFind)
             {
-                owner.curState = ZombieState.Return;
+                owner.CurState = ZombieState.Return;
                 fsm.ChangeState(ZombieState.Return);
             }
         }
@@ -342,12 +366,12 @@ public class Monster : MonsterPooledObject, IDamagable
                 owner.agent.isStopped = false;
                 if (owner.monsterFov.isFind)  // 타겟이 시야안에 있을 때
                 {
-                    owner.curState = ZombieState.Trace;
+                    owner.CurState = ZombieState.Trace;
                     fsm.ChangeState(ZombieState.Trace);
                 }
                 else
                 {
-                    owner.curState = ZombieState.Return;
+                    owner.CurState = ZombieState.Return;
                     fsm.ChangeState(ZombieState.Return);
                 }
             }
@@ -372,13 +396,13 @@ public class Monster : MonsterPooledObject, IDamagable
         {
             if (Vector3.Distance(owner.transform.position, owner.startPos) < 4f && !owner.monsterFov.isFind)
             {
-                owner.curState = ZombieState.Idle;
+                owner.CurState = ZombieState.Idle;
                 fsm.ChangeState(ZombieState.Idle);
             }
 
             if (Vector3.Distance(owner.playerTransform.position, owner.transform.position) < owner.findRange && owner.monsterFov.isFind)
             {
-                owner.curState = ZombieState.Trace;
+                owner.CurState = ZombieState.Trace;
                 fsm.ChangeState(ZombieState.Trace);
             }
         }
@@ -390,7 +414,7 @@ public class Monster : MonsterPooledObject, IDamagable
 
         public override void Enter()
         {
-            owner.curState = ZombieState.Die;
+            owner.CurState = ZombieState.Die;
             owner.animator.SetTrigger("Die");
             owner.GetComponent<CapsuleCollider>().enabled = false;
             owner.GetComponent<BoxCollider>().enabled = false;
